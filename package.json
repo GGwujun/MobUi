@@ -1,9 +1,9 @@
 {
-  "name": "dsx_mdn",
+  "name": "pageui",
   "description": "Build mobile apps with simple HTML, CSS, and JS components.",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "keywords": [
-    "dsx_mdn",
+    "pageui",
     "UI",
     "webapp",
     "css",
@@ -12,12 +12,12 @@
     "android",
     "mobile"
   ],
-  "homepage": "https://github.com/GGwujun/dsx_mui#readme",
-  "style": "dist/css/light7.css",
-  "less": "less/light7.less",
+  "homepage": "https://github.com/GGwujun/pageui#readme",
+  "style": "dist/css/pageui.css",
+  "less": "less/pageui.less",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GGwujun/dsx_mui.git"
+    "url": "git+https://github.com/GGwujun/pageui.git"
   },
   "license": "MIT",
   "scripts": {
@@ -48,12 +48,12 @@
     "node": ">=0.10.1"
   },
   "bugs": {
-    "url": "https://github.com/GGwujun/dsx_mui/issues"
+    "url": "https://github.com/GGwujun/pageui/issues"
   },
   "main": "Gruntfile.js",
   "directories": {
     "doc": "docs"
   },
   "dependencies": {},
-  "author": ""
+  "author": "dxs"
 }
