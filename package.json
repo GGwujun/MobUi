@@ -1,0 +1,26 @@
+{
+  "name": "dsx_mdn",
+  "version": "1.0.0",
+  "description": "一个移动端解决方案",
+  "main": "number.timeago.js",
+  "scripts": {
+    "test": "node ./node_modules/.bin/mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GGwujun/dsx_mui.git"
+  },
+  "keywords": [
+    "mdn"
+  ],
+  "author": "dsx",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GGwujun/dsx_mui/issues"
+  },
+  "homepage": "https://github.com/GGwujun/dsx_mui#readme",
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "mocha": "^3.4.2"
+  }
+}
