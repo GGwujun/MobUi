@@ -1,0 +1,139 @@
+---
+layout: default
+title: change log &middot; light7
+---
+
+<div class="docs-sub-header">
+  {% include masthead.html %}
+  <div class="container">
+    <div class="docs-sub-content">
+      <h2 class="page-title">Changelog</h2>
+      <p class='page-description'>Newest Version is V{{ site.version }}</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="column-group">
+    <div class="column docs-content">
+      <div class="docs-section">
+        <h2>About Version number</h2>
+        <p>Version number is formated as <code>x.y.x</code>, it's defined by <a href='http://semver.org/' target="_blank">Semantic Versioning 2.0.0</a>:</p>
+
+        <h2>Changelog</h2>
+
+        <h3>v0.4.3 - 2016-03-28</h3>
+        <ul>
+          <li>Fix bug: city picker bug with inital value.</li>
+          <li>There can be more than one city picker and datetime in the same page.</li>
+          <li>The router will ignore links with <code>href="javascript:;"</code></li>
+          <li>Swiper update to V3.3.1</li>
+          <li>Fix toast position</li>
+          <li>Fix bug: the keyboard will open when open calendar on some android device.</li>
+          <li>Fix bug: zoom gesture bug in photo browser</li>
+          <li>Add new demo: pull to refresh and infinite scroll in tabs</li>
+          <li>Add Version Number in JS file</li>
+        </ul>
+
+        <h3>v0.4.2 - 2016-03-14</h3>
+        <p>This version focus on bug fix.</p>
+        <ul>
+          <li>Fix bug: the entire page will scroll when touchmove on picker.</li>
+          <li>Fix bug: the toast is not in the center of page.</li>
+          <li>Modal and Actionsheet can be closed by click overlay.</li>
+          <li>Fix bug of Router: <code>.back</code> link with no <code>href</code> attr will redirect to a <code>undefined</code> link when there is no history in router.</li>
+          <li>Fix bug of Router: <code>$.router.reloadPage()</code> will cause error of history.</li>
+        </ul>
+
+        <h3>v0.4.1 - 2016-01-28</h3>
+        <ul>
+          <li>Fix router bug: JS error when use inline page.</li>
+        </ul>
+
+        <h3>v0.4.0 - 2016-01-25</h3>
+        <ul>
+          <li>Update the doc.</li>
+          <li>Publish light7 on npm.</li>
+          <li>Remove unused file.</li>
+        </ul>
+
+        <h3>v0.3.1 - 2016-01-18</h3>
+        <ul>
+          <li>Fix width of <a href='/components/#picker'>Picker</a>.</li>
+        </ul>
+
+        <h3>v0.3.0 - 2016-01-15</h3>
+        <ul>
+          <li>New <a href='/components/#notification'>Notification</a>.</li>
+          <li>Fix bug in <a href='/components/#router'>router</a>: router will remove extras related it when remove ajax page, such as popup and panels.</li>
+          <li>Fix bug in fastclick: The error handle of label click may cause stack overflow bug.</li>
+          <li>The name of index list method changed to <code>$.fn.indexList</code>, because the jQuery already has a method named index. see in <a href="/components#contacts-list">Contacts List</a>. </li>
+          <li>Remove hairline, use border instead. Because hairline not works well on android device, especially when scroll page.</li>
+        </ul>
+
+        <h3>v0.2.1 - 2015-12-28</h3>
+        <ul>
+          <li>Add a iOS-like index list in <a href="/components#contacts-list">Contacts List</a></li>
+          <li>Fix a bug: Forgot to change file name <code>light7-extend.js</code> to <code>light7-swiper.min.js</code></li>
+        </ul>
+
+
+        <h3>v0.2.0 - 2015-12-24 - Merry Christmas!</h3>
+        <ul>
+          <li>Fix a bug: cssmin will merge some css properties when it compress the css file.This will cause some bug on android devices because it remove some important css properties.</li>
+          <li>New component - <a href="/extends/#swipeout">Swipeout</a>.</li>
+          <li>i18n support - <a href="/extends/#i18n">I18N</a>.</li>
+          <li>fix bug in <a href="/components/#panel">Side Panel</a>: Panel can not be open by slide when navigate to another page. Because the panel animates the initial page instead of current page.</li>
+          <li>Note! <code>light7-extend.js</code> has been renamed to <code>light7-swiper.js</code>, and <code>light7-extend.css</code> has been renamed to <code>light7-swiper.css</code>.</li>
+          <li>New param in <a href="/components/#modal">Modal</a>: <code>closePrevious</code> to close all previous when open new dialog.</li>
+          <li>New color and background class in <a href="/components/#typography">Text</a> and <a href="/components/#actions">Action Sheet</a>.</li>
+        </ul>
+
+        <h3>v0.1.0 - 2015-12-20</h3>
+        <ul>
+          <li>The main repo <a href="https://github.com/lihongxun945/light7">Light7</a> has been translated to English. And there is a chinese repo - <a href="https://github.com/lihongxun945/light7-cn">Light-CN</a> too.</li>
+          <li>Light7 can work with both jQuery and Zepto now! choose the one you like.</li>
+          <li>Add new Component: <a href='/components/#popover'>Popover</a>.</li>
+          <li>Fix a bug: when include JS file in header, Fastclick and modal will get an empty <code>document.body</code></li>
+          <li>Add a <code>replace</code> config in <a href='/components/#router'>router</a>, so you can load a new page to replace current page in history but not push to history. And also a new <code>reloadPage</code> method to reload current page.</li>
+          <li><a href='/components/#router'>router</a> will remove old page with same id when load new page.</li>
+          <li>Fix fastclick bug: It do nothing when click element is wrapped by an <code>label</code>, because of a error fix.</li>
+        </ul>
+
+        <h3>V0.0.5 - 2015-11-30</h3>
+        <ul>
+          <li>修复了 <a href='/components/#router'>路由</a> 在safari中的bug，会导致safari在页面加载完成之后直接后退一次。</li>
+          <li>修复了 <a href='/components/#datetime-picker'>日期时间选择器</a> 没有格式化"小时"的问题：现在小时也会被格式化成两位数。</li>
+          <li>修复了 <a href='/components/#panel'>侧栏</a> 弹出后在safari中会导致页面横向滚动的问题。</li>
+          <li>更新 <a href='/extends/#picker'>picker</a>，现在会自动读取 input 的值作为默认值。</li>
+        </ul>
+
+        <h3>V0.0.4</h3>
+        <ul>
+          <li>修复了 <a href='/extends/#swiper'>幻灯片</a> 中的一处代码错误，会导致幻灯片无法自动初始化。</li>
+          <li>更新了 <a href='/components/#popup'>popup</a> 文档中代码的错误: 如果想自动打开 popup，需要加上 <code>open-popup</code> 类才可以。</li>
+          <li>更新了 <a href='/components/#router'>路由</a> : 现在你可以使用路由进行<a href="/components#toolbar">工具栏</a>切换了。修复了 <code>pageReinit</code> 的bug。 修复了当新页面只有一个 <code>.page</code> 容器时的错误。</li>
+          <li>现在你可以显示和隐藏<a href="/components#toolbar">工具栏</a>了。</li>
+          <li>增加了一个新的 <a href='/examples'>案例</a> 页面。
+        </ul>
+
+        <h3>V0.0.3 - 2015-11-03</h3>
+        <ul>
+          <li>修复了使用 <a href='/components/#router'>路由器</a>时，如果刷新了页面，回退按钮需要点击两次才生效的bug</li>
+          <li>修复了 <a href='/extends/#browser'>图片浏览器</a>文档demo中的错误</li>
+          <li>更新了 <a href='/extends/#swiper'>幻灯片</a> 的文档</li>
+        </ul>
+
+        <h3>V0.0.2 - 2015-10-29</h3>
+        <ul>
+          <li>为 <a href='/components/#router' data-ignore='push'>路由器</a> 增加了一个 <code>$.config.router</code> 配置。现在你可以全局关闭路由器了。</li>
+          <li>修复了一些文档中的错误。</li>
+        </ul>
+      </div>
+  </div>
+
+  <div class="column">
+    <!-- Footer -->
+    {% include footer.html %}
+  </div>
+</div>

@@ -1,0 +1,67 @@
+<article class="component active" id="init">
+  <h2 class="component-title">Init</h2>
+  <p class="component-description">
+    <p>Init all components in a page with <code>$.init()</code>.</p>
+    <p>We will not init page on document loaded, because <code>$.config.autoInit = false;</code>. You should call <code>$.init()</code> on document loaded. <code>$.init</code> method will init all components in page, and trigger a <code>pageInit</code> event after init complete. You should call <code>$.init</code> after all <code>pageInit</code> events has binded.</p>
+
+    <p>But the page Loaded By router will always be inited.</p>
+    <p>Do not modify <code>$.init</code> please.</p>
+
+    <p>If you set <code>$.config.autoInit = true;</code>, the <code>$.init</code> method will auto be called after document onload. But your pageInit binds may have not executed at this time. So, please do not set autoInit=true, unless you don't listen to pageInit event or you can make sure that your code will be right.</p>
+
+  </p>
+
+  <p>see <a href="/assets/js/demos.js" data-ignore="push" target="_blank">demos</a> for more usage.</p>
+
+  <h3 class="component-title">global config</h3>
+  <p class="component-description">
+    You can set <code>$.config</code> before light7.js to change some default config:
+  </p>
+  <p>Note! <code>autoInit</code> is false in default config.</p>
+
+{% highlight html %}
+<script>
+  $.config = {
+    autoInit: true //no recommend
+  }
+</script>
+<script src='light7.min.js'></script>
+
+{% endhighlight %}
+
+  all available config:
+
+  <table>
+    <tr>
+      <th>name</th>
+      <th>default</th>
+      <th>description</th>
+    </tr>
+    <tr>
+      <td>autoInit</td>
+      <td>false</td>
+      <td>Auto call <code>$.init</code> after <code>document.onload</code></td>
+    </tr>
+    <tr>
+      <td>router</td>
+      <td>true</td>
+      <td>Use router to load new page. The router will listen all links events and will prevent links' default behavior and use ajax to load new page</td>
+    </tr>
+    <tr>
+      <td>showPageLoadingIndicator</td>
+      <td>true</td>
+      <td>Show indicator when router is loading new page。Available only when <code>router</code> is true</td>
+    </tr>
+    <tr>
+      <td>swipePanel</td>
+      <td>"left"</td>
+      <td>Swipe to open a panel</td>
+    </tr>
+    <tr>
+      <td>swipePanelOnlyClose</td>
+      <td>true</td>
+      <td>Only Swipe to close panel, but can't swipe to open a panel</td>
+    </tr>
+  </table>
+
+</article>

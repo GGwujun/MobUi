@@ -1,0 +1,469 @@
+<article class="component" id="list" data-url='list'>
+  <h2 class="component-title">List</h2>
+  <p class="component-description">List views are versatile and powerful user interface compontents frequently found in iOS apps. A list view presents data in a scrollable list of multiple rows that may be divided into sections/groups.</p>
+  <p class="component-description">List views have many purposes:</p>
+  <ul>
+    <li>To let users navigate through hierarchically structured data</li>
+    <li>To present an indexed list of items</li>
+    <li>To display detail information and controls in visually distinct groupings</li>
+    <li>To present a selectable list of options</li>
+  </ul>
+
+{% highlight html %}
+<header class="bar bar-nav">
+  <h1 class="title">List view</h1>
+</header>
+<div class="content">
+  <div class="content-block-title">With icon, title and after</div>
+  <div class="list-block">
+    <ul>
+      <li class="item-content">
+        <div class="item-media"><i class="icon icon-f7"></i></div>
+        <div class="item-inner">
+          <div class="item-title">Bom</div>
+          <div class="item-after">12:12</div>
+        </div>
+      </li>
+      <li class="item-content">
+        <div class="item-media"><i class="icon icon-f7"></i></div>
+        <div class="item-inner">
+          <div class="item-title">Gender</div>
+          <div class="item-after">Male</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="content-block-title">With title and after</div>
+  <div class="list-block">
+    <ul>
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title">Bom</div>
+          <div class="item-after">12:12</div>
+        </div>
+      </li>
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title">Gender</div>
+          <div class="item-after">Male</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="content-block-title">With Arrow</div>
+  <div class="list-block">
+    <ul>
+      <li class="item-content item-link">
+        <div class="item-media"><i class="icon icon-f7"></i></div>
+        <div class="item-inner">
+          <div class="item-title">Bom</div>
+          <div class="item-after">12:12</div>
+        </div>
+      </li>
+      <li class="item-content item-link">
+        <div class="item-media"><i class="icon icon-f7"></i></div>
+        <div class="item-inner">
+          <div class="item-title">Gender</div>
+          <div class="item-after">Male</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+{% endhighlight %}
+
+  <p class="component-description">Where:</p>
+  <ul>
+    <ul>
+      <li>
+        <p><code>item-content</code> - main flex wrapper for <code>item-media</code> and <code>item-inner</code>. <strong>Requred</strong> element.</p>
+      </li>
+      <ul>
+        <li>
+          <p><code>item-media</code> - container for your media element like icon, image, etc. <strong>Optional</strong> element.</p>
+        </li>
+        <li>
+          <p><code>item-inner</code> - main flex wrapper for <code>item-title</code> and <code>item-after</code>. <strong>Requred</strong> element.</p>
+        </li>
+        <ul>
+          <li>
+            <p><code>item-title</code> - single-line list item title. <strong>Required</strong> element.</p>
+          </li>
+          <li>
+            <p><code>item-after</code> - list item label. Could countain any additional HTML elements, like label text, or badge, or switch/toggle or button, etc. <strong>Optional</strong> element.</p>
+          </li>
+        </ul>
+      </ul>
+    </ul>
+  </ul>
+
+  <p>Add <code>.item-link</code> class on <code>.item-content</code> will make it show a right arrow。</p>
+
+</article>
+
+<article class="component active" data-url="contacts-list" id='contacts-list'>
+  <h3 class="component-title">Contacts List</h3>
+  <p class="component-description">Show contacts</p>
+  <p>Contacts list is a particular case of <a href="list-view.html#grouped-lists">Grouped Lists</a> with two differences:</p>
+  <ul>
+    <li>
+      <p><code>list-block</code> should have additional <code>contacts-block</code> class</p>
+    </li>
+    <li>
+      <p><code>page-content</code> should have additional <code>contacts-content</code> class</p>
+    </li>
+  </ul>
+
+  <p>Contacts list will auto have a iOS-like index list on the right side - it's named index list. Try it on the demo on the right side -&gt;</p>
+  <p>The index list is a JS component, it will auto init when page init. You should init it like this if your contacts list is load by ajax:</p>
+
+{% highlight js %}
+$(".contacts-block").indexList();
+{% endhighlight %}
+
+  <div class="component-example component-example-fullbleed">
+  </div>
+
+{% highlight html %}
+<header class="bar bar-nav">
+  <h1 class="title">Contacts List</h1>
+</header>
+<div class="content">
+  <div class="list-block contacts-block">
+    <div class="list-group">
+      <ul>
+        <li class="list-group-title">A</li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">Person0</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">Person1</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">Person2</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">Person3</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">Person4</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">Person5</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">Person6</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">Person7</div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="list-group">
+      <ul>
+        <li class="list-group-title">B</li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">Tom</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">TOm</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">Tom3</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">Tom4</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">Tom5</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">Tom6</div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="list-group">
+      <ul>
+        <li class="list-group-title">C</li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">David1</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">David2</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">David3</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">David4</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">David5</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">David6</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">David7</div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="list-group">
+      <ul>
+        <li class="list-group-title">V</li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">Lily1</div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endhighlight %}
+
+</article>
+
+<article class="component active">
+  <h3 class="component-title">Media List View</h3>
+  <p>Media list view is extended case of <a href="#list.html">list view</a> indended to display more complex data like products, services, users, etc.</p>
+  <p>And of course it has a bit more complex layout:</p>
+
+  <div class="component-example component-example-fullbleed">
+  </div>
+
+{% highlight html %}
+<header class="bar bar-nav">
+  <h1 class="title">Media List</h1>
+</header>
+<div class="content">
+  <div class="content-block-title">Title</div>
+  <div class="list-block media-list">
+    <ul>
+      <li>
+        <a href="#" class="item-link item-content">
+          <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 4rem;'></div>
+          <div class="item-inner">
+            <div class="item-title-row">
+              <div class="item-title">Title</div>
+              <div class="item-after">$15</div>
+            </div>
+            <div class="item-subtitle">Title</div>
+            <div class="item-text">some text here...</div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="content-block-title">Mail App</div>
+  <div class="list-block media-list">
+    <ul>
+      <li>
+        <a href="#" class="item-link item-content">
+          <div class="item-inner">
+            <div class="item-title-row">
+              <div class="item-title">Facebook</div>
+              <div class="item-after">17:14</div>
+            </div>
+            <div class="item-subtitle">Title</div>
+            <div class="item-text">Some text here...</div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="content-block-title">Simple list</div>
+  <div class="list-block media-list">
+    <ul>
+      <li>
+        <div class="item-content">
+          <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+          <div class="item-inner">
+            <div class="item-title-row">
+              <div class="item-title">Title</div>
+            </div>
+            <div class="item-subtitle">sub title</div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="content-block-title">Inset</div>
+  <div class="list-block media-list inset">
+    <ul>
+      <li>
+        <a href="#" class="item-link item-content">
+          <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+          <div class="item-inner">
+            <div class="item-title-row">
+              <div class="item-title">Title</div>
+            </div>
+            <div class="item-subtitle">Subtitle</div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+{% endhighlight %}
+
+<p>Where:</p>
+<ul>
+  <li>
+    <p><code>item-content</code> - main flex wrapper for <code>item-media</code> and <code>item-inner</code>. <strong>Requred</strong> element.</p>
+  </li>
+  <ul>
+    <li>
+      <p><code>item-media</code> - container for your media element like icon, image, etc. <strong>Optional</strong> element.</p>
+    </li>
+    <li>
+      <p><code>item-inner</code> - <strong>Requred</strong> element.</p>
+    </li>
+    <ul>
+      <li>
+        <p><code>item-title-row</code> - main flex wrapper for <code>item-title</code> and <code>item-after</code>. <strong>Optional</strong> element.</p>
+      </li>
+      <ul>
+        <li>
+          <p><code>item-title</code> - single-line list item title. <strong>Optional</strong> element.</p>
+        </li>
+        <li>
+          <p><code>item-after</code> - list item label. Could countain any additional HTML elements, like label text, or badge, or switch/toggle or button, etc. <strong>Optional</strong> element. </p>
+        </li>
+      </ul>
+      <li>
+        <p><code>item-subtitle</code> - additional single-line title. <strong>Optional</strong> element.</p>
+      </li>
+      <li>
+        <p><code>item-text</code> - additional two-lines container for detailed description. <strong>Optional</strong> element.</p>
+      </li>
+    </ul>
+  </ul>
+</article>
+
+<article class="component active" id='check-list' data-url='check-list'>
+  <h3 class="component-title">Selectable List</h3>
+  <p class="component-description">List can be selected with <code>checkbox</code> or <code>radio</code>. You can put checkbox or radio in List, and the list item will have a selected style when user select. There is no JS at all, So you should read data from the hidden checkbox or radoi</p>
+
+{% highlight html %}
+<ul>
+  <li>
+    <label class="label-checkbox item-content">
+      <input type="radio" name="my-radio">
+      <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+      <div class="item-inner">
+        <div class="item-title-row">
+          <div class="item-title">Lily</div>
+          <div class="item-after">17:14</div>
+        </div>
+        <div class="item-subtitle">New messages from John Doe</div>
+        <div class="item-text">Lorem ipsum dolor sit amet...</div>
+      </div>
+    </label>
+  </li>
+  <li>
+    <label class="label-checkbox item-content">
+      <input type="radio" name="my-radio">
+      <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+      <div class="item-inner">
+        <div class="item-title-row">
+          <div class="item-title">Lucy</div>
+          <div class="item-after">17:14</div>
+        </div>
+        <div class="item-subtitle">New messages from John Doe</div>
+        <div class="item-text">Lorem ipsum dolor sit amet...</div>
+      </div>
+    </label>
+  </li>
+</ul>
+{% endhighlight %}
+
+  <p>Change the type of <code>input</code> to "checkbox" to make multiple select.</p>
+
+</article>

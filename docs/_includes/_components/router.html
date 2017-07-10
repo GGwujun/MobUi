@@ -1,0 +1,218 @@
+<article class="component" id='router' data-url="router">
+  <h2 class="component-title">Router</h2>
+  <p class="component-description">The Router is used load Ajax Page or Inline Page.</p>
+  <p>By default, the router will listen to all links click event, and use ajax to load new page instead of directly jump to the new page.</p>
+  <p>Add <code>class="external"</code> or <code>external</code> to a link if you don't want router to proxy it.</p>
+  <p>Set <code>$.config.router = false</code> to close router globally. It's recommend to use <code>pageInit</code> event to init the page, event if you closed the router.</p>
+
+  <p>The new page will slide from right to left by default. Add <code>class="no-transition"</code> to link to prevent the animation.</p>
+
+  <p>There is a stack to manage the history, the new page will push to stack, you can add <code>class='replace'</code> to replace the stack instead of push.</p>
+
+  <h3 class="component-title">Inline Page</h3>
+  <p class="component-description">You can write multi page in one html file. Each page is in a <code>.page</code> container. If you have multi page in one html, you should use <code>.page-current</code> to make it a visiable at first enter.</p>
+  <p>Every <code>.page</code> container must have an id attr.Router will use id as the unique identify of a page. And you can use the id to jump to the page like this: <code>&lt;a href='#{page-id}'&gt;jump&lt;/a&gt;</code>. And if the new Page has the same id to a old page , the DOM of old page will be replace by new page.</p>
+
+  <h3 class="component-title">JS And CSS</h3>
+  <p>Router will ignore all scripts and styles when load new page! You should import all CSS file and JS file(pack them into one js and css file) in the entry page, And use 'pageInit' to load different page's JS code.</p>
+
+  <p>Because users may refresh the page, the subpage will broken if it don't import any CSS and JS. So, you can import all CSS and JS file in every page.</p>
+
+{% highlight html %}
+<div class="page page-current" id='router'>
+  <header class="bar bar-nav">
+    <h1 class='title'>Router</h1>
+  </header>
+  <div class="content">
+    <div class="content-block">
+      <ul>
+        <li><a href="/docs-demos/router2">Ajax Page</a></li>
+        <li><a href="#router3">Inline Page</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="page" id='router3'>
+  <header class="bar bar-nav">
+    <a class="button button-link button-nav pull-left back" href="/docs-demos/router">
+      <span class="icon icon-left"></span>
+      Back
+    </a>
+    <h1 class='title'>Router</h1>
+  </header>
+  <div class="content">
+    <div class="content-block">
+      This is an Inline Page，Click <a href="#" class='back'>Back </a> to go back。
+    </div>
+  </div>
+</div>
+{% endhighlight %}
+
+<p>Note that you can only write multi inline page in the entry html file. There can only be one <code>.page</code> in new page loaded by ajax.</p>
+
+  <h3 class="component-title">Ajax Page</h3>
+  <p class="component-description">Router will prevent all links' click event, and load new page via Ajax by default.</p>
+
+{% highlight html %}
+<!-- page 1 -->
+<div class="page page-current" id='router'>
+  <header class="bar bar-nav">
+    <h1 class='title'>Router</h1>
+  </header>
+  <div class="content">
+    <div class="content-block">
+      <ul>
+        <li><a href="/docs-demos/router2">Ajax New Page</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endhighlight %}
+
+{% highlight html %}
+<!-- page 2 -->
+<div class="page" id='router2'>
+  <header class="bar bar-nav">
+    <a class="button button-link button-nav pull-left back" href="/docs-demos/router">
+      <span class="icon icon-left"></span>
+      Back
+    </a>
+    <h1 class='title'>Router</h1>
+  </header>
+  <div class="content">
+    <div class="content-block">
+      This is an Ajax Page，click <a href="#" class='back'>Back </a> to go back。
+    </div>
+  </div>
+</div>
+{% endhighlight %}
+
+  <h3 class="component-title">Go Back</h3>
+  <p>It's very easy to go back, what you need to do is only add a <code>.back</code> class on any link. In case of can't go back, you can set the <code>href</code> attr of the link, and router will load the href if it can't go back in history(For example, the user refreshed the page or enter the link directly)</p>
+  <p class="component-description">You can also call<code>$.router.back(url)</code> to go back. The url param is optional but recommend too.</p>
+
+{% highlight html %}
+<a class="button button-link button-nav pull-left back" href="/docs-demos/router">Back</a>
+{% endhighlight %}
+
+  <h3 class="component-title">JS</h3>
+  <p class="component-description">Call <code>$.router.loadPage(url)</code> to load an Ajax Page or an Inline Page.</p>
+{% highlight js %}
+$.router.loadPage("/detail");  //load ajax page
+$.router.loadPage("#about");  //load inline page
+{% endhighlight %}
+
+  <p>You can call <code>$.router.loadPage</code> with a config object like this:</p>
+{% highlight js %}
+$.router.loadPage({
+  url: "/detail",
+  noAnimation: true,
+  replace: true
+});
+{% endhighlight %}
+
+  <table>
+    <tr>
+      <th>Param</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>url</td>
+      <td>undefined</td>
+      <td>url to load</td>
+    </tr>
+    <tr>
+      <td>noAnimation</td>
+      <td>false</td>
+      <td>Load new page with animation</td>
+    </tr>
+    <tr>
+      <td>replace</td>
+      <td>false</td>
+      <td>If set true, the new page will replace old page in history, you can't back to old page because it has been removed from histroy(but not removed from DOM).</td>
+    </tr>
+  </table>
+
+  <p>The <code>loadPage</code> method will load new page, and push to history. If you dont't want to push to history, but want to replace history, you should use <code>replacePage</code>:</p>
+
+{% highlight js %}
+$.router.replacePage(url, noAnimation);
+{% endhighlight %}
+
+  <p>Infact, <code>replacePage</code> is only a shortcut of <code>loadPage</code>, but set the param <code>replace</code> as <code>true</code>.</p>
+
+  <p>And if you want to refresh current page, you can simply use <code>$.router.reloadPage();</code>.</p>
+
+  <h3 class="component-title">Event</h3>
+  <p class="component-description">There are many events：</p>
+
+  <table>
+    <tr>
+      <th>Event</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>pageLoadStart</td>
+      <td>before Ajax</td>
+    </tr>
+    <tr>
+      <td>pageLoadCancel</td>
+      <td>the ajax is canceled</td>
+    </tr>
+    <tr>
+      <td>pageLoadError</td>
+      <td>Ajax error</td>
+    </tr>
+    <tr>
+      <td>pageLoadComplete</td>
+      <td>Ajax complete </td>
+    </tr>
+    <tr>
+      <td>pageAnimationStart</td>
+      <td>after the DOM of new page insert into document, before the animation start</td>
+    </tr>
+    <tr>
+      <td>pageAnimationEnd</td>
+      <td>animation end</td>
+    </tr>
+    <tr>
+      <td>pageInit</td>
+      <td>all components in the page have been inited</td>
+    </tr>
+    <tr>
+      <td>pageReinit</td>
+      <td>when back to previous page</td>
+    </tr>
+  </table>
+
+  <p>pageLoad* Events is trigger on <code>window</code>，The others is on <code>.page</code> Element.</p>
+
+
+{% highlight js %}
+$(document).on("pageInit", "#page-index", function(e, pageId, $page) {});
+<!--Or -->
+$(document).on("pageInit", function(e, pageId, $page) {
+  if(pageId == "pageIndex") {}
+});
+{% endhighlight %}
+
+  <h3>Router Defaults</h3>
+
+  <p><code>$.router.defaults</code> is the default config of router:</p>
+
+  <table>
+    <tr>
+      <th>Param</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>transition</td>
+      <td>true</td>
+      <td>Use transition when load new page. You can always use <code>no-transition</code> to disable transiton on a link even if <code>defaults.transition</code> is set to true.</td>
+    </tr>
+  </table>
+
+</article>

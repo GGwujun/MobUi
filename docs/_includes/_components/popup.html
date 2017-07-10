@@ -1,0 +1,289 @@
+<article class="component active" id='popup' data-url="popup">
+  <h2 class="component-title">Popup</h2>
+  <p class="component-description">Popup is a popup window with any HTML content that pops up over App's main content</p>
+  <h3 class="component-title">Popup</h3>
+  <p class="component-description">Popup layout is pretty simple. All you need to do is to put <code>.popup</code> right in the body:</p>
+{% highlight html %}  
+<div class="modal {{#unless buttons}}modal-no-buttons{{/unless}}">
+  ...
+  <div class="popup">
+    Any HTML content goes here
+  </div>
+</div>  
+
+  <p>Note! Don't put <code>popup</code> into <code>page</code>.</p>
+{% endhighlight %}
+    <h3 class="component-title">Open and Close Popup</h3>
+    <h4 class="component-title">From HTML</h4>
+    <p class="component-description">It is possible to open and close required popups using special classes and data attributes on links:</p>
+    <ul>
+      <li>
+        <p>To open popup we need to add <code>open-popup</code> class to any HTML element (prefered to link)</p>
+      </li>
+      <li>
+        <p>To close popup we need to add <code>close-popup</code> class to any HTML element (prefered to link)</p>
+      </li>
+      <li>
+        <p>If you have more than one popups in app, you need to specify appropriate popup via additional <code>data-popup=".my-popup"</code> attribute on this HTML element</p>
+      </li>
+    </ul>
+    <p class="component-description">According to above note:</p>
+{% highlight html %}  
+<div class="page">
+  ...
+  <div class="content">
+      <div class="content-block">
+        <p><a href="#" class="open-popup open-about" data-popup=".popup-about">Open About Popup </a></p>
+        <p><a href="#" class="open-popup open-services" data-popup=".popup-services">Open Services Popup </a></p>
+      </div>
+         
+  </div> 
+  ...
+</div>
+<!-- About Popup -->
+<div class="popup popup-about">
+  <div class="content-block">
+    <p>About</p>
+    <p><a href="#" class="close-popup">Close popup</a></p>
+    <p>Lorem ipsum dolor ...</p>
+  </div>
+</div>
+<!-- Services Popup -->
+<div class="popup popup-services">
+  <div class="content-block">
+    <p>Services</p>
+    <p><a href="#" class="close-popup">Close popup</a></p>
+    <p>Lorem ipsum dolor ...</p>
+  </div>
+</div>  
+{% endhighlight %}
+</article>
+
+<article class="component active">
+  <h4 class="component-title">Using JavaScript</h4>
+  <p class="component-description">We can also open and close Popups with JavaScript, for this we need to look at related App methods:</p>
+  <p class="component-description"><code>$.popup(popup)</code> - Open Popup</p>
+  <ul>
+    <li><code>popup - HTMLElement or string (with CSS Selector) of Popup to open </code>. Required</li>
+  </ul>
+  <p class="component-description"><code>$.closeModal(popup)</code> - Close Popup</p>
+  <ul>
+    <li><code>popup -  HTMLElement or string (with CSS Selector)</code>. Optional. If not specified, any opened Popup/Modal will be closed</li>
+  </ul>
+{% highlight html %}  
+<header class="bar bar-nav">
+    <h1 class="title">Popup(JavaScript)</h1>
+</header>
+...
+<div class="content">
+    <div class="content-block">
+      <p><a href="#" class="open-about">Open About Popup </a></p>
+      <p><a href="#" class="open-services">Open Services Popup </a></p>
+    </div>
+       
+</div> 
+<!-- About Popup -->
+<div class="popup popup-about">
+  <div class="content-block">
+    <p>About</p>
+    <p><a href="#" class="close-popup">Close popup</a></p>
+    <p>Lorem ipsum dolor ...</p>
+  </div>
+</div>
+<!-- Services Popup -->
+<div class="popup popup-services">
+  <div class="content-block">
+    <p>Services</p>
+    <p><a href="#" class="close-popup">Close popup</a></p>
+    <p>Lorem ipsum dolor ...</p>
+  </div>
+</div>  
+
+{% endhighlight %}
+{% highlight js %}  
+$(document).on('click','.open-about', function () {
+  $.popup('.popup-about');
+});
+ 
+$(document).on('click','.open-services', function () {
+  $.popup('.popup-services');
+});   
+{% endhighlight %}
+</article>
+
+
+<article class="component active">
+  <h3 class="component-title">Popup Events</h3>
+  <p class="component-description">Popup has the same events as Modals, they could be useful when you need to do something in JavaScript when Popup opened/closed</p>
+  <table class="events-table">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Target</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>open</td>
+        <td>Popup Element<span>&lt;div class="popup"&gt;</span></td>
+        <td>Event will be triggered when Popup starts its opening animation</td>
+      </tr>
+      <tr>
+        <td>opened</td>
+        <td>Popup Element<span>&lt;div class="popup"&gt;</span></td>
+        <td>Event will be triggered after Popup completes its opening animation</td>
+      </tr>
+      <tr>
+        <td>close</td>
+        <td>Popup Element<span>&lt;div class="popup"&gt;</span></td>
+        <td>Event will be triggered when Popup starts its closing animation</td>
+      </tr>
+      <tr>
+        <td>closed</td>
+        <td>Popup Element<span>&lt;div class="popup"&gt;</span></td>
+        <td>Event will be triggered after Popup completes its closing animation</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="component-example component-example-fullbleed">
+    <div class="">
+      <div class="content">
+        <div class="content-block">
+          <!-- In data-popup attribute we specify CSS selector of popup we need to open -->
+          <p><a href="#" data-popup=".popup-about" class="open-popup">Open About Popup </a></p>
+          <p><a href="#" data-popup=".popup-services" class="open-popup">Open Services Popup </a></p>
+        </div>
+      </div>
+      <script type="text/javascript">
+        $(document).on('click','.popup-about', function () {
+          console.log('About Popup opened')
+        });
+        $(document).on('click','.popup-about', function () {
+          console.log('About Popup is closing')
+        });
+        $(document).on('click','.popup-services', function () {
+          console.log('Services Popup is opening')
+        });
+        $(document).on('click','.popup-services', function () {
+          console.log('Services Popup is closed')
+        });            
+      </script>    
+    </div>
+   <!-- About Popup -->
+    <div class="popup popup-about">
+      <div class="content-block">
+        <p>About</p>
+        <p><a href="#" class="close-popup">Close popup</a></p>
+        <p>Lorem ipsum dolor ...</p>
+      </div>
+      
+    </div>
+    <!-- Services Popup -->
+    <div class="popup popup-services">
+      <div class="content-block">
+        <p>Services</p>
+        <p><a href="#" class="close-popup">Close popup</a></p>
+        <p>Lorem ipsum dolor ...</p>
+      </div>
+    </div>
+  </div>
+{% highlight html %}  
+<header class="bar bar-nav">
+    <h1 class="title">Popup Events</h1>
+</header>
+...
+<div class="content">
+  <div class="content-block">
+    <!-- In data-popup attribute we specify CSS selector of popup we need to open -->
+    <p><a href="#" data-popup=".popup-about" class="open-popup">Open About Popup </a></p>
+    <p><a href="#" data-popup=".popup-services" class="open-popup">Open Services Popup </a></p>
+  </div>
+</div>
+<!-- About Popup -->
+<div class="popup popup-about">
+  <div class="content-block">
+    <p>About</p>
+    <p><a href="#" class="close-popup">Close popup</a></p>
+    <p>Lorem ipsum dolor ...</p>
+  </div>
+</div>
+<!-- Services Popup -->
+<div class="popup popup-services">
+  <div class="content-block">
+    <p>Services</p>
+    <p><a href="#" class="close-popup">Close popup</a></p>
+    <p>Lorem ipsum dolor ...</p>
+  </div>
+</div>  
+
+{% endhighlight %}
+{% highlight js %}  
+$(document).on('click','.popup-about', function () {
+  console.log('About Popup opened')
+});
+$(document).on('click','.popup-about', function () {
+  console.log('About Popup is closing')
+});
+$(document).on('click','.popup-services', function () {
+  console.log('Services Popup is opening')
+});
+$(document).on('click','.popup-services', function () {
+  console.log('Services Popup is closed')
+});    
+{% endhighlight %}
+</article>
+
+<article class="component active">
+  <h3 class="component-title">Dynamic Popup</h3>
+  <p class="component-description">Light7 allows you to create Popup dynamically by passing its HTML to related methods:</p>
+  <p class="component-description"><code>$.popup(popupHTML, removeOnClose)</code> - Open Popup</p>
+  <ul>
+    <li><code>popupHTML</code> - string. HTML String of popup</li>
+    <li><code>removeOnClose</code> - boolean. Optional, by default - true. If true then Popup will be removed from DOM when closed</li>
+  </ul>
+  <div class="component-example component-example-fullbleed">
+    <div class="">
+      <div class="content">
+        <div class="content-block">
+          <!-- In data-popup attribute we specify CSS selector of popup we need to open -->
+          <p><a href="#" class="create-popup">Create Popup</a></p>
+        </div>
+      </div>
+      <script type="text/javascript">
+        $(document).on('click','.create-popup', function () {
+          var popupHTML = '<div class="popup">'+
+                            '<div class="content-block">'+
+                              '<p>Popup created dynamically.</p>'+
+                              '<p><a href="#" class="close-popup">Close me</a></p>'+
+                            '</div>'+
+                          '</div>'
+          $.popup(popupHTML);
+        });                   
+      </script>    
+    </div>
+   </div>
+{% highlight html %}  
+<header class="bar bar-nav">
+    <h1 class="title">Dynamic Popup</h1>
+</header>
+...
+<div class="content">
+  <div class="content-block">
+    <!-- In data-popup attribute we specify CSS selector of popup we need to open -->
+    <p><a href="#" class="create-popup">Create Popup</a></p>
+  </div>
+</div>
+{% endhighlight %}
+{% highlight js %}  
+$(document).on('click','.create-popup', function () {
+  var popupHTML = '<div class="popup">'+
+                    '<div class="content-block">'+
+                      '<p>Popup created dynamically.</p>'+
+                      '<p><a href="#" class="close-popup">Close me</a></p>'+
+                    '</div>'+
+                  '</div>'
+  $.popup(popupHTML);
+}); 
+{% endhighlight %}
+</article>

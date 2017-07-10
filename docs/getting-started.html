@@ -1,0 +1,154 @@
+---
+layout: default
+title: Get Started &middot; light7
+---
+
+<div class="docs-sub-header">
+  {% include masthead.html %}
+  <div class="container">
+    <div class="docs-sub-content">
+      <h2 class="page-title">Getting Started</h2>
+      <p class="page-description">It's very simple to use Light7 to create a WebApp:</p>
+    </div>
+    {% include ad.html %}
+  </div>
+</div>
+
+<div class="container">
+  <div class="column-group">
+    <div class="column docs-content">
+      <div class="docs-section">
+        <h2>Create Layout HTML</h2>
+        <p class="lead"></p>
+
+        <h3>1. Install / Download</h3>
+        <p>First of all, you should download jQuery or Zepto. You can get zepto.js on <a href="http://zeptojs.com/">http://zeptojs.com/</a>, and jQuery on <a href="http://jquery.com/">http://jquery.com/</a>. It's recommand to use jQuery instead of Zepto.</p>
+        <p>Then, you should install Light7. It's recommand to install Light7 with npm - <code>npm install light7</code>.</p>
+
+        <p>It's recommand to clone <a href="https://github.com/lihongxun945/light7" target="_blank">light7 on github</a> and compile by yourself, if you don't want to use npm. You can change to <code>build</code> branch if you don't want to build by yourself, there are all compiled files in <code>dist</code> folder. Or, you can just click <a href="https://github.com/lihongxun945/light7/archive/build.zip" target="_blank">Here to download</a>.
+
+        <h3>2. Include Static Files</h3>
+
+ 
+{% highlight html %}
+<link rel="stylesheet" href="css/light7.min.css">
+<script type='text/javascript' src='js/jquery.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/light7.min.js' charset='utf-8'></script>
+<!--Mybe you will use extends components-->
+<link rel="stylesheet" href="css/light7-swiper.min.css">
+<script type='text/javascript' src='js/light7-swiper.min.js' charset='utf-8'></script>
+{% endhighlight %}
+
+
+        <h3>3. Debug</h3>
+        <p>The "min" in file name means it's compressed. You should include <code>light7.js</code> instead of <code>light7.min.js</code> if you want to debug the code.</p>
+
+        <h3>4. Init Layout</h3>
+        <p>The init Layout:</p>
+
+{% highlight html %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Title</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="css/light7.min.css">
+    <link rel="stylesheet" href="css/light7-swiper.min.css">
+
+    <link rel="stylesheet" href="/your-css-file.css">
+  </head>
+  <body>
+    <!-- Here is your HTML code-->
+    <script type='text/javascript' src='js/jquery.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='js/light7.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='js/light7-swiper.min.js' charset='utf-8'></script>
+
+    <script src="/your-js-file.js"></script>
+  </body>
+</html>
+{% endhighlight %}
+
+          <h2>Add Components</h2>
+          <p class="lead">Now we have a empty layout, and we can include some components now.</p>
+          <p>First, We include a title bar and toolbar: </p>
+
+{% highlight html %}
+<div class="page">
+  <header class="bar bar-nav">
+    <a class="button button-link button-nav pull-left" href="/demos/card" data-transition='slide-out'>
+      <span class="icon icon-left"></span>
+      Back
+    </a>
+    <h1 class="title">Title</h1>
+  </header>
+  <nav class="bar bar-tab">
+    <a class="tab-item active" href="#">
+      <span class="icon icon-home"></span>
+      <span class="tab-label">Home</span>
+    </a>
+    <a class="tab-item" href="#">
+      <span class="icon icon-me"></span>
+      <span class="tab-label">Me</span>
+    </a>
+    <a class="tab-item" href="#">
+      <span class="icon icon-star"></span>
+      <span class="tab-label">Fav</span>
+    </a>
+    <a class="tab-item" href="#">
+      <span class="icon icon-settings"></span>
+      <span class="tab-label">Setting</span>
+    </a>
+  </nav>
+  <div class="content">
+    <!-- Content of page -->
+  </div>
+</div>
+{% endhighlight %}
+
+          <p>And then, we add some cards into the page content:</p>
+
+{% highlight html %}
+  <div class="card">
+    <div style="background-image:url(//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250.3.0q60.jpg)" valign="bottom" class="card-header color-white no-border">旅途的山</div>
+    <div class="card-content">
+      <div class="card-content-inner">
+        <p class="color-gray">发表于 2015/01/15</p>
+        <p>此处是内容...</p>
+      </div>
+    </div>
+    <div class="card-footer">
+      <a href="#" class="link">赞</a>
+      <a href="#" class="link">更多</a>
+    </div>
+  </div>
+  <div class="card">
+    <div style="background-image:url(//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250.3.0q60.jpg)" valign="bottom" class="card-header color-white no-border">旅途的山</div>
+    <div class="card-content">
+      <div class="card-content-inner">
+        <p class="color-gray">发表于 2015/01/15</p>
+        <p>此处是内容...</p>
+      </div>
+    </div>
+    <div class="card-footer">
+      <a href="#" class="link">赞</a>
+      <a href="#" class="link">更多</a>
+    </div>
+  </div>
+  ... 
+{% endhighlight %}
+        <p>Here is the complete <a href="/examples/getting-started/" target="_blank" data-ignore="push">demo</a></p>
+        <p>It's a very simple demo to show how to use Light7, see <a href="/examples">Examples</a> for examples with more components please.</p>
+      </div>
+  </div>
+
+  <div class="column">
+    <!-- Footer -->
+    {% include footer.html %}
+  </div>
+</div>

@@ -1,0 +1,101 @@
+<article class="component" id='actions'>
+  <h2 class="component-title">Action sheet</h2>
+  <p class="component-description">Action sheet can show many action buttons for user to choose.</p>
+  <p class="component-description"><code>$.actions(buttons)</code> - create and show Action Sheet.</p>
+  <ul>
+    <li><code>buttons</code> - buttons in action sheet, you can put buttons in different group.</li>
+  </ul>
+  <div class="component-example component-example-fullbleed">
+    <header class="bar bar-nav">
+        <h1 class="title">Actions</h1>
+    </header>
+    <div class="content">
+      <div class="content-block">
+        <!-- In data-popup attribute we specify CSS selector of popup we need to open -->
+        <p><a href="#" class="create-actions">show actions</a></p>
+      </div>
+    </div>
+    <script>
+      $(document).on('click','.create-actions', function () {
+        var buttons1 = [
+          {
+            text: 'title',
+            label: true
+          },
+          {
+            text: 'Tom',
+            bold: true,
+            color: 'danger',
+            onClick: function() {
+              $.alert("you choose 'Tom'");
+            }
+          },
+          {
+            text: 'Bob',
+            color: "success",
+            onClick: function() {
+              $.alert("you choose 'Bob'");
+            }
+          }
+        ];
+        var buttons2 = [
+          {
+            text: 'cancel',
+            bg: 'danger'
+          }
+        ];
+        var groups = [buttons1, buttons2];
+        $.actions(groups);
+      }); 
+  </script>
+  </div>
+
+
+  {% highlight html %}  
+  <header class="bar bar-nav">
+      <h1 class="title">Actions</h1>
+  </header>
+  <div class="content">
+    <div class="content-block">
+      <!-- In data-popup attribute we specify CSS selector of popup we need to open -->
+      <p><a href="#" class="create-actions">please choose</a></p>
+    </div>
+  </div>
+  {% endhighlight %}
+  {% highlight js %}  
+  $(document).on('click','.create-actions', function () {
+    var buttons1 = [
+      {
+        text: 'title',
+        label: true
+      },
+      {
+        text: 'Tom',
+        bold: true,
+        color: 'danger',
+        onClick: function() {
+          $.alert("you choose 'Tom'");
+        }
+      },
+      {
+        text: 'Bob',
+        onClick: function() {
+          $.alert("you choose 'Bob'");
+        }
+      }
+    ];
+    var buttons2 = [
+      {
+        text: 'cancel',
+        bg: 'danger'
+      }
+    ];
+    var groups = [buttons1, buttons2];
+    $.actions(groups);
+  });
+  {% endhighlight %}
+
+
+  <p>You can set button color with <code>color</code>, or set background with <code>bg</code>. There are four different color: <code>primary</code>, <code>success</code>, <code>warning</code>, <code>danger</code>. In fact, the different color is defined in <a href="#typography">Text</a>.</p>
+
+</article>

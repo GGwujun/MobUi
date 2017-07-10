@@ -1,0 +1,906 @@
+<article class="component" id="modal">
+  <h2 class="component-title">Modal</h2>
+  <p class="component-description">Modal is a small content pane that pops up over App's main content. Modals are usualy used to ask something from user, or to notify or warn user. Modal as all other overlays is part of so called "Temporary Views".</p>
+  <p class="component-description">Modal can be opened only using JavaScript:</p>
+
+  <h3 class="component-title">Predefined Modals</h3>
+  <ul>
+    <li>Buttons text for predefined modals (like "Ok" and "Cancel") can be also changed by <code>$.modal.prototype.defaults</code></li>
+  </ul>
+  <p class="component-description">First of all, let's look on most used and already predefined modals in Framework7::</p>
+
+  <h3 class="component-title">Alert</h3>
+  <p class="component-description">To open Alert modal we should call one of the following App methods:：<code>$.alert(text, [title, callbackOk])</code> </br> or </br> <code>$.alert(text, [callbackOk])</code></p>
+
+  <ul>
+    <li><code>text</code> - string. Text to alert</li>
+    <li><code>title</code> - string. Optional. Alert modal title</li>
+    <li><code>callbackOk</code>  - function. Optional.Callback function that will be executed when user click "Ok" button on Alert modal</li>
+  </ul>
+  <p class="component-description">This method returns dynamically created modal's HTMLElement.</p>
+  <div class="component-example component-example-fullbleed">
+    <div class="">
+      <div class="content-block">
+        <p><a href="" class="alert-text">Alert With Text</a></p>
+        <p><a href="" class="alert-text-title">Alert With Text and Title</a></p>
+        <p><a href="" class="alert-text-title-callback">Alert With Text and Title and Callback</a></p>
+        <p><a href="" class="alert-text-callback">Alert With Text and Callback</a></p>
+      </div>
+      <script type="text/javascript">     
+        $(function(){
+           $.modal.prototype.defaults.modalContainer = ".device-content"; //only for demo, please don't copy this line to your own code
+           $(document).on('click','.alert-text',function () {
+              $.alert('Here goes alert text haha');
+           });
+           
+          $(document).on('click','.alert-text-title', function () {
+              $.alert('Here goes alert text', 'Custom Title!');
+          });
+           
+          $(document).on('click', '.alert-text-title-callback',function () {
+              $.alert('Here goes alert text', 'Custom Title!', function () {
+                  $.alert('Button clicked!')
+              });
+          });
+           
+          $(document).on('click', '.alert-text-callback',function () {
+              $.alert('Here goes alert text', function () {
+                  $.alert('Button clicked!')
+              });
+          });
+        })
+   
+      </script>
+     
+    </div>
+  </div>
+
+  {% highlight html %}  
+  <header class="bar bar-nav">
+    <h1 class="title">Alert</h1>
+  </header>
+  ...
+  <div class="content">
+    <div class="content-block">
+      <p><a href="#" class="alert-text">Alert With Text</a></p>
+      <p><a href="#" class="alert-text-title">Alert With Text and Title</a></p>
+      <p><a href="#" class="alert-text-title-callback">Alert With Text and Title and Callback</a></p>
+      <p><a href="#" class="alert-text-callback">Alert With Text and Callback</a></p>
+    </div>
+  </div> 
+   ...
+  {% endhighlight %}
+  {% highlight js %}  
+  $(function(){
+     $(document).on('click','.alert-text',function () {
+        $.alert('Here goes alert text');
+     });
+     
+    $(document).on('click','.alert-text-title', function () {
+        $.alert('Here goes alert text', 'Custom Title!');
+    });
+     
+    $(document).on('click', '.alert-text-title-callback',function () {
+        $.alert('Here goes alert text', 'Custom Title!', function () {
+            $.alert('Button clicked!')
+        });
+    });
+     
+    $(document).on('click', '.alert-text-callback',function () {
+        $.alert('Here goes alert text', function () {
+            $.alert('Button clicked!')
+        });
+    });
+  })
+     
+  {% endhighlight %}
+</article>
+
+<article class="component active">
+  <h3 class="component-title">Confirm</h3>
+  <p class="component-description">Confirm modal usualy used when it is required to confirm some action. To open Confirm modal we should also call one of the following App methods:</p>
+  <code>$.confirm(text, [title, callbackOk, callbackCancel])</code>
+  or
+  <code>$.confirm(text, [callbackOk, callbackCancel])</code>
+  <ul>
+    <li><code>text  - string. Text to Confirm</code></li>
+    <li><code>title - string. Optional</code>. Confirm modal title</li>
+    <li><scode>callbackOk  - function. Optional</code>. Callback function that will be executed when user click "Ok" button on Confirm modal (when user confirm action)</li>
+    <li><code>callbackCancel  - function. Optional</code>. Callback function that will be executed when user click "Cancel" button on Confirm modal (when user dismiss action)</li>
+  </ul>
+  <div class="component-example component-example-fullbleed">
+    <div class="">
+      <div class="content-block">
+        <p><a href="#" class="confirm-ok">Confirm with text and Ok callback</a></p>
+        <p><a href="#" class="confirm-ok-cancel">Confirm with text, Ok and Cancel callbacks</a></p>
+        <p><a href="#" class="confirm-title-ok">Confirm with text, title and Ok callback</a></p>
+        <p><a href="#" class="confirm-title-ok-cancel">Confirm with text, title, Ok and Cancel callback</a></p>
+      </div>
+      <script type="text/javascript">
+        $(document).on('click','.confirm-ok', function () {
+            $.confirm('Are you sure?', function () {
+                $.alert('You clicked Ok button');
+            });
+        });
+         
+        $(document).on('click', '.confirm-ok-cancel',function () {
+            $.confirm('Are you sure?', 
+              function () {
+                $.alert('You clicked Ok button');
+              },
+              function () {
+                $.alert('You clicked Cancel button');
+              }
+            );
+        });
+        $(document).on('click','.confirm-title-ok', function () {
+            $.confirm('Are you sure?', 'Custom Title', function () {
+                $.alert('You clicked Ok button');
+            });
+        });
+        $(document).on('click','.confirm-title-ok-cancel', function () {
+            $.confirm('Are you sure?', 'Custom Title', 
+              function () {
+                $.alert('You clicked Ok button');
+              },
+              function () {
+                $.alert('You clicked Cancel button');
+              }
+            );
+        });            
+
+      </script>
+    </div>
+  </div>
+  {% highlight html %}  
+  <header class="bar bar-nav">
+    <h1 class="title">Confirm</h1>
+  </header>
+  ...
+  <div class="content">
+    <div class="content-block">
+      <p><a href="#" class="confirm-ok">Confirm with text and Ok callback</a></p>
+      <p><a href="#" class="confirm-ok-cancel">Confirm with text, Ok and Cancel callbacks</a></p>
+      <p><a href="#" class="confirm-title-ok">Confirm with text, title and Ok callback</a></p>
+      <p><a href="#" class="confirm-title-ok-cancel">Confirm with text, title, Ok and Cancel callback</a></p>
+    </div>
+  </div>
+  ...
+  {% endhighlight %}
+  {% highlight js %}  
+  $(document).on('click','.confirm-ok', function () {
+      $.confirm('Are you sure?', function () {
+          $.alert('You clicked Ok button');
+      });
+  });
+   
+  $(document).on('click', '.confirm-ok-cancel',function () {
+      $.confirm('Are you sure?', 
+        function () {
+          $.alert('You clicked Ok button');
+        },
+        function () {
+          $.alert('You clicked Cancel button');
+        }
+      );
+  });
+  $(document).on('click','.confirm-title-ok', function () {
+      $.confirm('Are you sure?', 'Custom Title', function () {
+          $.alert('You clicked Ok button');
+      });
+  });
+  $(document).on('click','.confirm-title-ok-cancel', function () {
+      $.confirm('Are you sure?', 'Custom Title', 
+        function () {
+          $.alert('You clicked Ok button');
+        },
+        function () {
+          $.alert('You clicked Cancel button');
+        }
+      );
+  });    
+  {% endhighlight %}
+</article>
+
+<article class="component active">
+  <h3 class="component-title">Prompt</h3>
+  <p class="component-description">Prompt modal used when it is required to get some data/answer from user. To open Prompt modal we should also call one of the following App methods:</br>
+  <code>$.prompt(text, [title, callbackOk, callbackCancel])</code>
+  <code>$.prompt(text, [callbackOk, callbackCancel])</code></p>
+  <ul>
+    <li><code>text - string</code>. Prompt text/question</li>
+    <li><code>title  - string</code>. Optional. Prompt modal Title</li>
+    <li><code>callbackOk  - function</code>. Optional. OK button callback, As an argument function receives value of text input</li>
+    <li><code>callbackCancel - function</code>. Optional. calcel button callback</li>
+  </ul>
+  <div class="component-example component-example-fullbleed">
+    <div class="">
+      <div class="content-block">
+        <p><a href="#" class="prompt-ok">Prompt with text and Ok callback</a></p>
+        <p><a href="#" class="prompt-ok-cancel">Prompt with text, Ok and Cancel callbacks</a></p>
+        <p><a href="#" class="prompt-title-ok">Prompt with text, title and Ok callback</a></p>
+        <p><a href="#" class="prompt-title-ok-cancel">Prompt with text, title, Ok and Cancel callback</a></p>
+      </div>
+      <script type="text/javascript">
+        $(document).on('click','.prompt-ok', function () {
+            $.prompt('What is your name?', function (value) {
+                $.alert('Your name is "' + value + '". You clicked Ok button');
+            });
+        });
+         
+        $(document).on('click','.prompt-ok-cancel', function () {
+            $.prompt('What is your name?', 
+              function (value) {
+                $.alert('Your name is "' + value + '". You clicked Ok button');
+              },
+              function (value) {
+                $.alert('Your name is "' + value + '". You clicked Cancel button');
+              }
+            );
+        });
+        $(document).on('click', '.prompt-title-ok',function () {
+            $.prompt('What is your name?', 'Custom Title', function (value) {
+                $.alert('Your name is "' + value + '". You clicked Ok button');
+            });
+        });
+        $(document).on('click', '.prompt-title-ok-cancel',function () {
+            $.prompt('What is your name?', 'Custom Title', 
+              function (value) {
+                $.alert('Your name is "' + value + '". You clicked Ok button');
+              },
+              function (value) {
+                $.alert('Your name is "' + value + '". You clicked Cancel button');
+              }
+            );
+        });              
+
+      </script>
+    </div>
+  </div>
+  {% highlight html %}  
+  <header class="bar bar-nav">
+    <h1 class="title">Prompt</h1>
+  </header>
+  ...
+  <div class="content">
+    <div class="content-block">
+      <p><a href="#" class="prompt-ok">Prompt with text and Ok callback</a></p>
+      <p><a href="#" class="prompt-ok-cancel">Prompt with text, Ok and Cancel callbacks</a></p>
+      <p><a href="#" class="prompt-title-ok">Prompt with text, title and Ok callback</a></p>
+      <p><a href="#" class="prompt-title-ok-cancel">Prompt with text, title, Ok and Cancel callback</a></p>
+    </div>
+  </div>  
+  ...  
+  {% endhighlight %}
+  {% highlight js %}  
+  $(document).on('click','.prompt-ok', function () {
+      $.prompt('What is your name?', function (value) {
+          $.alert('Your name is "' + value + '". You clicked Ok button');
+      });
+  });
+   
+  $(document).on('click','.prompt-ok-cancel', function () {
+      $.prompt('What is your name?', 
+        function (value) {
+          $.alert('Your name is "' + value + '". You clicked Ok button');
+        },
+        function (value) {
+          $.alert('Your name is "' + value + '". You clicked Cancel button');
+        }
+      );
+  });
+  $(document).on('click', '.prompt-title-ok',function () {
+      $.prompt('What is your name?', 'Custom Title', function (value) {
+          $.alert('Your name is "' + value + '". You clicked Ok button');
+      });
+  });
+  $(document).on('click', '.prompt-title-ok-cancel',function () {
+      $.prompt('What is your name?', 'Custom Title', 
+        function (value) {
+          $.alert('Your name is "' + value + '". You clicked Ok button');
+        },
+        function (value) {
+          $.alert('Your name is "' + value + '". You clicked Cancel button');
+        }
+      );
+  });           
+  {% endhighlight %}
+</article>
+
+
+
+<article class="component active">
+  <h3 class="component-title">Modals</h3>
+  <p class="component-description">Ok, all predefined modals were just particular case (like shortcuts) of full Modal methods. Let's look how to create custom modals: </p>
+  <p class="component-description"><code>$.modal(parameters)</code> - show custom modal </p>
+  <ul>
+    <li><code>parameters - object</code>. Parameters/options of modal</li>
+  </ul>
+  <p class="component-description">Here is the list of Modal parameters:</p>
+  <table class="params-table">
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>title</td>
+        <td>string</td>
+        <td></td>
+        <td>Optional. String with Modal title (could be HTML string)</td>
+      </tr>
+      <tr>
+        <td>text</td>
+        <td>string</td>
+        <td></td>
+        <td>Optional. String with Modal text (could be HTML string)</td>
+      </tr>
+      <tr>
+        <td>afterText</td>
+        <td>string</td>
+        <td></td>
+        <td>Optional. String with text (could be HTML string) that will be placed after "text"</td>
+      </tr>
+      <tr>
+        <td>buttons</td>
+        <td>array</td>
+        <td></td>
+        <td>Optional. Array of buttons. Each button should be presented as Object with button parameters (look below)</td>
+      </tr>
+      <tr>
+        <td>verticalButtons</td>
+        <td>boolean</td>
+        <td>false</td>
+        <td>Optional. Set to <code>true</code> to enable vertical buttons layout</td>
+      </tr>
+      <tr>
+        <td>onClick</td>
+        <td>function</td>
+        <td></td>
+        <td>Optional. Callback function that will be executed when user clicks any of Modal's button. As arguments it receives <b>modal</b> (with Modal's HTMLElement) and <b>index</b> (with index number of clicked button)</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="component-description">Let's look at Button's parameters:</p>
+  <table class="params-table">
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>text</td>
+        <td>string</td>
+        <td></td>
+        <td>String with Button's text (could be HTML string)</td>
+      </tr>
+      <tr>
+        <td>bold</td>
+        <td>boolean</td>
+        <td>false</td>
+        <td>Optional. Set to true for bold button text</td>
+      </tr>
+      <tr>
+        <td>close</td>
+        <td>boolean</td>
+        <td>true</td>
+        <td>Optional. If "true" then modal will be closed after click on this button</td>
+      </tr>
+      <tr>
+        <td>onClick</td>
+        <td>function</td>
+        <td></td>
+        <td>Optional. Callback function that will be executed when user click this button</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="component-description">Such configuration options allows to create flexible modals. Let's look at some examples.</p>
+  <div class="component-example component-example-fullbleed">
+    <div class="">
+      <div class="content-block">
+        <p><a href="#" class="open-3-modal">Modal With 3 Buttons</a></p>
+        <p><a href="#" class="open-slider-modal">Modal With Slider</a></p>
+        <p><a href="#" class="open-tabs-modal">Modal With Tabs</a></p>
+        <p><a href="#" class="open-vertical-modal">Modal With Vertical Buttons</a></p>
+      </div>
+      <script type="text/javascript">
+        $(document).on('click','.open-3-modal', function () {
+          $.modal({
+            title:  'Modal with 3 buttons',
+            text: 'Vivamus feugiat diam velit. Maecenas aliquet egestas lacus, eget pretium massa mattis non. Donec volutpat euismod nisl in posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae',
+            buttons: [
+              {
+                text: 'B1',
+                onClick: function() {
+                  $.alert('You clicked first button!')
+                }
+              },
+              {
+                text: 'B2',
+                onClick: function() {
+                  $.alert('You clicked second button!')
+                }
+              },
+              {
+                text: 'B3',
+                bold: true,
+                onClick: function() {
+                  $.alert('You clicked third button!')
+                }
+              },
+            ]
+          })
+        });
+        $(document).on('click','.open-slider-modal', function () {
+          var modal = $.modal({
+            title: 'Awesome Photos?',
+            text: 'What do you think about my photos?',
+            afterText:  '<div class="swiper-container" style="width: auto; margin:5px -15px -15px">'+
+                          '<div class="swiper-pagination"></div>'+
+                          '<div class="swiper-wrapper">'+
+                            '<div class="swiper-slide"><img src="..." height="150" style="display:block"></div>' +
+                            '<div class="swiper-slide"><img src="..." height="150" style="display:block"></div>'+
+                          '</div>'+
+                        '</div>',
+            buttons: [
+              {
+                text: 'Bad :('
+              },
+              {
+                text: 'Awesome!',
+                bold: true,
+                onClick: function () {
+                  $.alert('Thanks! I know you like it!')
+                }
+              },
+            ]
+          })
+          $.swiper($$(modal).find('.swiper-container'), {pagination: '.swiper-pagination'});
+        });
+         
+         $(document).on('click','.open-tabs-modal', function () {
+          $.modal({
+            title:  '<div class="buttons-row">'+
+                      '<a href="#tab1" class="button active tab-link">Tab 1</a>'+
+                      '<a href="#tab2" class="button tab-link">Tab 2</a>'+
+                    '</div>',
+            text: '<div class="tabs">'+
+                    '<div class="tab active" id="tab1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam convallis nunc non dolor euismod feugiat. Sed at sapien nisl. Ut et tincidunt metus. Suspendisse nec risus vel sapien placerat tincidunt. Nunc pulvinar urna tortor.</div>'+
+                    '<div class="tab" id="tab2">Vivamus feugiat diam velit. Maecenas aliquet egestas lacus, eget pretium massa mattis non. Donec volutpat euismod nisl in posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae</div>'+
+                  '</div>',
+            buttons: [
+              {
+                text: 'Ok, got it',
+                bold: true
+              },
+            ]
+          })
+        });
+         
+        $(document).on('click','.open-vertical-modal', function () {
+          $.modal({
+            title:  'Vertical Buttons Layout',
+            text: 'Vivamus feugiat diam velit. Maecenas aliquet egestas lacus, eget pretium massa mattis non. Donec volutpat euismod nisl in posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae',
+            verticalButtons: true,
+            buttons: [
+              {
+                text: 'Button 1',
+                onClick: function() {
+                  $.alert('You clicked first button!')
+                }
+              },
+              {
+                text: 'Button 2',
+                onClick: function() {
+                  $.alert('You clicked second button!')
+                }
+              },
+              {
+                text: 'Button 3',
+                onClick: function() {
+                  $.alert('You clicked third button!')
+                }
+              },
+            ]
+          })
+        });       
+      </script>    
+    </div>
+  </div>
+  {% highlight html %}  
+  <header class="bar bar-nav">
+      <h1 class="title">Custom Modals</h1>
+  </header>
+  ...
+  <div class="content">
+    <div class="content-block">
+      <p><a href="#" class="open-3-modal">Modal With 3 Buttons</a></p>
+      <p><a href="#" class="open-slider-modal">Modal With Slider</a></p>
+      <p><a href="#" class="open-tabs-modal">Modal With Tabs</a></p>
+      <p><a href="#" class="open-vertical-modal">Modal With Vertical Buttons</a></p>
+    </div>
+  </div>
+  ... 
+  {% endhighlight %}
+  {% highlight js %}  
+  $(document).on('click','.open-3-modal', function () {
+    $.modal({
+      title:  'Modal with 3 buttons',
+      text: 'Vivamus feugiat diam velit. Maecenas aliquet egestas lacus, eget pretium massa mattis non. Donec volutpat euismod nisl in posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae',
+      buttons: [
+        {
+          text: 'B1',
+          onClick: function() {
+            $.alert('You clicked first button!')
+          }
+        },
+        {
+          text: 'B2',
+          onClick: function() {
+            $.alert('You clicked second button!')
+          }
+        },
+        {
+          text: 'B3',
+          bold: true,
+          onClick: function() {
+            $.alert('You clicked third button!')
+          }
+        },
+      ]
+    })
+    });
+    $(document).on('click','.open-slider-modal', function () {
+    var modal = $.modal({
+      title: 'Awesome Photos?',
+      text: 'What do you think about my photos?',
+      afterText:  '<div class="swiper-container" style="width: auto; margin:5px -15px -15px">'+
+                    '<div class="swiper-pagination"></div>'+
+                    '<div class="swiper-wrapper">'+
+                      '<div class="swiper-slide"><img src="..." height="150" style="display:block"></div>' +
+                      '<div class="swiper-slide"><img src="..." height="150" style="display:block"></div>'+
+                    '</div>'+
+                  '</div>',
+      buttons: [
+        {
+          text: 'Bad :('
+        },
+        {
+          text: 'Awesome!',
+          bold: true,
+          onClick: function () {
+            $.alert('Thanks! I know you like it!')
+          }
+        },
+      ]
+    })
+    $.swiper($$(modal).find('.swiper-container'), {pagination: '.swiper-pagination'});
+    });
+
+    $(document).on('click','.open-tabs-modal', function () {
+    $.modal({
+      title:  '<div class="buttons-row">'+
+                '<a href="#tab1" class="button active tab-link">Tab 1</a>'+
+                '<a href="#tab2" class="button tab-link">Tab 2</a>'+
+              '</div>',
+      text: '<div class="tabs">'+
+              '<div class="tab active" id="tab1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam convallis nunc non dolor euismod feugiat. Sed at sapien nisl. Ut et tincidunt metus. Suspendisse nec risus vel sapien placerat tincidunt. Nunc pulvinar urna tortor.</div>'+
+              '<div class="tab" id="tab2">Vivamus feugiat diam velit. Maecenas aliquet egestas lacus, eget pretium massa mattis non. Donec volutpat euismod nisl in posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae</div>'+
+            '</div>',
+      buttons: [
+        {
+          text: 'Ok, got it',
+          bold: true
+        },
+      ]
+    })
+    });
+
+    $(document).on('click','.open-vertical-modal', function () {
+    $.modal({
+      title:  'Vertical Buttons Layout',
+      text: 'Vivamus feugiat diam velit. Maecenas aliquet egestas lacus, eget pretium massa mattis non. Donec volutpat euismod nisl in posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae',
+      verticalButtons: true,
+      buttons: [
+        {
+          text: 'Button 1',
+          onClick: function() {
+            $.alert('You clicked first button!')
+          }
+        },
+        {
+          text: 'Button 2',
+          onClick: function() {
+            $.alert('You clicked second button!')
+          }
+        },
+        {
+          text: 'Button 3',
+          onClick: function() {
+            $.alert('You clicked third button!')
+          }
+        },
+      ]
+    })
+    });
+  {% endhighlight %}
+    <h3 class="component-title">Close Modals with JavaScript</h3>
+    <p class="component-description">Any Modal can be closed with JavaScript, not only by clicking on its buttons. For this we need to look at relate App method:</p>
+    <p class="component-description"><code>$.closeModal(modal)</code> - close modal</p>
+    <ul>
+      <li><code>modal - HTMLElement or string ( CSS Selector)</code>. Optional. If not specified, any opened modal will be closed
+      </li>
+    </ul> 
+     <h3 class="component-title">Modal Events</h3>
+     <p class="component-description">Modal events could be very useful when you need to do something in JavaScript when Modal opened/closed</p>
+     <table class="events-table">
+       <thead>
+         <tr>
+           <th>Event</th>
+           <th>Target</th>
+           <th>Description</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+           <td>open</td>
+           <td>Modal Element<span>&lt;div class="modal"&gt;</span></td>
+           <td>Event will be triggered when Modal starts its opening animation</td>
+         </tr>
+         <tr>
+           <td>opened</td>
+           <td>Modal Element<span>&lt;div class="modal"&gt;</span></td>
+           <td>Event will be triggered after Modal completes its opening animation</td>
+         </tr>
+         <tr>
+           <td>close</td>
+           <td>Modal Element<span>&lt;div class="modal"&gt;</span></td>
+           <td>Event will be triggered when Modal starts its closing animation</td>
+         </tr>
+         <tr>
+           <td>closed</td>
+           <td>Modal Element<span>&lt;div class="modal"&gt;</span></td>
+           <td>Event will be triggered after Modal completes its closing animation</td>
+         </tr>
+       </tbody>
+     </table> 
+</article>
+
+<article class="component active" id='preloader'>
+  <h2 class="component-title">Preloader Modal</h2>
+  <p class="component-description">Preloader Modal is used to indicate some background activity (like Ajax request) and to block any user actions during this activity. To open Preloader modal we should also call appropriate App method: <code>$.showPreloader([title])</code> - show modal with Preloader</p>
+  <ul>
+    <li><code>title  - string. Optional</code>. Preloader modal title. By default (if not specified) it is euqal to "Loading...". </li>
+  </ul>
+  <p class="component-description">$.hidePreloader() - hide/close modal with Preloader. Because Preloader modal has not any buttons, it should be closed by JavaScript</p>
+  <div class="component-example component-example-fullbleed">
+    <div class="">
+      <div class="content-block">
+        <p><a href="#" class="open-preloader">Open Preloader</a></p>
+        <p><a href="#" class="open-preloader-title">Open Preloader with custom title</a></p>
+      </div>
+      <script type="text/javascript">
+        $(document).on('click', '.open-preloader', function () {
+            $.showPreloader();
+            setTimeout(function () {
+                $.hidePreloader();
+            }, 2000);
+        });
+        $(document).on('click','.open-preloader-title', function () {
+            $.showPreloader('Custom Title')
+            setTimeout(function () {
+                $.hidePreloader();
+            }, 2000);
+        }); 
+      </script>    
+    </div>
+  </div>
+  {% highlight html %}  
+  <header class="bar bar-nav">
+    <h1 class="title">Preloader Modal</h1>
+  </header>
+  ...
+  <div class="content">
+    <div class="content-block">
+      <p><a href="#" class="open-preloader">Open Preloader</a></p>
+      <p><a href="#" class="open-preloader-title">Open Preloader with custom title</a></p>
+    </div>
+  </div>  
+  ...   
+  {% endhighlight %}
+  {% highlight js %} 
+  $(document).on('click', '.open-preloader', function () {
+    $.showPreloader();
+    setTimeout(function () {
+        $.hidePreloader();
+    }, 2000);
+  });
+  $(document).on('click','.open-preloader-title', function () {
+    $.showPreloader('Custom Title')
+    setTimeout(function () {
+        $.hidePreloader();
+    }, 2000);
+  });  
+  {% endhighlight %}
+</article>
+
+<article class="component active">
+  <h3 class="component-title">Indicator</h3>
+  <p class="component-description">If you don't need such "big" modal window like Preloader Modal to indicate activity, you can use simple and small indicator modal: </p>
+  <p class="component-description">$.showIndicator() - show indicator modal </p>
+  <p class="component-description">$.hideIndicator() - hide/close modal with Indicator. Because Indicator modal has not any buttons, it should be closed by JavaScript</p>
+  <div class="component-example component-example-fullbleed">
+    <div class="">
+      <div class="content-block">
+        <p><a href="#" class="open-indicator">Open Indicator</a></p>
+      </div>
+      <script type="text/javascript">
+        $(document).on('click','.open-indicator', function () {
+            $.showIndicator();
+            setTimeout(function () {
+                $.hideIndicator();
+            }, 2000);
+        });
+        
+      </script>    
+    </div>
+  </div>
+  {% highlight html %}  
+  <header class="bar bar-nav">
+      <h1 class="title">indicator</h1>
+  </header>
+  ...
+  <div class="content">
+    <div class="content-block">
+      <p><a href="#" class="open-indicator">Open Indicator</a></p>
+    </div>
+  </div>
+  ...     
+  {% endhighlight %}
+  {% highlight js %}  
+  $(document).on('click','.open-indicator', function () {
+      $.showIndicator();
+      setTimeout(function () {
+          $.hideIndicator();
+      }, 2000);
+  });
+  {% endhighlight %}
+</article>
+
+<article class="component active" id='toast' data-url='toast'>
+  <h2 class="component-title">toast</h2>
+  <p class="component-description">Toast is a verfy light modal, It will not disturb user and will disapear after 3 seconds</p>
+
+{% highlight js %}  
+$.toast("Error!");
+{% endhighlight %}
+</article>
+
+<article class="component active" id='popover' data-url='popover'>
+  <h2 class="component-title">Popover</h2>
+  <p class="component-description">Popover compontent is used to manage the presentation of content in a popover. You use popovers to present information temporarily. The popover remains visible until the user taps outside of the popover window or you explicitly dismiss it.</p>
+
+  <p>Note that is not recommended to use Popover on small screens (iPhone). On small screens you should use <a href="#actions">Action Sheet</a>. </p>
+
+  <h3>Popover Layout</h3>
+  <p>First of all let's look on Popover layout, it is pretty simple, just add somewhere in the end of the <code>body</code>:</p>
+
+{% highlight html %}  
+<div class="popover">
+  <!-- Popover's angle arrow -->
+  <div class="popover-angle"></div>
+
+  <!-- Popover content -->
+  <div class="popover-inner">
+    <!-- Any HTML content here -->
+  </div>
+</div>
+{% endhighlight %}
+
+  <h3>Open and close with HTML</h3>
+  <p>It is possible to open and close required Popover using special classes and data attributes on links:</p>
+  <ul>
+    <li>
+      <p>To open popover we need to add <code>"open-popover"</code> class to any HTML element (prefered to link)</p>
+    </li>
+    <li>
+      <p>To close popover we may add <code>"close-popover"</code> class to any HTML element (prefered to link)</p>
+    </li>
+    <li>
+      <p>If you have more than one popover in app, you need to specify appropriate popover via additional <code>data-popover=".my-popover"</code> attribute on this HTML element</p>
+    </li>
+  </ul>
+
+
+  <p>When we open Popover with such method (from HTML), it will be automatically positioned around element that we clicked to call this Popover.</p>
+
+  <h3>Open and close with JavaScript</h3>
+
+  <p>We can also open and close Popover with JavaScript:</p>
+
+  <p><code>$.popover(<span>popover</span>, <span>target</span>)</code> - open Popover around <strong>target</strong> element</p>
+
+  <ul class="method-parameters">
+    <li><code>popover</code> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS Selector) of Popover to open. Requred</li>
+    <li><code>target</code> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS Selector) of target element to set popover position around this element. Requred</li>
+    <li class="method-returns">This method returns Popover's HTMLElement</li>
+  </ul>
+
+  <p><code>$.closeModal(<span>popover</span>)</code> - close Popover</p>
+  <ul class="method-parameters">
+    <li><code>popover</code> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS Selector). Optional. If not specified, any opened Popover will be closed</li>
+  </ul>
+
+  <h3>Dynamic Popover</h3>
+
+  <p>It allows you to create Popover dynamically by passing its HTML to related methods:</p>
+
+  <p><code>$.popover(<span>popoverHTML</span>, <span>target</span>, <span>removeOnClose</span>)</code> - open Popover with <strong>popoverHTML</strong> content around <strong>target</strong> element</p>
+
+  <ul class="method-parameters">
+    <li><code>popoverHTML</code> - <span class="parameter-type">string</span>. HTML string of popover </li>
+    <li><code>target</code> - <span class="parameter-type">HTMLElement</span> or <span class="parameter-type">string</span> (with CSS Selector) of target element to set popover position around this element. Requred</li>
+    <li><code>removeOnClose</code> - <span class="parameter-type">boolean</span>. Optional, by default - true. If true then Popover will be removed from DOM when closed</li>
+    <li class="method-returns">This method returns dynamically created Popover's HTMLElement</li>
+  </ul>
+
+  <h3>Modal Defaults</h3>
+
+  <p>The default config of modal is <code>$.modal.prototype.defaults</code>, you can change these config:</p>
+
+  <table class="params-table">
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>modalButtonOk</td>
+        <td>"OK"</td>
+        <td>Text of OK button</td>
+      </tr> 
+      <tr>
+        <td>modalButtonCancel</td>
+        <td>"Cancel"</td>
+        <td>Text of cancel button</td>
+      </tr> 
+      <tr>
+        <td>modalPreloaderTitle</td>
+        <td>"Loading"</td>
+        <td>Text of preloader</td>
+      </tr> 
+      <tr>
+        <td>closePrevious</td>
+        <td>true</td>
+        <td>Close all previous modal when open a new modal.</td>
+      </tr>
+      <tr>
+        <td>actionsCloseByOutside</td>
+        <td>true</td>
+        <td>点击背景关闭 ActionSheet</td>
+      </tr> 
+      <tr>
+        <td>modalCloseByOutside</td>
+        <td>false</td>
+        <td>点击背景关闭 Modal</td>
+      </tr> 
+      <tr>
+        <td>popupCloseByOutside</td>
+        <td>false</td>
+        <td>点击背景关闭 Popup</td>
+      </tr> 
+    </tbody>
+  </table>
+
+</article>

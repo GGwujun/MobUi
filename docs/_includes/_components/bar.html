@@ -1,0 +1,230 @@
+<article class="component active" id="bars">
+  <h2 class="component-title">Titlebar</h2>
+  <p class="component-description">Title bar is on top of page.</p>
+
+  <div class="component-example component-example-fullbleed">
+    <header class="bar bar-nav">
+      <h1 class="title">title</h1>
+    </header>
+  </div>
+
+{% highlight html %}
+<header class="bar bar-nav">
+  <h1 class="title">title</h1>
+</header>
+{% endhighlight %}
+
+    </article>
+
+    <article class="component">
+      <h3 class="component-title">Title bar with buttons</h3>
+
+      <div class="component-example component-example-fullbleed">
+        <header class="bar bar-nav">
+            <button class="button pull-left">
+                Left
+            </button>
+            <button class="button pull-right">
+                Right
+            </button>
+            <h1 class="title">Title</h1>
+        </header>
+    </div>
+{% highlight html %}
+<header class="bar bar-nav">
+  <button class="button pull-left">
+    Btn
+  </button>
+  <button class="button pull-right">
+    Btn
+  </button>
+  <h1 class="title">Title</h1>
+</header>
+{% endhighlight %}
+
+    </article>
+
+    <article class="component">
+      <h3 class="component-title">With icons</h3>
+
+      <div class="component-example component-example-fullbleed">
+      </div>
+
+{% highlight html %}
+<header class="bar bar-nav">
+  <a class="icon icon-left pull-left"></a>
+  <a class="icon icon-refresh pull-right"></a>
+  <h1 class="title">title</h1>
+</header>
+{% endhighlight %}
+
+    </article>
+
+    <article class="component">
+      <h3 class="component-title">With icons and text</h3>
+
+      <div class="component-example component-example-fullbleed">
+        <header class="bar bar-nav">
+          <button class="button button-link button-nav pull-left">
+            <span class="icon icon-left"></span>
+            back
+          </button>
+          <button class="button button-link button-nav pull-right">
+            next
+            <span class="icon icon-right"></span>
+          </button>
+          <h1 class="title">title</h1>
+        </header>
+      </div>
+
+{% highlight html %}
+<header class="bar bar-nav">
+  <button class="button button-link button-nav pull-left">
+    <span class="icon icon-left"></span>
+    back
+  </button>
+  <button class="button button-link button-nav pull-right">
+    next
+    <span class="icon icon-right"></span>
+  </button>
+  <h1 class="title">title</h1>
+</header>
+{% endhighlight %}
+
+    </article>
+
+    <article class="component">
+      <h3 class="component-title">带标签页</h3>
+
+      <div class="component-example component-example-fullbleed">
+        <header class="bar bar-nav">
+            <button class="button pull-left">
+                Left
+            </button>
+            <button class="button pull-right">
+                Right
+            </button>
+            <div class="buttons-row">
+                <a href="#tab1" class="tab-link active button">Tab 1</a>
+                <a href="#tab2" class="tab-link button">Tab 2</a>
+                <a href="#tab3" class="tab-link button">Tab 3</a>
+            </div>
+        </header>
+    </div>
+
+{% highlight html %}
+<header class="bar bar-nav">
+  <button class="button pull-left">
+    Left
+  </button>
+  <button class="button pull-right">
+    Right
+  </button>
+  <div class="buttons-row">
+    <a href="#tab1" class="tab-link active button">Tab 1</a>
+    <a href="#tab2" class="tab-link button">Tab 2</a>
+    <a href="#tab3" class="tab-link button">Tab 3</a>
+  </div>
+</header>
+{% endhighlight %}
+
+    </article>
+
+    <article class="component" id='toolbar' data-url="toolbar">
+      <h2 class="component-title">Toolbar</h2>
+
+      <p>Toolbar is used as the main tab. You should put it sibling to <code>.page</code> elements to make it a global toolbar.Add a <code>.no-tabbar</code> class on <code>.page</code> when you  want to hide toolbar on specific page. Or, you can use <code>$.showToolbar(true/false)</code> to toggle toolbar.</p>
+      <p>Note! If you use router to switch pages, you should use inline pages instead of ajax pages. Because when load ajax page, the router will not check if it is already exist. The same page may be loaded multi times.</p>
+
+{% highlight html %}
+<nav class="bar bar-tab">
+  <a class="tab-item active" href="#">
+    <span class="icon icon-home"></span>
+    <span class="tab-label">Text</span>
+  </a>
+  <a class="tab-item" href="#">
+    <span class="icon icon-me"></span>
+    <span class="tab-label">Text</span>
+    <span class="badge">2</span>
+  </a>
+  ....
+</nav>
+{% endhighlight %}
+
+</article>
+<article class="component">
+    <h3 class="component-title">Toolbar with only text</h3>
+    <div class="component-example component-example-fullbleed">
+        <nav class="bar bar-tab">
+            <a class="tab-item active" href="#">
+            文案
+          </a>
+            <a class="tab-item" href="#">
+            text
+          </a>
+            <a class="tab-item" href="#">
+            Text
+          </a>
+        </nav>
+    </div>
+  {% highlight html %}
+  <nav class="bar bar-tab">
+      <a class="tab-item active" href="#">
+  Text
+</a>
+      <a class="tab-item" href="#">
+  Text
+</a>
+      <a class="tab-item" href="#">
+  Text
+</a>
+  </nav>
+  {% endhighlight %}
+</article>
+<article class="component">
+    <h3 class="component-title">Secondary Titlebar and Toolbar</h3>
+    <div class="component-example component-example-fullbleed">
+      <nav class="bar bar-nav bar-standard">
+        <h1 class="title">Secondary Titlebar and Toolbar</h1>
+      </nav>
+
+      <!-- Block button in standard bar fixed below top bar -->
+      <div class="bar bar-header-secondary">
+        <button class="button button-block">Block level button</button>
+      </div>
+
+      <!-- Block button in standard bar fixed above the footer -->
+      <div class="bar bar-footer-secondary">
+        <button class="button button-block">Block level button</button>
+      </div>
+
+      <!-- Icons in standard bar fixed to the bottom of the screen -->
+      <div class="bar bar-footer">
+        <a class="icon icon-edit pull-left"></a>
+        <a class="icon icon-settings pull-right"></a>
+      </div>
+    </div>
+
+{% highlight html %}
+<nav class="bar bar-nav bar-standard">
+  <h1 class="title">Secondary Titlebar and Toolbar</h1>
+</nav>
+
+<!-- Block button in standard bar fixed below top bar -->
+<div class="bar bar-header-secondary">
+  <button class="button button-block">Block level button</button>
+</div>
+
+<!-- Block button in standard bar fixed above the footer -->
+<div class="bar bar-footer-secondary">
+  <button class="button button-block">Block level button</button>
+</div>
+
+<!-- Icons in standard bar fixed to the bottom of the screen -->
+<div class="bar bar-footer">
+  <a class="icon icon-edit pull-left"></a>
+  <a class="icon icon-settings pull-right"></a>
+</div>
+{% endhighlight %}
+
+  </article>

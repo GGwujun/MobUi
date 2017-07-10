@@ -1,0 +1,191 @@
+<article class="component" id="infinitescroll">
+    <h2 class="component-title">Infinite scroll</h2>
+    <p class="component-description">Load new items when user scroll to bottom of page。</p>
+    <h3 class="component-title">demo</h3>
+    <p class="component-description">
+       What you should do is only add a <code>infinite-scroll</code> class to <code>div.content</code>
+    </p>
+    <div class="component-example component-example-fullbleed">
+        <header class="bar bar-nav">
+            <h1 class="title">infinite scroll</h1>
+        </header>
+        <div class="content infinite-scroll" data-distance="100">
+            ...
+        </div>
+    </div>
+    {% highlight html %}
+<style type="text/css">
+.infinite-scroll-preloader {
+  margin-top:-20px;
+}
+</style>
+
+<header class="bar bar-nav">
+    <h1 class="title">infinite scroll</h1>
+</header>
+<!-- 添加 class infinite-scroll 和 data-distaance -->
+<div class="content infinite-scroll" data-distance="100">
+    <div class="list-block">
+        <ul class="list-container">
+        </ul>
+    </div>
+    <!-- preloader -->
+    <div class="infinite-scroll-preloader">
+        <div class="preloader"></div>
+    </div>
+</div>
+    {% endhighlight %}
+    <p class="component-description">Note：</p>
+    <ul>
+        <li><code>div class="page-content infinite-scroll"</code> - the container of infinite scroll</li>
+        <li><code>data-distance</code> - distance to bottom to trigger infinite scroll , default is 50 (px)</li>
+    </ul>
+<script type="text/javascript">
+$(function() {
+    var loading = false;
+    var maxItems = 100;
+
+    var itemsPerLoad = 20;
+
+    function addItems(number, lastIndex) {
+        var html = '';
+        for (var i = lastIndex + 1; i <= lastIndex + number; i++) {
+            html += '<li class="item-content"><div class="item-inner"><div class="item-title">Item ' + i + '</div></div></li>';
+        }
+        $('.infinite-scroll .list-container').append(html);
+    }
+
+
+    var lastIndex = 0;
+    $(document).on('updateContent', '.infinite-scroll', function() {
+        addItems(itemsPerLoad, 0);
+        lastIndex = 20;
+    });
+    $(document).on('infinite', '.infinite-scroll', function() {
+
+        if (loading) return;
+
+        loading = true;
+
+        setTimeout(function() {
+            loading = false;
+
+            if (lastIndex >= maxItems) {
+                $.detachInfiniteScroll($('.infinite-scroll'));
+                $('.infinite-scroll-preloader').hide();
+                return;
+            }
+
+            addItems(itemsPerLoad, lastIndex);
+            lastIndex = $('.list-container li').length;
+        }, 1000);
+    });
+});
+</script>
+
+
+<p class="component-description">javacript:</p>
+{% highlight js %}
+    var loading = false;
+    var maxItems = 100;
+
+    var itemsPerLoad = 20;
+
+    function addItems(number, lastIndex) {
+            var html = '';
+            for (var i = lastIndex + 1; i <= lastIndex + number; i++) {
+                html += '<li class="item-content"><div class="item-inner"><div class="item-title">Item ' + i + '</div></div></li>';
+            }
+            $('.list-container').append(html);
+
+        }
+    addItems(itemsPerLoad, 0);
+
+
+    var lastIndex = 20;
+
+    $(document).on('infinite', '.infinite-scroll',function() {
+
+        // 如果正在加载，则退出
+        if (loading) return;
+
+        // 设置flag
+        loading = true;
+
+        setTimeout(function() {
+            loading = false;
+
+            if (lastIndex >= maxItems) {
+                $.detachInfiniteScroll($('.infinite-scroll'));
+                $('.infinite-scroll-preloader').remove();
+                return;
+            }
+
+            addItems(itemsPerLoad, lastIndex);
+            lastIndex = $('.list-container li').length;
+        }, 1000);
+    });
+{% endhighlight %}
+
+    <h3 class="component-title">infinite scroll on top of page</h3>
+    <p class="component-description">If you want load items when scroll top of page，you should add <code>infinite-scroll-top</code> class to <code>page-content</code>.
+    </p>
+    <div class="component-example component-example-fullbleed">
+            <header class="bar bar-nav">
+                <h1 class="title">infinite scroll on top</h1>
+            </header>
+            <div class="content infinite-scroll-top" data-distance="100">
+                <div>...</div>
+            </div>
+    </div>
+
+
+		{% highlight html %}
+<header class="bar bar-nav">
+    <h1 class="title">infinite scroll on top</h1>
+</header>
+<div class="content infinite-scroll-top" data-distance="100">
+    <div>...</div>
+</div>
+    {% endhighlight %}
+
+    <h3 class="component-title">Infinite scroll Event</h3>
+    <table class="params-table">
+        <thead>
+            <tr>
+                <th>Event</th>
+                <th>Target</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>infinite</td>
+                <td>
+                    <code> div.content.infinite-scroll</code>
+                </td>
+                <td>Trigger when user scroll to bottom of page. use <code>data-distance</code> to set distance.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3 class="component-title">API</h3>
+    <p class="component-description">Two methods can use：</p>
+{% highlight js %}
+$.attachInfiniteScroll(container) - attach infinite scroll listener on container
+parameters -  HTML Element or CSS Selector.
+
+{% endhighlight %} 
+
+{% highlight js %}
+$.detachInfiniteScroll(container) - remove infinite scroll event
+parameters - HTML Element or CSS Selector.
+
+{% endhighlight %}
+
+    <p class="component-description attention">
+      You need to use $.attachInfiniteScroll  only after you have called $.detachInfiniteScroll. The $.detachInfiniteScroll method will auto be called when infinite scroll component init.
+    </p>
+</article>
+
+

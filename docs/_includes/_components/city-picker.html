@@ -1,0 +1,35 @@
+<article class="component" id="city-picker" data-url='city-picker'>
+  <h2 class="component-title">City picker</h2>
+
+  <p class="component-description">To use city picker，you should import this js file after <code>light7.js</code> 和 <code>light7.css</code>:</p>
+  <p>There is only chinese cities now, Sorry...</p>
+
+{% highlight html %}
+<script type="text/javascript" src="js/light7-city-picker.min.js" charset="utf-8"></script>
+{% endhighlight %}
+
+
+  <p class="component-description">city picker is a customed Picker. So it's API is some to <a href='/components#picker' data-ignore="push">picker</a>.</p>
+  <p>You should not set <code>onChange</code> and <code>cols</code>.</p>
+
+
+{% highlight html %}
+<input type="text" id='city-picker'/>
+<script>
+  $("#city-picker").cityPicker({
+    toolbarTemplate: '<header class="bar bar-nav">\
+    <button class="button button-link pull-right close-picker">OK</button>\
+    <h1 class="title">choose address</h1>\
+    </header>'
+  });
+</script>
+
+{% endhighlight %}
+
+<p>You can use input's <code>value</code> Attr to set default selected value:</p>
+
+{% highlight html %}
+<input type="text" id='city-picker' value="浙江 杭州 拱墅区" />
+{% endhighlight %}
+
+</article>

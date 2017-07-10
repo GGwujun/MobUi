@@ -1,0 +1,233 @@
+<article class="component" id="picker" data-url='picker'>
+  <h2 class="component-title">picker</h2>
+
+  <p class="component-description">Picker is a powerful component that allows you to create custom overlay pickers which looks like iOS native picker.</p>
+
+  <p>You should init a picker on an input element before you can use it.</p>
+
+  <p>Picker will use the value of input as default value. The default read value will be error if you have mutli cols, because picker don't know how to split one string to multi cols.Infact, Piker will use space to split the value of input, and set the them as the value of cols. If your input value is not split with space, you should set the default value with JavaScript.</p>
+
+
+{% highlight html %}
+<input type="text" id='picker'/>
+<script>
+$("#picker").picker({
+  toolbarTemplate: '<header class="bar bar-nav">\
+  <button class="button button-link pull-left">Button</button>\
+  <button class="button button-link pull-right close-picker">OK</button>\
+  <h1 class="title">Title</h1>\
+  </header>',
+  cols: [
+    {
+      textAlign: 'center',
+      values: ['iPhone 4', 'iPhone 4S', 'iPhone 5', 'iPhone 5S', 'iPhone 6', 'iPhone 6 Plus', 'iPad 2', 'iPad Retina', 'iPad Air', 'iPad mini', 'iPad mini 2', 'iPad mini 3']
+    }
+  ]
+});
+</script>
+{% endhighlight %}
+
+  <h3>close picker</h3>
+
+  <p>Add <code>.close-picker</code> class to any link, and click it to close the picker</p>
+  <p>You can alose call <code>$(".picker").picker("close")</code> or <code>$.closeModal(".picker-modal.modal-in")</code> to close a picker。</p>
+
+  <h3 class="component-title">Params</h3>
+
+  <p class="component-description">See the examplse:</p>
+
+{% highlight js %}
+$("#picker-name").picker({
+  toolbarTemplate: '<header class="bar bar-nav">\
+  <button class="button button-link pull-right close-picker">OK</button>\
+  <h1 class="title">Please Choose</h1>\
+  </header>',
+  cols: [
+    {
+      textAlign: 'center',
+      values: ['Mr', 'Ms']
+      // displayValues: [.....] the value to display, if not specified, it will display the values
+    },
+    {
+      textAlign: 'center',
+      values: ['Brook', 'Churchill', 'Hill', 'Field', 'Green', 'Baby']
+    }
+  ]
+});
+{% endhighlight %}
+
+  <p>Let's look on list of all available parameters:</p>
+
+  <table>
+    <tr>
+      <th>Param</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>toolbarTemplate</td>
+      <td>
+        &lt;header class="bar bar-nav"&gt;
+          &lt;button class="button button-link pull-right close-picker"&gt;OK&lt;/button&gt;
+          &lt;h1 class="title"&gt;&lt;/h1&gt;
+        &lt;/header&gt;
+      </td>
+      <td>Toolbar HTML Template</td>
+    </tr>
+
+    <tr>
+      <td>value</td>
+      <td></td>
+      <td>Array with initial values. Each array item represents value of related column. Picker will auto read value from input if not set.</td>
+    </tr>
+
+    <tr>
+      <td>rotateEffect</td>
+      <td>false</td>
+      <td>Enables 3D rotate effect</td>
+    </tr>
+    <tr>
+      <td>toolbar</td>
+      <td>true</td>
+      <td>Enables picker modal toolbar</td>
+    </tr>
+    <tr>
+      <td>inputReadOnly</td>
+      <td>true</td>
+      <td>Sets "readonly" attribute on specified input</td>
+    </tr>
+    <tr>
+      <td>cssClass</td>
+      <td>undefined</td>
+      <td>Additional CSS class name to be set on picker modal</td>
+    </tr>
+
+  </table>
+
+  <h3>Column parameters</h3>
+
+  <p>When we configure Picker we need to pass cols parameter. It is an array where each item is object with column parameters:</p>
+
+  <table class="params-table">
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>values</td>
+        <td>array</td>
+        <td></td>
+        <td>Array with string columns values</td>
+      </tr>
+      <tr>
+        <td>displayValues</td>
+        <td>array</td>
+        <td></td>
+        <td>Array with string columns values that will be displayed in Picker. If not specified, it will display values from <b>values</b> parameter</td>
+      </tr>
+      <tr>
+        <td>cssClass</td>
+        <td>string</td>
+        <td></td>
+        <td>Additional CSS class name to be set on column HTML container</td>
+      </tr>
+      <tr>
+        <td>textAlign</td>
+        <td>string</td>
+        <td></td>
+        <td>Text alignment of column values, could be "left", "center" or "right"</td>
+      </tr>
+      <tr>
+        <td>width</td>
+        <td>number</td>
+        <td></td>
+        <td>Column width in px. Useful if you need to fix column widths in picker with dependent columns. By default, calculated automatically</td>
+      </tr>
+      <tr>
+        <td>divider</td>
+        <td>boolean</td>
+        <td>false</td>
+        <td>Defines column that should be used as a visual divider, that doesn't have any values</td>
+      </tr>
+      <tr>
+        <td>content</td>
+        <td>string</td>
+        <td></td>
+        <td>Should be specified for divider-column (<code>divider:true</code>) with content of the column</td>
+      </tr>
+      <tr>
+        <th colspan="4">Callbacks</th>
+      </tr>
+      <tr>
+        <td>onChange</td>
+        <td>function (p, value, displayValue)</td>
+        <td></td>
+        <td>Callback function that will be executed when column value changed. <b>value</b> and <b>displayValue</b> represent current column <b>value</b> and <b>displayValue</b></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 class="component-title">picker方法</h3>
+
+  <p class="component-description">You can call methods of pickers like this: <code>$(".picker").picker("method", args1, args2...)</code> </p>
+
+{% highlight js %}
+$("#picker-name").picker("open");
+$("#picker-name").picker("close");
+$("#picker-name").picker("setValue", ["2012", "12", "12"]);
+{% endhighlight %}
+
+  <p>All aviable methods:</p>
+
+  <table class="methods-table">
+    <tr>
+      <th colspan="2">Methods</th>
+    </tr>
+    <tr>
+      <td>myPicker.setValue(values, duration)</td>
+      <td>Set new picker value. <b>values</b> is array where each item represents value for each column. <b>duration</b> - transition duration in ms</td>
+    </tr>
+    <tr>
+      <td>myPicker.open()</td>
+      <td>Open Picker</td>
+    </tr>
+    <tr>
+      <td>myPicker.close()</td>
+      <td>Close Picker</td>
+    </tr>
+    <tr>
+      <td>myPicker.destroy()</td>
+      <td>Destroy Picker instance and remove all events</td>
+    </tr>
+  </tbody>
+  </table>
+
+</article>
+
+<article class="component" id="datetime-picker" data-url='datetime-picker'>
+  <h2 class="component-title">Datetime Picker</h2>
+
+  <p class="component-description">Datetime picker is a customed Picker. So, it'is usage is same to Picker.</p>
+  <p>datetime-picker customed <code>onChange</code> and <code>cols</code>, don't change these two param please.</p>
+  <p>datetime-picker will read the value of input as init value, but the format must be <code>yyyy-mm-dd HH:MM</code>, such as <code>2015-12-12 08:30</code></p>
+
+{% highlight html %}
+<input type="text" id='datetime-picker'/>
+<script>
+  $("#datetime-picker").datetimePicker({
+    toolbarTemplate: '<header class="bar bar-nav">\
+    <button class="button button-link pull-right close-picker">OK</button>\
+    <h1 class="title">Choose datetime</h1>\
+    </header>'
+  });
+</script>
+{% endhighlight %}
+
+  <p>If you only want to select date, use <a href='#calendar' data-ignore='push'>Calendar</a> please.</p>
+</article>
+
