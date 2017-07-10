@@ -1,10 +1,9 @@
 {
-
-  "name": "light7",
+  "name": "dsx_mdn",
   "description": "Build mobile apps with simple HTML, CSS, and JS components.",
-  "version": "0.4.3",
+  "version": "1.0.2",
   "keywords": [
-    "light7",
+    "dsx_mdn",
     "UI",
     "webapp",
     "css",
@@ -13,12 +12,12 @@
     "android",
     "mobile"
   ],
-  "homepage": "http://light7.org/",
+  "homepage": "https://github.com/GGwujun/dsx_mui#readme",
   "style": "dist/css/light7.css",
   "less": "less/light7.less",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lihongxun945/light7"
+    "url": "git+https://github.com/GGwujun/dsx_mui.git"
   },
   "license": "MIT",
   "scripts": {
@@ -47,5 +46,14 @@
   },
   "engines": {
     "node": ">=0.10.1"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/GGwujun/dsx_mui/issues"
+  },
+  "main": "Gruntfile.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {},
+  "author": ""
 }
