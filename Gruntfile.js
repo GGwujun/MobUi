@@ -3,13 +3,13 @@
  */
 
 /* jshint node: true */
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     'use strict';
 
     // Force use of Unix newlines
     grunt.util.linefeed = '\n';
 
-    RegExp.quote = function(string) {
+    RegExp.quote = function (string) {
         return string.replace(/[-\\^$*+?.()|[\]{}]/g, '\\$&');
     };
 
@@ -30,11 +30,11 @@ module.exports = function(grunt) {
         },
 
         banner: '/*!\n' +
-            ' * =====================================================\n' +
-            ' * light7 V<%= pkg.version %> - http://light7.org/\n' +
-            ' *\n' +
-            ' * =====================================================\n' +
-            ' */\n',
+        ' * =====================================================\n' +
+        ' * light7 V<%= pkg.version %> - http://light7.org/\n' +
+        ' *\n' +
+        ' * =====================================================\n' +
+        ' */\n',
 
         clean: {
             dist: ['<%= meta.distPath %>', '<%= meta.docsDistPath %>']
@@ -42,74 +42,74 @@ module.exports = function(grunt) {
 
         concat: {
             light7: {
-              options: {
-                  banner: '<%= banner %>'
-              },
-              src: [
-                  'js/intro.js',
-                  'js/device.js',
-                  'js/util.js',
-                  'js/detect.js',
-                  'js/zepto-adapter.js',
-                  'js/fastclick.js',
-                  'js/template7.js',
-                  'js/page.js',
-                  'js/tabs.js',
-                  'js/bar-tab.js',
-                  'js/modal.js',
-                  'js/calendar.js',
-                  'js/picker.js',
-                  'js/datetime-picker.js',
-                  'js/pull-to-refresh-js-scroll.js',
-                  'js/pull-to-refresh.js',
-                  'js/infinite-scroll.js',
-                  'js/notification.js',
-                  'js/index.js',
-                  'js/searchbar.js',
-                  'js/panels.js',
-                  'js/router.js',
-                  'js/init.js'
-              ],
-              dest: '<%= meta.distPath %>js/<%= pkg.name %>.js'
+                options: {
+                    banner: '<%= banner %>'
+                },
+                src: [
+                    'js/intro.js',
+                    'js/device.js',
+                    'js/util.js',
+                    'js/detect.js',
+                    'js/zepto-adapter.js',
+                    'js/fastclick.js',
+                    'js/template7.js',
+                    'js/page.js',
+                    'js/tabs.js',
+                    'js/bar-tab.js',
+                    'js/modal.js',
+                    'js/calendar.js',
+                    'js/picker.js',
+                    'js/datetime-picker.js',
+                    'js/pull-to-refresh-js-scroll.js',
+                    'js/pull-to-refresh.js',
+                    'js/infinite-scroll.js',
+                    'js/notification.js',
+                    'js/index.js',
+                    'js/searchbar.js',
+                    'js/panels.js',
+                    'js/router.js',
+                    'js/init.js'
+                ],
+                dest: '<%= meta.distPath %>js/<%= pkg.name %>.js'
             },
             swiper: {
-              options: {
-                  banner: '<%= banner %>'
-              },
-              src: [
-                  'js/swiper.js',
-                  'js/swiper-init.js',
-                  'js/photo-browser.js'
-              ],
-              dest: '<%= meta.distPath %>js/<%= pkg.name %>-swiper.js'
+                options: {
+                    banner: '<%= banner %>'
+                },
+                src: [
+                    'js/swiper.js',
+                    'js/swiper-init.js',
+                    'js/photo-browser.js'
+                ],
+                dest: '<%= meta.distPath %>js/<%= pkg.name %>-swiper.js'
             },
             cityPicker: {
-              options: {
-                  banner: '<%= banner %>'
-              },
-              src: [
-                  'js/city-data.js',
-                  'js/city-picker.js'
-              ],
-              dest: '<%= meta.distPath %>js/<%= pkg.name %>-city-picker.js'
+                options: {
+                    banner: '<%= banner %>'
+                },
+                src: [
+                    'js/city-data.js',
+                    'js/city-picker.js'
+                ],
+                dest: '<%= meta.distPath %>js/<%= pkg.name %>-city-picker.js'
             },
             swipeout: {
-              options: {
-                  banner: '<%= banner %>'
-              },
-              src: [
-                  'js/swipeout.js'
-              ],
-              dest: '<%= meta.distPath %>js/<%= pkg.name %>-swipeout.js'
+                options: {
+                    banner: '<%= banner %>'
+                },
+                src: [
+                    'js/swipeout.js'
+                ],
+                dest: '<%= meta.distPath %>js/<%= pkg.name %>-swipeout.js'
             },
             i18n: {
-              options: {
-                  banner: '<%= banner %>'
-              },
-              src: [
-                  'js/i18n/cn.js'
-              ],
-              dest: '<%= meta.distPath %>js/i18n/cn.js'
+                options: {
+                    banner: '<%= banner %>'
+                },
+                src: [
+                    'js/i18n/cn.js'
+                ],
+                dest: '<%= meta.distPath %>js/i18n/cn.js'
             }
         },
 
@@ -172,6 +172,11 @@ module.exports = function(grunt) {
             img: {
                 expand: true,
                 src: 'img/*',
+                dest: '<%= meta.distPath %>'
+            },
+            fonts: {
+                expand: true,
+                src: 'fonts/*',
                 dest: '<%= meta.distPath %>'
             },
             docs: {
@@ -346,17 +351,17 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
     require('time-grunt')(grunt);
 
-  // Default task(s).
-  grunt.registerTask('dist-css', ['less', 'autoprefixer', 'usebanner', 'csscomb', 'cssmin']);
-  grunt.registerTask('dist-js', ['concat', 'uglify']);
-  grunt.registerTask('dist', ['clean', 'dist-css', 'dist-js', 'copy']);
-  grunt.registerTask('validate-html', ['jekyll']);
-  grunt.registerTask('build', ['dist']);
-  grunt.registerTask('test', ['dist', 'jshint', 'qunit', 'validate-html']);
-  grunt.registerTask('server', ['dist', 'jekyll', 'connect', 'watch']);
-  grunt.registerTask('default', ['test', 'dist']);
+    // Default task(s).
+    grunt.registerTask('dist-css', ['less', 'autoprefixer', 'usebanner', 'csscomb', 'cssmin']);
+    grunt.registerTask('dist-js', ['concat', 'uglify']);
+    grunt.registerTask('dist', ['clean', 'dist-css', 'dist-js', 'copy']);
+    grunt.registerTask('validate-html', ['jekyll']);
+    grunt.registerTask('build', ['dist']);
+    grunt.registerTask('test', ['dist', 'jshint', 'qunit', 'validate-html']);
+    grunt.registerTask('server', ['dist', 'jekyll', 'connect', 'watch']);
+    grunt.registerTask('default', ['test', 'dist']);
 
-  // Version numbering task.
-  // grunt change-version-number --oldver=A.B.C --newver=X.Y.Z
-  // This can be overzealous, so its changes should always be manually reviewed!
+    // Version numbering task.
+    // grunt change-version-number --oldver=A.B.C --newver=X.Y.Z
+    // This can be overzealous, so its changes should always be manually reviewed!
 };
