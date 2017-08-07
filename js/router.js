@@ -228,7 +228,7 @@
     }
   }
   //如果无法后退，则加载对应的url
-  Router.prototype.back = function (url) {
+  Router.prototype.back = function (url, freash) {
     var stack = JSON.parse(this.stack.getItem("back"));
     if (stack.length) {
       history.back();

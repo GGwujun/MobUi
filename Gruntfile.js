@@ -225,7 +225,7 @@ module.exports = function (grunt) {
                 keepBreaks: true
             },
             light7: {
-                src: '<%= meta.distPath %>css/<%= pkg.name %>.css',
+                src: '<%= meta.distPath %>css/<%= pkg.name %>.css', 
                 dest: '<%= meta.distPath %>css/<%= pkg.name %>.min.css'
             },
             swipeout: {
@@ -354,7 +354,7 @@ module.exports = function (grunt) {
     // Default task(s).
     grunt.registerTask('dist-css', ['less', 'autoprefixer', 'usebanner', 'csscomb', 'cssmin']);
     grunt.registerTask('dist-js', ['concat', 'uglify']);
-    grunt.registerTask('dist', ['clean', 'dist-css', 'dist-js', 'copy']);
+    grunt.registerTask('dist', [ 'dist-css', 'dist-js', 'copy']);
     grunt.registerTask('validate-html', ['jekyll']);
     grunt.registerTask('build', ['dist']);
     grunt.registerTask('test', ['dist', 'jshint', 'qunit', 'validate-html']);
