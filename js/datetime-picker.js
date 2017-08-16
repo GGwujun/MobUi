@@ -1,27 +1,27 @@
 /* global $:true */
 /* jshint unused:false*/
 
-+ function($) {
++ function ($) {
   "use strict";
 
-  
-  $.fn.datetimePicker = function(params) {
-    return this.each(function() {
 
-      if(!this) return;
+  $.fn.datetimePicker = function (params) {
+    return this.each(function () {
+
+      if (!this) return;
 
       var today = new Date();
 
-      var getDays = function(max) {
+      var getDays = function (max) {
         var days = [];
-        for(var i=1; i<= (max||31);i++) {
-          days.push(i < 10 ? "0"+i : i);
+        for (var i = 1; i <= (max || 31); i++) {
+          days.push(i < 10 ? "0" + i : i);
         }
         return days;
       };
 
-      var getDaysByMonthAndYear = function(month, year) {
-        var int_d = new Date(year, parseInt(month)+1-1, 1);
+      var getDaysByMonthAndYear = function (month, year) {
+        var int_d = new Date(year, parseInt(month) + 1 - 1, 1);
         var d = new Date(int_d - 1);
         return getDays(d.getDate());
       };
@@ -43,12 +43,12 @@
 
         rotateEffect: false,  //为了性能
 
-        value: [today.getFullYear(), formatNumber(today.getMonth()+1), today.getDate(), formatNumber(today.getHours()), formatNumber(today.getMinutes())],
+        value: [today.getFullYear(), formatNumber(today.getMonth() + 1), today.getDate(), formatNumber(today.getHours()), formatNumber(today.getMinutes())],
 
         onChange: function (picker, values, displayValues) {
           var days = getDaysByMonthAndYear(picker.cols[1].value, picker.cols[0].value);
           var currentValue = picker.cols[2].value;
-          if(currentValue > days.length) currentValue = days.length;
+          if (currentValue > days.length) currentValue = days.length;
           picker.cols[2].setValue(currentValue);
         },
 
@@ -101,11 +101,37 @@
 
       params = params || {};
       var inputValue = $(this).val();
-      if(params.value === undefined && inputValue !== "") {
+      // var FORMAT_KEYS = [
+      //   { f: 'YY', k: 'year' },
+      //   { f: 'MM', k: 'month' },
+      //   { f: 'DD', k: 'day' },
+      //   { f: 'hh', k: 'hour' },
+      //   { f: 'mm', k: 'minute' }
+      // ];
+      // var template = $(this).attr('pickerFormat');
+
+      // var tokens = [];
+      // var hasText = false;
+      // FORMAT_KEYS.forEach(function (format, index) {
+      //   if (template.indexOf(format.f) > -1) {
+      //     var token = '{' + index + '}';
+      //     if (!hasText && text && isPresent(((value))[format.k])) {
+      //       hasText = true;
+      //     }
+      //     tokens.push(token, text);
+      //     template = template.replace(format.f, token);
+      //   }
+      // });
+      // if (!hasText) {
+      //   return '';
+      // }
+
+      if (params.value === undefined && inputValue !== "") {
         params.value = [].concat(inputValue.split(" ")[0].split("-"), inputValue.split(" ")[1].split(":"));
       }
 
       var p = $.extend(defaults, params);
+
       $(this).picker(p);
     });
   };

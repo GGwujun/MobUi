@@ -4,7 +4,7 @@
 /*jshint unused: false*/
 /* global $:true */
 +function ($) {
-  "use strict";
+    "use strict";
     var _modalTemplateTempDiv = document.createElement('div');
 
     $.modalStack = [];
@@ -36,13 +36,13 @@
             var verticalButtons = params.verticalButtons ? 'modal-buttons-vertical' : '';
             modalHTML = '<div class="modal ' + noButtons + '"><div class="modal-inner">' + (titleHTML + textHTML + afterTextHTML) + '</div><div class="modal-buttons ' + verticalButtons + '">' + buttonsHTML + '</div></div>';
         }
-        
+
         _modalTemplateTempDiv.innerHTML = modalHTML;
 
         var modal = $(_modalTemplateTempDiv).children();
 
         $(defaults.modalContainer).append(modal[0]);
-        
+
         // Add events on buttons
         modal.find('.modal-button').each(function (index, el) {
             $(el).on('click', function (e) {
@@ -62,21 +62,24 @@
         return $.modal({
             text: text || '',
             title: typeof title === 'undefined' ? defaults.modalTitle : title,
-            buttons: [ {text: defaults.modalButtonOk, bold: true, onClick: callbackOk} ]
+            buttons: [{ text: defaults.modalButtonOk, bold: true, onClick: callbackOk }]
         });
     };
-    $.confirm = function (text, title, callbackOk, callbackCancel) {
-        if (typeof title === 'function') {
+    $.confirm = function (param, callbackOk, callbackCancel, modalButtonOk, modalButtonCancel) {
+        param = param || {}
+        
+        if (typeof param.title === 'function') {
             callbackCancel = arguments[2];
             callbackOk = arguments[1];
-            title = undefined;
+            param.title = undefined;
         }
+
         return $.modal({
-            text: text || '',
-            title: typeof title === 'undefined' ? defaults.modalTitle : title,
+            text: param.text || '',
+            title: typeof param.title === 'undefined' ? defaults.modalTitle : param.title,
             buttons: [
-                {text: defaults.modalButtonCancel, onClick: callbackCancel},
-                {text: defaults.modalButtonOk, bold: true, onClick: callbackOk}
+                { text: param.modalButtonCancel === 'undefined' ? defaults.modalButtonCancel : param.modalButtonCancel, onClick: callbackCancel },
+                { text: param.modalButtonOk === 'undefined' ? defaults.modalButtonOk : param.modalButtonOk, bold: true, onClick: callbackOk }
             ]
         });
     };
@@ -179,7 +182,7 @@
         if (arguments.length === 1) {
             // Actions
             params = target;
-        } 
+        }
         else {
             // Popover
             if ($.device.ios) {
@@ -190,29 +193,29 @@
             }
         }
         params = params || [];
-        
+
         if (params.length > 0 && !$.isArray(params[0])) {
             params = [params];
         }
         var modalHTML;
         if (toPopover) {
-            var actionsToPopoverTemplate = defaults.modalActionsToPopoverTemplate || 
+            var actionsToPopoverTemplate = defaults.modalActionsToPopoverTemplate ||
                 '<div class="popover actions-popover">' +
-                  '<div class="popover-inner">' +
-                    '{{#each this}}' +
-                    '<div class="list-block">' +
-                      '<ul>' +
-                        '{{#each this}}' +
-                        '{{#if label}}' +
-                        '<li class="actions-popover-label {{#if color}}color-{{color}}{{/if}} {{#if bold}}actions-popover-bold{{/if}}">{{text}}</li>' +
-                        '{{else}}' +
-                        '<li><a href="#" class="item-link list-button {{#if color}}color-{{color}}{{/if}} {{#if bg}}bg-{{bg}}{{/if}} {{#if bold}}actions-popover-bold{{/if}} {{#if disabled}}disabled{{/if}}">{{text}}</a></li>' +
-                        '{{/if}}' +
-                        '{{/each}}' +
-                      '</ul>' +
-                    '</div>' +
-                    '{{/each}}' +
-                  '</div>' +
+                '<div class="popover-inner">' +
+                '{{#each this}}' +
+                '<div class="list-block">' +
+                '<ul>' +
+                '{{#each this}}' +
+                '{{#if label}}' +
+                '<li class="actions-popover-label {{#if color}}color-{{color}}{{/if}} {{#if bold}}actions-popover-bold{{/if}}">{{text}}</li>' +
+                '{{else}}' +
+                '<li><a href="#" class="item-link list-button {{#if color}}color-{{color}}{{/if}} {{#if bg}}bg-{{bg}}{{/if}} {{#if bold}}actions-popover-bold{{/if}} {{#if disabled}}disabled{{/if}}">{{text}}</a></li>' +
+                '{{/if}}' +
+                '{{/each}}' +
+                '</ul>' +
+                '</div>' +
+                '{{/each}}' +
+                '</div>' +
                 '</div>';
             if (!$._compiledTemplates.actionsToPopover) {
                 $._compiledTemplates.actionsToPopover = t7.compile(actionsToPopoverTemplate);
@@ -250,7 +253,7 @@
             groupSelector = '.actions-modal-group';
             buttonSelector = '.actions-modal-button';
         }
-        
+
         var groups = modal.find(groupSelector);
         groups.each(function (index, el) {
             var groupIndex = index;
@@ -293,13 +296,13 @@
         modal.show();
 
         function sizePopover() {
-            modal.css({left: '', top: ''});
-            var modalWidth =  modal.width();
-            var modalHeight =  modal.height(); // 13 - height of angle
+            modal.css({ left: '', top: '' });
+            var modalWidth = modal.width();
+            var modalHeight = modal.height(); // 13 - height of angle
             var modalAngle = modal.find('.popover-angle');
             var modalAngleSize = modalAngle.width() / 2;
             var modalAngleLeft, modalAngleTop;
-            modalAngle.removeClass('on-left on-right on-top on-bottom').css({left: '', top: ''});
+            modalAngle.removeClass('on-left on-right on-top on-bottom').css({ left: '', top: '' });
 
             var targetWidth = target.outerWidth();
             var targetHeight = target.outerHeight();
@@ -351,7 +354,7 @@
                 diff = diff - modalLeft;
                 modalAngleLeft = (modalWidth / 2 - modalAngleSize + diff);
                 modalAngleLeft = Math.max(Math.min(modalAngleLeft, modalWidth - modalAngleSize * 2 - 6), 6);
-                modalAngle.css({left: modalAngleLeft + 'px'});
+                modalAngle.css({ left: modalAngleLeft + 'px' });
             }
             else if (modalPosition === 'middle') {
                 modalLeft = targetOffset.left - modalWidth - modalAngleSize;
@@ -366,11 +369,11 @@
                 }
                 modalAngleTop = (modalHeight / 2 - modalAngleSize + diff);
                 modalAngleTop = Math.max(Math.min(modalAngleTop, modalHeight - modalAngleSize * 2 - 6), 6);
-                modalAngle.css({top: modalAngleTop + 'px'});
+                modalAngle.css({ top: modalAngleTop + 'px' });
             }
 
             // Apply Styles
-            modal.css({top: modalTop + 'px', left: modalLeft + 'px'});
+            modal.css({ top: modalTop + 'px', left: modalLeft + 'px' });
         }
         sizePopover();
 
@@ -378,7 +381,7 @@
         modal.on('close', function () {
             $(window).off('resize', sizePopover);
         });
-        
+
         if (modal.find('.' + defaults.viewClass).length > 0) {
             $.sizeNavbars(modal.find('.' + defaults.viewClass)[0]);
         }
@@ -405,7 +408,7 @@
             $.sizeNavbars(modal.find('.' + defaults.viewClass)[0]);
         }
         $.openModal(modal);
-     
+
         return modal[0];
     };
     $.pickerModal = function (pickerModal, removeOnClose) {
@@ -436,15 +439,15 @@
         return modal[0];
     };
     //显示一个消息，会在2秒钟后自动消失
-    $.toast = function(msg, time) {
-      var $toast = $("<div class='modal toast'>"+msg+"</div>").appendTo(document.body);
-      $.openModal($toast);
-      setTimeout(function() {
-        $.closeModal($toast);
-      }, time || 2000);
+    $.toast = function (msg, time) {
+        var $toast = $("<div class='modal toast'>" + msg + "</div>").appendTo(document.body);
+        $.openModal($toast);
+        setTimeout(function () {
+            $.closeModal($toast);
+        }, time || 2000);
     };
     $.openModal = function (modal) {
-        if(defaults.closePrevious) $.closeModal();
+        if (defaults.closePrevious) $.closeModal();
         modal = $(modal);
         var isModal = modal.hasClass('modal');
         if ($('.modal.modal-in:not(.modal-out)').length && defaults.modalStack && isModal) {
@@ -467,7 +470,7 @@
         if (isToast) {
             modal.show();
             modal.css({
-                marginLeft: - Math.round(parseInt(window.getComputedStyle(modal[0]).width) / 2)  + 'px' //
+                marginLeft: - Math.round(parseInt(window.getComputedStyle(modal[0]).width) / 2) + 'px' //
             });
         }
 
@@ -515,17 +518,17 @@
         var removeOnClose = modal.hasClass('remove-on-close');
 
         var overlay = isPopup ? $('.popup-overlay') : $('.modal-overlay');
-        if (isPopup){
+        if (isPopup) {
             if (modal.length === $('.popup.modal-in').length) {
-                overlay.removeClass('modal-overlay-visible');    
-            }  
+                overlay.removeClass('modal-overlay-visible');
+            }
         }
         else if (!isPickerModal) {
             overlay.removeClass('modal-overlay-visible');
         }
 
         modal.trigger('close');
-        
+
         // Picker modal body class
         if (isPickerModal) {
             $(defaults.modalContainer).removeClass('with-picker-modal');
@@ -536,7 +539,7 @@
             modal.removeClass('modal-in').addClass('modal-out').transitionEnd(function (e) {
                 if (modal.hasClass('modal-out')) modal.trigger('closed');
                 else modal.trigger('opened');
-                
+
                 if (isPickerModal) {
                     $(defaults.modalContainer).removeClass('picker-modal-closing');
                 }
@@ -550,7 +553,7 @@
                     modal.remove();
                 }
             });
-            if (isModal &&  defaults.modalStack ) {
+            if (isModal && defaults.modalStack) {
                 $.modalStackClearQueue();
             }
         }
@@ -598,14 +601,14 @@
             else popup = '.popup.modal-in';
             $.closeModal(popup);
         }
-     
+
         // Close Modal
         if (clicked.hasClass('modal-overlay')) {
             if ($('.modal.modal-in').length > 0 && defaults.modalCloseByOutside)
                 $.closeModal('.modal.modal-in');
             if ($('.actions-modal.modal-in').length > 0 && defaults.actionsCloseByOutside)
                 $.closeModal('.actions-modal.modal-in');
-            
+
             if ($('.popover.modal-in').length > 0) $.closeModal('.popover.modal-in');
         }
         if (clicked.hasClass('popup-overlay')) {
@@ -615,18 +618,18 @@
     }
 
     var defaults = $.modal.prototype.defaults = {
-      modalButtonOk: 'OK',
-      modalButtonCancel: 'Cancel',
-      modalPreloaderTitle: 'Loading...',
-      modalContainer : document.body,
-      modalCloseByOutside: true,
-      actionsCloseByOutside: false,
-      popupCloseByOutside: true,
-      closePrevious: true  //close all previous modal before open
+        modalButtonOk: '确定',
+        modalButtonCancel: '取消',
+        modalPreloaderTitle: 'Loading...',
+        modalContainer: document.body,
+        modalCloseByOutside: true,
+        actionsCloseByOutside: false,
+        popupCloseByOutside: true,
+        closePrevious: true  //close all previous modal before open
     };
 
-    $(function() {
-      $(document).on('click', ' .modal-overlay, .popup-overlay, .close-popup, .open-popup, .open-popover, .close-popover, .close-picker', handleClicks);
-      defaults.modalContainer = defaults.modalContainer || document.body;  //incase some one include js in head
+    $(function () {
+        $(document).on('click', ' .modal-overlay, .popup-overlay, .close-popup, .open-popup, .open-popover, .close-popover, .close-picker', handleClicks);
+        defaults.modalContainer = defaults.modalContainer || document.body;  //incase some one include js in head
     });
 }($);
