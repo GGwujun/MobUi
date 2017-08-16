@@ -1,5 +1,5 @@
 /* === Modals === */
-@modalBgColor:#e8e8e8;
+@modalBgColor:#ffffff;
 @modalButonColor : @color-primary;
 @modalButonBg: @modalBgColor;
 @modalButonActiveBg:#d4d4d4;
@@ -30,11 +30,11 @@
     z-index: 10200;
 }
 .modal {
-    width: 13.5rem;
+    width: 17.5rem;
     position: absolute;
     z-index: 11000;
     left: 50%;
-    margin-left: -6.75rem;
+    margin-left: -8.75rem;
     margin-top: 0;
     top: 50%;
     text-align: center;
@@ -59,20 +59,40 @@
 .modal-inner {
     padding: 0.75rem;
     .hairline(bottom, #b5b5b5);
-    border-radius: 0.35rem 0.35rem 0 0;
+    border-radius:0.5rem 0.5rem 0 0;
     position: relative;
     background: @modalBgColor;
 }
 .modal-title {
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
+	font-family:fantasy;
     text-align: center;
+	color:#000000;
     +.modal-text {
         margin-top: 0.25rem;
     }
 }
+
+.modal-text{
+   .updatet{
+		font-size:17px;
+		text-align:left;
+		color:black;
+		padding:0px 10px;
+		letter-spacing:1px;
+   }
+   .update{
+		font-size: 0.9rem;
+		line-height: 1.4rem;;
+		text-align:left;
+		color:#777777;
+		padding: 0 0.6rem;
+		letter-spacing:0.1rem;
+   }
+}
 .modal-buttons {
-    height: 2.2rem;
+    height: 3rem;
     overflow: hidden;
     .flexbox();
     .justify-content(center);
@@ -84,9 +104,9 @@
 .modal-button {
     width: 100%;
     padding: 0 0.25rem;
-    height: 2.2rem;
+    height: 3rem;
     font-size: 0.85rem;
-    line-height: 2.2rem;
+    line-height: 3rem;
     text-align: center;
     color: @modalButonColor;
     background: @modalButonBg;
@@ -97,6 +117,7 @@
     overflow: hidden;
     cursor: pointer;
     box-sizing: border-box;
+	border-right: 1px solid #FBFAFA;
     .hairline(right, #b5b5b5);
     -webkit-box-flex:1;
     -ms-flex:1;
