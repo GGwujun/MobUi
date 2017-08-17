@@ -30,11 +30,11 @@
     z-index: 10200;
 }
 .modal {
-    width: 17.5rem;
+    width: 84%;
     position: absolute;
     z-index: 11000;
     left: 50%;
-    margin-left: -8.75rem;
+    margin-left: -42%;
     margin-top: 0;
     top: 50%;
     text-align: center;
@@ -60,30 +60,45 @@
     padding: 0.75rem;
     .hairline(bottom, #b5b5b5);
     border-radius:0.5rem 0.5rem 0 0;
+    border-bottom: 1px solid #FBFAFA!important;
     position: relative;
     background: @modalBgColor;
 }
 .modal-title {
+    padding:0.7rem 0;
     font-weight: 500;
     font-size: 1.2rem;
-	font-family:fantasy;
+    font-family:fantasy;
     text-align: center;
-	color:#000000;
+    color:#000000;
     +.modal-text {
         margin-top: 0.25rem;
     }
 }
 
+
+
 .modal-text{
+   .update-version{
+          text-align: left;
+          font-size: 0.95rem;
+          color: #989898;
+          margin-top: 0px;
+          padding: 0.6rem 0.6rem 0px 0.6rem;
+          letter-spacing: 0.05rem;
+ }
+
    .updatet{
-		font-size:17px;
-		text-align:left;
-		color:black;
-		padding:0px 10px;
-		letter-spacing:1px;
+		font-size: 1.1rem;
+                text-align: left;
+                color: black;
+                padding: 0.6rem 0.6rem 0 0.6rem;
+                letter-spacing: 0.05rem;
+                margin: 0rem 0rem -0.4rem 0rem;
    }
    .update{
 		font-size: 0.9rem;
+                font-family: sans-serif;
 		line-height: 1.4rem;;
 		text-align:left;
 		color:#777777;
@@ -105,10 +120,10 @@
     width: 100%;
     padding: 0 0.25rem;
     height: 3rem;
-    font-size: 0.85rem;
+    font-size: 1rem;
     line-height: 3rem;
     text-align: center;
-    color: @modalButonColor;
+    color: #2D7EE8;
     background: @modalButonBg;
     display: block;
     position: relative;
@@ -117,7 +132,7 @@
     overflow: hidden;
     cursor: pointer;
     box-sizing: border-box;
-	border-right: 1px solid #FBFAFA;
+    border-right: 1px solid #FBFAFA!important;
     .hairline(right, #b5b5b5);
     -webkit-box-flex:1;
     -ms-flex:1;
@@ -536,12 +551,20 @@ html.with-statusbar-overlay {
 //toast
 
 .toast {
-  background: rgba(0, 0, 0, .8);
+  background: rgba(221,221,221,0.9);
+  color:#000;
   border-radius: 1rem;
-  color: white;
   padding: 0 .8rem;
   height: 2rem;
   line-height: 2rem;
   font-size: 0.8rem;
   width: auto;
 }
+.bottom{
+  bottom:3.2rem;
+  top:auto;
+}
+.top{
+  top:3.2rem;
+}
+

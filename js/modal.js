@@ -65,7 +65,7 @@
             buttons: [{ text: defaults.modalButtonOk, bold: true, onClick: callbackOk }]
         });
     };
-    $.confirm = function (param, callbackOk, callbackCancel, modalButtonOk, modalButtonCancel) {
+    $.confirm = function (param, callbackOk, callbackCancel) {
         param = param || {}
         
         if (typeof param.title === 'function') {
@@ -439,12 +439,13 @@
         return modal[0];
     };
     //显示一个消息，会在2秒钟后自动消失
-    $.toast = function (msg, time) {
-        var $toast = $("<div class='modal toast'>" + msg + "</div>").appendTo(document.body);
-        $.openModal($toast);
-        setTimeout(function () {
-            $.closeModal($toast);
-        }, time || 2000);
+    $.toast = function(msg,position,time) {
+      position?position:"";
+      var $toast = $("<div class='modal toast "+position+"'>"+msg+"</div>").appendTo(document.body);
+      $.openModal($toast);
+      setTimeout(function() {
+        $.closeModal($toast);
+      }, time || 2000);
     };
     $.openModal = function (modal) {
         if (defaults.closePrevious) $.closeModal();
