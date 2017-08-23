@@ -67,7 +67,7 @@
     };
     $.confirm = function (param, callbackOk, callbackCancel) {
         param = param || {}
-        
+
         if (typeof param.title === 'function') {
             callbackCancel = arguments[2];
             callbackOk = arguments[1];
@@ -76,10 +76,10 @@
 
         return $.modal({
             text: param.text || '',
-            title: typeof param.title === 'undefined' ? defaults.modalTitle : param.title,
+            title: typeof param.title ? param.title : defaults.modalTitle,
             buttons: [
-                { text: param.modalButtonCancel === 'undefined' ? defaults.modalButtonCancel : param.modalButtonCancel, onClick: callbackCancel },
-                { text: param.modalButtonOk === 'undefined' ? defaults.modalButtonOk : param.modalButtonOk, bold: true, onClick: callbackOk }
+                { text: param.modalButtonCancel ? param.modalButtonCancel : defaults.modalButtonCancel, onClick: callbackCancel },
+                { text: param.modalButtonOk ? param.modalButtonOk : defaults.modalButtonOk, bold: true, onClick: callbackOk }
             ]
         });
     };
@@ -439,13 +439,13 @@
         return modal[0];
     };
     //显示一个消息，会在2秒钟后自动消失
-    $.toast = function(msg,position,time) {
-      position?position:"";
-      var $toast = $("<div class='modal toast "+position+"'>"+msg+"</div>").appendTo(document.body);
-      $.openModal($toast);
-      setTimeout(function() {
-        $.closeModal($toast);
-      }, time || 2000);
+    $.toast = function (msg, position, time) {
+        position ? position : "";
+        var $toast = $("<div class='modal toast " + position + "'>" + msg + "</div>").appendTo(document.body);
+        $.openModal($toast);
+        setTimeout(function () {
+            $.closeModal($toast);
+        }, time || 2000);
     };
     $.openModal = function (modal) {
         if (defaults.closePrevious) $.closeModal();
