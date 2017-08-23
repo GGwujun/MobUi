@@ -5,7 +5,7 @@
 @modalButonActiveBg:#d4d4d4;
 @modalDuration:400ms;
 @actionsModalDuration:300ms;
-@actionsModalButtonBg: rgba(243,243,243,0.95);
+@actionsModalButtonBg: #ffffff;
 @actionsModalActiveButtonBg:#dcdcdc;
 @popoverBg: rgba(255,255,255,0.95);
 @popupDuration: 400ms;
@@ -227,14 +227,14 @@
       }
     }
     &:first-child {
-        border-radius: 0.2rem 0.2rem 0 0;
+        border-radius: 0.5rem 0.5rem 0 0;
     }
     &:last-child {
         .hairline-remove(bottom);
-        border-radius: 0 0 0.2rem 0.2rem;
+        border-radius: 0 0 0.5rem 0.5rem;
     }
     &:first-child:last-child {
-        border-radius: 0.2rem;
+        border-radius: 0.5rem;
     }
     &.disabled {
         opacity: 0.95;
@@ -243,7 +243,7 @@
 }
 .actions-modal-button {
     cursor: pointer;
-    line-height: 2.15rem;
+    line-height: 3rem;
     font-size:1rem;
     color: @color-primary;
     &:active, &.active-state {
