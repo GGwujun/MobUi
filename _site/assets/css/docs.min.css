@@ -1,6 +1,6 @@
 /*!
  * =====================================================
- * light7 V1.0.3 - http://light7.org/
+ * light7 V1.0.7 - http://light7.org/
  *
  * =====================================================
  */
@@ -190,8 +190,8 @@ hr{height:0;margin:10px 0 30px;clear:both;border:solid #ddd;border-width:1px 0 0
 .list-group .github-btn{float:right;width:121px;height:20px;margin-top:6px}
 .browser-support-table td,.browser-support-table th{padding:5px;border:1px solid #ddd}
 .browser-support-maybe{color:#fff;background-color:#f0ad4e}
-.browser-support-yes{background-color:#4cd964}
-.browser-support-no{background-color:#f6383a}
+.browser-support-yes{background-color:#006cba}
+.browser-support-no{background-color:#006cba}
 code{color:#c30}
 pre code{color:#333}
 pre code .c{color:#999}

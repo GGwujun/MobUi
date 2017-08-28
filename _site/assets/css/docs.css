@@ -1,6 +1,6 @@
 /*!
  * =====================================================
- * light7 V1.0.3 - http://light7.org/
+ * light7 V1.0.7 - http://light7.org/
  *
  * =====================================================
  */
@@ -1095,10 +1095,10 @@ hr {
   background-color: #f0ad4e;
 }
 .browser-support-yes {
-  background-color: #4cd964;
+  background-color: #006cba;
 }
 .browser-support-no {
-  background-color: #f6383a;
+  background-color: #006cba;
 }
 code {
   color: #c30;

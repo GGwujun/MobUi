@@ -178,7 +178,7 @@ $(function () {
         }
       ];
       var groups = [buttons1, buttons2];
-      $.actions(groups);
+      $.actionGird(groups);
     }); 
   });
 
