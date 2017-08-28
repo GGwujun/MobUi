@@ -66,7 +66,7 @@
         });
     };
     $.confirm = function (param, callbackOk, callbackCancel) {
-        param = param || {}
+        param = param || {};
 
         if (typeof param.title === 'function') {
             callbackCancel = arguments[2];
@@ -176,8 +176,10 @@
     $.hideIndicator = function () {
         $('.preloader-indicator-overlay, .preloader-indicator-modal').remove();
     };
-    $.showloading = function () {
-        $(defaults.modalContainer).append('<div class="preloader-loading-overlay"></div><div class="preloader-loading-modal"> <span></span><span></span><span></span><span></span><span></span></div>');
+    $.showloading = function (type, location) {
+        type = type ? type : '';
+        location = location ? location : '';
+        $(defaults.modalContainer).append('<div class="preloader-loading-overlay"></div><div class="preloader-loading-modal ' + type + ' ' + location + '"> <span></span><span></span><span></span><span></span><span></span></div>');
     };
     $.hideloading = function () {
         $('.preloader-loading-overlay, .preloader-loading-modal').remove();
@@ -281,6 +283,86 @@
         if (!toPopover) $.openModal(modal);
         return modal[0];
     };
+
+    //action Gird
+    $.actionGird = function (target) {
+        var toPopover = false, modal, groupSelector, buttonSelector;
+        target = target || [];
+        if (target.length > 0 && !$.isArray(target[0])) {
+            target = [target];
+        }
+        var modalHTML;
+
+        if (defaults.modalActionsTemplate) {
+            if (!$._compiledTemplates.actions) $._compiledTemplates.actions = t7.compile(defaults.modalActionsTemplate);
+            modalHTML = $._compiledTemplates.actions(target);
+        }
+        else {
+            var buttonsHTML = '';
+            var gird = 3;
+            var gird_num1 = (target[0].length - 1) % 1;
+            var gird_num2 = (target[0].length - 1) % 2;
+            var gird_num3 = (target[0].length - 1) % 3;
+            if (gird_num3 === 0) {
+                gird = 3;
+            }
+            else if (gird_num2 === 0) {
+                gird = 2;
+            }
+            else if (gird_num1 === 0) {
+                gird = 1;
+            }
+
+            for (var i = 0; i < target.length; i++) {
+                for (var j = 0; j < target[i].length; j++) {
+                    if (j === 0) buttonsHTML += '<div class="actions-modal-group">';
+                    var button = target[i][j];
+                    var buttonClass = button.label ? 'actions-modal-label' : 'actions-modal-button';
+                    if (button.bold) buttonClass += ' actions-modal-button-bold';
+                    if (button.color) buttonClass += ' color-' + button.color;
+                    if (button.bg) buttonClass += ' bg-' + button.bg;
+                    if (button.disabled) buttonClass += ' disabled';
+                    if (button.label)
+                        buttonsHTML += '<span class="' + buttonClass + '">' + button.text + '</span>';
+                    else if (i === 0) {
+                        buttonsHTML += '<span class="' + buttonClass + ' w-' + gird + ' gird-modal">' + (button.src ? '<img src="' + button.src + '">' : '') + '<span class="sharetitle">' + button.text + '</span></span>';
+                    } else if (i === 1) {
+                        buttonsHTML += '<span class="' + buttonClass + '">' + button.text + '</span>';
+                    }
+                    if (j === target[i].length - 1) buttonsHTML += '</div>';
+                }
+            }
+            modalHTML = '<div class="actions-modal">' + buttonsHTML + '</div>';
+        }
+        _modalTemplateTempDiv.innerHTML = modalHTML;
+        modal = $(_modalTemplateTempDiv).children();
+        $(defaults.modalContainer).append(modal[0]);
+        groupSelector = '.actions-modal-group';
+        buttonSelector = '.actions-modal-button';
+
+        var groups = modal.find(groupSelector);
+        groups.each(function (index, el) {
+            var groupIndex = index;
+            $(el).children().each(function (index, el) {
+                var buttonIndex = index;
+                var buttonParams = target[groupIndex][buttonIndex];
+                var clickTarget;
+                if (!toPopover && $(el).is(buttonSelector)) clickTarget = $(el);
+                if (toPopover && $(el).find(buttonSelector).length > 0) clickTarget = $(el).find(buttonSelector);
+
+                if (clickTarget) {
+                    clickTarget.on('click', function (e) {
+                        if (buttonParams.close !== false) $.closeModal(modal);
+                        if (buttonParams.onClick) buttonParams.onClick(modal, e);
+                    });
+                }
+            });
+        });
+        if (!toPopover) $.openModal(modal);
+        return modal[0];
+    };
+
+
     $.popover = function (modal, target, removeOnClose) {
         if (typeof removeOnClose === 'undefined') removeOnClose = true;
         if (typeof modal === 'string' && modal.indexOf('<') >= 0) {
