@@ -176,6 +176,12 @@
     $.hideIndicator = function () {
         $('.preloader-indicator-overlay, .preloader-indicator-modal').remove();
     };
+    $.showloading = function () {
+        $(defaults.modalContainer).append('<div class="preloader-loading-overlay"></div><div class="preloader-loading-modal"> <span></span><span></span><span></span><span></span><span></span></div>');
+    };
+    $.hideloading = function () {
+        $('.preloader-loading-overlay, .preloader-loading-modal').remove();
+    };
     // Action Sheet
     $.actions = function (target, params) {
         var toPopover = false, modal, groupSelector, buttonSelector;
