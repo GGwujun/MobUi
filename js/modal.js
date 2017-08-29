@@ -177,7 +177,7 @@
         $('.preloader-indicator-overlay, .preloader-indicator-modal').remove();
     };
     $.showloading = function (type, location) {
-        type = type ? type : 'loding-a';
+        type = type ? type : 'loading-a';
         location = location ? location : '';
         $(defaults.modalContainer).append('<div class="preloader-loading-overlay"></div><div class="preloader-loading-modal ' + type + ' ' + location + '"> <span></span><span></span><span></span><span></span><span></span></div>');
     };

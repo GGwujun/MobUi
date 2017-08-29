@@ -178,6 +178,38 @@ $(function () {
         }
       ];
       var groups = [buttons1, buttons2];
+      $.actions(groups);
+    }); 
+	
+	   $(page).on('click','.create-actionsgird', function () {
+      var buttons1 = [
+        {
+          text: 'Please Choose',
+          label: true
+        },
+        {
+          text: 'Potato',
+          bold: true,
+          color: 'danger',
+          onClick: function() {
+            $.alert("You choosed Potato");
+          }
+        },
+        {
+          text: 'Tomato',
+          color: "success",
+          onClick: function() {
+            $.alert("You choosed Tomato");
+          }
+        }
+      ];
+      var buttons2 = [
+        {
+          text: 'Cancel',
+          bg: 'danger'
+        }
+      ];
+      var groups = [buttons1, buttons2];
       $.actionGird(groups);
     }); 
   });
