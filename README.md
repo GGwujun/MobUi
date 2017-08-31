@@ -4,7 +4,7 @@
 
 # 下载
 
-建议下载源码自行编译。如果不想编译，你也可以直接切换到 `build` 分支，这个分支包含全部的编译后的JS,CSS和文档。或者直接点击 [这里下载](https://github.com/lihongxun945/pageui/archive/build.zip).
+建议下载源码自行编译。
 
 # grunt 配置
 

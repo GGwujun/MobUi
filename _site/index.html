@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>light7</title>
+<title>pageui</title>
 <meta name="description" content="pageui: Build mobile apps with simple HTML, CSS, and JS components.">
 <meta name="author" content="任行">
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
@@ -53,16 +53,14 @@
       <nav class="docs-nav clearfix">
         <a class="docs-nav-trigger icon icon-menu pull-right js-docs-nav-trigger" href="#"></a>
         <div class="docs-nav-group">
-          <a class="docs-nav-item" href="/">Home</a>
-          <a class="docs-nav-item" href="/getting-started" >Getting start</a>
-          <a class="docs-nav-item" href="/components">Components</a>
-          <a class="docs-nav-item" href="/extends">Extends</a>
-          <a class="docs-nav-item" href="/examples">Showcase</a>
-          <a class="docs-nav-item" href="https://github.com/lihongxun945/pageui/archive/build.zip" target="_blank">Download</a>
-          <a class="docs-nav-item" href="/changelog">Changelog</a>
-          <a class="docs-nav-item" href="https://github.com/lihongxun945/pageui" target="_blank">Github</a>
-          <a class="docs-nav-item" href="/about">About</a>
-          <a class="docs-nav-item" href="http://pageui.cn/">中文</a>
+          <a class="docs-nav-item" href="/">首页</a>
+          <a class="docs-nav-item" href="/getting-started" >开始使用</a>
+          <a class="docs-nav-item" href="/components">基础组件</a>
+          <a class="docs-nav-item" href="/extends">拓展组件</a>
+          <a class="docs-nav-item" href="/examples">案例</a>
+          <a class="docs-nav-item" href="/changelog">更新日志</a>
+          <a class="docs-nav-item" href="https://github.com/GGwujun/pageui" target="_blank">github</a>
+          <a class="docs-nav-item" href="/about">关于</a>
           <a class="docs-nav-item" href="https://lihongxun945.github.io/jquery-weui/">jQuery WeUI</a>
         </div>
       </nav>
@@ -71,12 +69,12 @@
 </header>
 
   <div class="docs-header-content">
-    <p class="docs-subtitle">A Light and Powerful UI Lib for build Mobile web app</p>
-    <a data-ignore="push" href="https://github.com/lihongxun945/light7" class="btn btn-primary" onClick="">visit Github</a>
+    <p class="docs-subtitle">轻量，小巧且精美的UI库<br />方便迅速搭建手机H5应用</p>
+    <a data-ignore="push" href="https://github.com/lihongxun945/pageui" class="btn btn-primary" onClick="">访问Github</a>
     <p class="version">V0.4.3</p>
     <div class='git-buttons'>
-      <iframe border="0" width="90" height="24" src="http://ghbtns.com/github-btn.html?user=lihongxun945&repo=light7&type=watch&count=true"></iframe>
-      <iframe border="0" width="100" height="24" src="http://ghbtns.com/github-btn.html?user=lihongxun945&repo=light7&type=fork&count=true"></iframe>
+      <iframe border="0" width="90" height="24" src="http://ghbtns.com/github-btn.html?user=lihongxun945&repo=pageui&type=watch&count=true"></iframe>
+      <iframe border="0" width="100" height="24" src="http://ghbtns.com/github-btn.html?user=lihongxun945&repo=pageui&type=fork&count=true"></iframe>
       <a href="https://twitter.com/lihongxun945" class="twitter-follow-button" data-show-count="false">Follow @lihongxun945</a>
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
@@ -85,41 +83,41 @@
 </div>
 
 <div class="index-content docs-content">
-  <h2>Try Light7 Now!</h2>
+  <h2>立即试用!</h2>
 
-  <p>Get light7 code with npm: <code>npm install light7</code>.</p>
-  <p>It's more recommand to clone the source code on github - <a href="https://github.com/lihongxun945/light7" target="_blank">light7 on github</a> - and compile by yourself. You can also click <a href="https://github.com/lihongxun945/light7/archive/build.zip" target="_blank">Here to download a zip file</a>.</p>
+  <p>通过 npm 安装代码: <code>npm install pageui</code>.</p>
+  <p>推荐在github上clone代码并自行编译 - <a href="https://github.com/lihongxun945/pageui" target="_blank">pageui on github</a>. 也可以点击 <a href="https://github.com/lihongxun945/pageui/archive/build.zip" target="_blank">这里下载zip文件</a>.</p>
 
-  <p>All the compiled code is in the folder <code>dist</code>, now import the CSS and JS file like this: </p>
+  <p>所有的编译后的代码都在 <code>dist</code> 目录下，然后像这样引入代码: </p>
 
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- in head --&gt;</span>
-<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"dist/css/light7.min.css"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"dist/css/pageui.min.css"</span><span class="nt">&gt;</span>
 
 <span class="c">&lt;!-- at the end of body --&gt;</span>
 <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">'text/javascript'</span> <span class="na">src=</span><span class="s">'jquery.min.js'</span> <span class="na">charset=</span><span class="s">'utf-8'</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">'text/javascript'</span> <span class="na">src=</span><span class="s">'dist/js/light7.min.js'</span> <span class="na">charset=</span><span class="s">'utf-8'</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">'text/javascript'</span> <span class="na">src=</span><span class="s">'dist/js/pageui.min.js'</span> <span class="na">charset=</span><span class="s">'utf-8'</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
 
-  <p>You can simple show an alert dialog with <code>$.alert</code>now:</p>
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Hello Light7"</span><span class="p">);</span></code></pre></figure>
+  <p>然后你就可以直接调用 <code>$.alert</code> 来显示一个对话框:</p>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Hello pageui"</span><span class="p">);</span></code></pre></figure>
 
 
-  <h2>Why Light7 ?</h2>
+  <h2>为什么选择 pageui ?</h2>
 
-  <h3>Light and Powerful</h3>
-  <p>It is only a UI lib, but not a framework. It provides 20+ useful components with only 82K JS and 117K CSS files. Most time you just copy component's HTML code and paste in your project, and It works!</p>
-  <p>Light7 depend on <a href="http://jquery.com/" target="_blank">jQuery</a> or <a href='http://zeptojs.com/'>zeptojs</a>, nothing to learn if you have used Zepto/jQuery before.</p>
+  <h3>轻量且强大</h3>
+  <p>pageui 是一个库而不是一个框架。它提供了 20+ 个常用的组件，却只有 82K JS 和 117K CSS 大小的两个文件。大部分时候你只需把组件的HTML代码复制到自己的HTML文件中即可。</p>
+  <p>pageui 依赖 <a href="http://jquery.com/" target="_blank">jQuery</a> 或者 <a href='http://zeptojs.com/'>zeptojs</a>, 如果你以前用过 jQuery/Zepto 那么没有任何上手难度.</p>
 
   <div class="section clearfix">
     <div class="round">
       <img src="http://gtms01.alicdn.com/tps/i1/TB1IFKdIFXXXXcmaXXXLIffVVXX-640-1136.png" alt="">
     </div>
-    <h3>iOS Specific</h3>
-    <p>Thanks to Framework7, Light7 can realize precisely pixel-perfect iOS native app's interface.</p>
+    <h3>炫酷的iOS风格</h3>
+    <p>我们的组件都是按照iOS风格设计的，所有有很多组件都是iOS独有的炫酷设计。</p>
   </div>
 
   <div class="section clearfix">
-    <h3>powerful components</h3>
-    <p>Light7 provide many powerful component such as Pull-to-refresh, Action Sheet and Notification.</p>
+    <h3>强大的组件</h3>
+    <p>pageui 提供了很多功能强大的组件 - Pull-to-refresh, Action Sheet and Notification.</p>
     <div class="components-img">
       <img width='320' src="/img/home/ptr.gif" alt="">
       <img width='320' src="/img/home/actions.gif" alt="">
@@ -128,8 +126,8 @@
   </div>
 
   <div class="section clearfix">
-    <h3>themes</h3>
-    <p>We have four different color themes, and a night theme， see <a href="/components/#themes" target="_blank">themes</a>。</p>
+    <h3>换肤</h3>
+    <p>我们提供了四种主题色，以及夜间模式，<a href="/components/#themes" target="_blank">点击查看换肤文档</a>。</p>
   </div>
 
 </div>
@@ -137,11 +135,17 @@
 <div class="docs-footer">
   <!-- Social links -->
 
-  <p class="docs-footer-text">@author <a href="mailto:lihongxun945@gmail.com">lihongxun945</a>, Twitter: <a href="https://twitter.com/lihongxun945" target="_blank">lihongxun945</a></p>
+  <p class="docs-footer-text">@author <a href="mailto:18570148691@gmail.com">dsx</a></p>
 
   <ul class="docs-footer-links">
-    <li>links</li>
-    <li><a href="http://www.idangero.us/framework7/" data-ignore="push">Framework7</a></li>
+    <li>友情链接</li>
+    <li><a href="http://f7cn.com/" data-ignore="push">Framework7</a></li>
+    <li>
+      <a href='http://www.miitbeian.gov.cn/'>浙ICP备16003227号</a>
+      <div style="width:300px;margin:0 auto; padding:20px 0;">
+        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011202001503" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="/img/beian.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">沪公网安备 31011202001503号</p></a>
+      </div>
+    </li>
   </ul>
 </div>
 

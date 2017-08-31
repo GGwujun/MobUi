@@ -1,17 +1,17 @@
 ---
 layout: home
-title: light7
+title: pageui
 ---
 
 <div class="docs-header">
   {% include masthead.html %}
   <div class="docs-header-content">
-    <p class="docs-subtitle">A Light and Powerful UI Lib for build Mobile web app</p>
-    <a data-ignore="push" href="https://github.com/lihongxun945/light7" class="btn btn-primary" onClick="">visit Github</a>
+    <p class="docs-subtitle">轻量，小巧且精美的UI库<br />方便迅速搭建手机H5应用</p>
+    <a data-ignore="push" href="https://github.com/lihongxun945/pageui" class="btn btn-primary" onClick="">访问Github</a>
     <p class="version">V{{ site.version }}</p>
     <div class='git-buttons'>
-      <iframe border="0" width="90" height="24" src="http://ghbtns.com/github-btn.html?user=lihongxun945&repo=light7&type=watch&count=true"></iframe>
-      <iframe border="0" width="100" height="24" src="http://ghbtns.com/github-btn.html?user=lihongxun945&repo=light7&type=fork&count=true"></iframe>
+      <iframe border="0" width="90" height="24" src="http://ghbtns.com/github-btn.html?user=lihongxun945&repo=pageui&type=watch&count=true"></iframe>
+      <iframe border="0" width="100" height="24" src="http://ghbtns.com/github-btn.html?user=lihongxun945&repo=pageui&type=fork&count=true"></iframe>
       <a href="https://twitter.com/lihongxun945" class="twitter-follow-button" data-show-count="false">Follow @lihongxun945</a>
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
@@ -20,45 +20,45 @@ title: light7
 </div>
 
 <div class="index-content docs-content">
-  <h2>Try Light7 Now!</h2>
+  <h2>立即试用!</h2>
 
-  <p>Get light7 code with npm: <code>npm install light7</code>.</p>
-  <p>It's more recommand to clone the source code on github - <a href="https://github.com/lihongxun945/light7" target="_blank">light7 on github</a> - and compile by yourself. You can also click <a href="https://github.com/lihongxun945/light7/archive/build.zip" target="_blank">Here to download a zip file</a>.</p>
+  <p>通过 npm 安装代码: <code>npm install pageui</code>.</p>
+  <p>推荐在github上clone代码并自行编译 - <a href="https://github.com/lihongxun945/pageui" target="_blank">pageui on github</a>. 也可以点击 <a href="https://github.com/lihongxun945/pageui/archive/build.zip" target="_blank">这里下载zip文件</a>.</p>
 
-  <p>All the compiled code is in the folder <code>dist</code>, now import the CSS and JS file like this: </p>
+  <p>所有的编译后的代码都在 <code>dist</code> 目录下，然后像这样引入代码: </p>
 
 {% highlight html %}
 <!-- in head -->
-<link rel="stylesheet" href="dist/css/light7.min.css">
+<link rel="stylesheet" href="dist/css/pageui.min.css">
 
 <!-- at the end of body -->
 <script type='text/javascript' src='jquery.min.js' charset='utf-8'></script>
-<script type='text/javascript' src='dist/js/light7.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='dist/js/pageui.min.js' charset='utf-8'></script>
 {% endhighlight %}
 
-  <p>You can simple show an alert dialog with <code>$.alert</code>now:</p>
+  <p>然后你就可以直接调用 <code>$.alert</code> 来显示一个对话框:</p>
 {% highlight js %}
-$.alert("Hello Light7");
+$.alert("Hello pageui");
 {% endhighlight %}
 
 
-  <h2>Why Light7 ?</h2>
+  <h2>为什么选择 pageui ?</h2>
 
-  <h3>Light and Powerful</h3>
-  <p>It is only a UI lib, but not a framework. It provides 20+ useful components with only 82K JS and 117K CSS files. Most time you just copy component's HTML code and paste in your project, and It works!</p>
-  <p>Light7 depend on <a href="http://jquery.com/" target="_blank">jQuery</a> or <a href='http://zeptojs.com/'>zeptojs</a>, nothing to learn if you have used Zepto/jQuery before.</p>
+  <h3>轻量且强大</h3>
+  <p>pageui 是一个库而不是一个框架。它提供了 20+ 个常用的组件，却只有 82K JS 和 117K CSS 大小的两个文件。大部分时候你只需把组件的HTML代码复制到自己的HTML文件中即可。</p>
+  <p>pageui 依赖 <a href="http://jquery.com/" target="_blank">jQuery</a> 或者 <a href='http://zeptojs.com/'>zeptojs</a>, 如果你以前用过 jQuery/Zepto 那么没有任何上手难度.</p>
 
   <div class="section clearfix">
     <div class="round">
       <img src="http://gtms01.alicdn.com/tps/i1/TB1IFKdIFXXXXcmaXXXLIffVVXX-640-1136.png" alt="">
     </div>
-    <h3>iOS Specific</h3>
-    <p>Thanks to Framework7, Light7 can realize precisely pixel-perfect iOS native app's interface.</p>
+    <h3>炫酷的iOS风格</h3>
+    <p>我们的组件都是按照iOS风格设计的，所有有很多组件都是iOS独有的炫酷设计。</p>
   </div>
 
   <div class="section clearfix">
-    <h3>powerful components</h3>
-    <p>Light7 provide many powerful component such as Pull-to-refresh, Action Sheet and Notification.</p>
+    <h3>强大的组件</h3>
+    <p>pageui 提供了很多功能强大的组件 - Pull-to-refresh, Action Sheet and Notification.</p>
     <div class="components-img">
       <img width='320' src="/img/home/ptr.gif" alt="">
       <img width='320' src="/img/home/actions.gif" alt="">
@@ -67,8 +67,8 @@ $.alert("Hello Light7");
   </div>
 
   <div class="section clearfix">
-    <h3>themes</h3>
-    <p>We have four different color themes, and a night theme， see <a href="/components/#themes" target="_blank">themes</a>。</p>
+    <h3>换肤</h3>
+    <p>我们提供了四种主题色，以及夜间模式，<a href="/components/#themes" target="_blank">点击查看换肤文档</a>。</p>
   </div>
 
 </div>

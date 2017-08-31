@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>拓展组件 &middot; pageui</title>
+<title>拓展组件 &middot; light7</title>
 <meta name="description" content="pageui: Build mobile apps with simple HTML, CSS, and JS components.">
 <meta name="author" content="任行">
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
@@ -53,16 +53,14 @@
       <nav class="docs-nav clearfix">
         <a class="docs-nav-trigger icon icon-menu pull-right js-docs-nav-trigger" href="#"></a>
         <div class="docs-nav-group">
-          <a class="docs-nav-item" href="/">Home</a>
-          <a class="docs-nav-item" href="/getting-started" >Getting start</a>
-          <a class="docs-nav-item" href="/components">Components</a>
-          <a class="docs-nav-item" href="/extends">Extends</a>
-          <a class="docs-nav-item" href="/examples">Showcase</a>
-          <a class="docs-nav-item" href="https://github.com/lihongxun945/pageui/archive/build.zip" target="_blank">Download</a>
-          <a class="docs-nav-item" href="/changelog">Changelog</a>
-          <a class="docs-nav-item" href="https://github.com/lihongxun945/pageui" target="_blank">Github</a>
-          <a class="docs-nav-item" href="/about">About</a>
-          <a class="docs-nav-item" href="http://pageui.cn/">中文</a>
+          <a class="docs-nav-item" href="/">首页</a>
+          <a class="docs-nav-item" href="/getting-started" >开始使用</a>
+          <a class="docs-nav-item" href="/components">基础组件</a>
+          <a class="docs-nav-item" href="/extends">拓展组件</a>
+          <a class="docs-nav-item" href="/examples">案例</a>
+          <a class="docs-nav-item" href="/changelog">更新日志</a>
+          <a class="docs-nav-item" href="https://github.com/GGwujun/pageui" target="_blank">github</a>
+          <a class="docs-nav-item" href="/about">关于</a>
           <a class="docs-nav-item" href="https://lihongxun945.github.io/jquery-weui/">jQuery WeUI</a>
         </div>
       </nav>
@@ -72,8 +70,8 @@
 
   <div class="container">
     <div class="docs-sub-content">
-      <h2 class="page-title">Extend Components</h2>
-      <p class="page-description">We remove some components from pageui code to keep the core file with a small size. You should include specific extra files when you use components in this page </p>
+      <h2 class="page-title">拓展组件</h2>
+      <p class="page-description">拓展组件是一些不常用的组件，使用这里的组件，你需要额外引入JS和CSS，具体请参见每一个组件的说明。</p>
     </div>
     
   </div>
@@ -83,11 +81,11 @@
   <!-- Components -->
   <div class="docs-components column-group">
     <div class="docs-side-menu">
-  <li><a href="#swiper">Swiper</a></li>
-  <li><a href="#browser">Photo Browser</a></li>
-  <li><a href="#city-picker">City Picker</a></li>
-  <li><a href="#swipeout">Swipeout <span class="new">New</span></a></li>
-  <li><a href="#i18n">I18N <span class="new">New</span></a></li>
+  <li><a href="#swiper" data-ignore="push">幻灯片</a></li>
+  <li><a href="#browser" data-ignore="push">图片浏览器</a></li>
+  <li><a href="#city-picker" data-ignore="push">省市区</a></li>
+  <li><a href="#swipeout">Swipeout <span class="new">新</span></a></li>
+  <li><a href="#i18n">I18N <span class="new">新</span></a></li>
 </div>
 
     <div class="device-column column pull-right">
@@ -107,11 +105,11 @@
       <!-- Bars -->
       <article class="component active" id="swiper" data-url='swiper'>
   <h2 class="component-title">Swiper</h2>
-  <p class="component-description">You must include these to file after <code>light7.js</code> and <code>light7.css</code> to use Swiper:</p>
+  <p class="component-description">You must include these to file after <code>pageui.js</code> and <code>pageui.css</code> to use Swiper:</p>
 
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"css/light7-swiper.min.css"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">'text/javascript'</span> <span class="na">src=</span><span class="s">'0.4.3/js/light7-swiper.min.js'</span> <span class="na">charset=</span><span class="s">'utf-8'</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"css/pageui-swiper.min.css"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">'text/javascript'</span> <span class="na">src=</span><span class="s">'0.4.3/js/pageui-swiper.min.js'</span> <span class="na">charset=</span><span class="s">'utf-8'</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
 
 <p>The swiper will auto be init when <code>$.init</code> is called. If you create a Swiper after that, call <code>$(".swiper-container").swiper(config)</code> to init.</p>
 
@@ -129,15 +127,15 @@
   <p>You can add <code>data-xxx</code> on <code>.swiper-container</code> to config it, also, you can pass a config object in <code>$().swiper(config)</code>, For more config See <a href='http://www.idangero.us/swiper/api/#.VjtIEK4rLyU' target="_blank">Swiper</a></p>
 
       <article class="component" id="browser" data-url='photo-browser'>
-  <h2 class="component-title">Photo Browser</h2>
+  <h2 class="component-title">图片浏览器</h2>
 
-  <p class="component-description">You should include these two files ater <code>light7.js</code> and <code>light7.css</code>:</p>
+  <p class="component-description">使用图片浏览器，你需要在 <code>pageui.js</code> 和 <code>pageui.css</code> 之后额外引入如下两个文件:</p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"css/light7-swiper.min.css"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">'text/javascript'</span> <span class="na">src=</span><span class="s">'js/light7-swiper.min.js'</span> <span class="na">charset=</span><span class="s">'utf-8'</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"css/pageui-swiper.min.css"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">'text/javascript'</span> <span class="na">src=</span><span class="s">'js/pageui-swiper.min.js'</span> <span class="na">charset=</span><span class="s">'utf-8'</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
 
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"bar bar-nav"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"title"</span><span class="nt">&gt;</span>Photo Browser<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"title"</span><span class="nt">&gt;</span>图片浏览器<span class="nt">&lt;/h1&gt;</span>
 <span class="nt">&lt;/header&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content-block row"</span><span class="nt">&gt;</span>
@@ -147,9 +145,9 @@
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content-block"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"button pb-standalone-captions"</span><span class="nt">&gt;</span>With Captions<span class="nt">&lt;/a&gt;&lt;/div&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content-block"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"button pb-standalone-video"</span><span class="nt">&gt;</span>With Video<span class="nt">&lt;/a&gt;&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></figure>
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="cm">/*=== standalone by default ===*/</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="cm">/*=== 默认为 standalone ===*/</span>
 <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-  <span class="cm">/*=== standalone by default===*/</span>
+  <span class="cm">/*=== 默认为 standalone ===*/</span>
   <span class="kd">var</span> <span class="nx">myPhotoBrowserStandalone</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">photoBrowser</span><span class="p">({</span>
       <span class="na">photos</span> <span class="p">:</span> <span class="p">[</span>
           <span class="s1">'//img.alicdn.com/tps/i3/TB1kt4wHVXXXXb_XVXX0HY8HXXX-1024-1024.jpeg'</span><span class="p">,</span>
@@ -157,6 +155,7 @@
           <span class="s1">'//img.alicdn.com/tps/i4/TB1AdxNHVXXXXasXpXX0HY8HXXX-1024-1024.jpeg'</span><span class="p">,</span>
       <span class="p">]</span>
   <span class="p">});</span>
+  <span class="c1">//点击时打开图片浏览器</span>
   <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span><span class="s1">'.pb-standalone'</span><span class="p">,</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
     <span class="nx">myPhotoBrowserStandalone</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
   <span class="p">});</span>
@@ -174,7 +173,7 @@
     <span class="nx">myPhotoBrowserPopup</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
   <span class="p">});</span>
 
-  <span class="cm">/*=== With title ===*/</span>
+  <span class="cm">/*=== 有标题 ===*/</span>
   <span class="kd">var</span> <span class="nx">myPhotoBrowserCaptions</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">photoBrowser</span><span class="p">({</span>
       <span class="na">photos</span> <span class="p">:</span> <span class="p">[</span>
           <span class="p">{</span>
@@ -196,21 +195,42 @@
   <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span><span class="s1">'.pb-standalone-captions'</span><span class="p">,</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
     <span class="nx">myPhotoBrowserCaptions</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
   <span class="p">});</span>
-
+   
+  <span class="cm">/*=== 有视频 ===*/</span>
+  <span class="kd">var</span> <span class="nx">myPhotoBrowserVideo</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">photoBrowser</span><span class="p">({</span>
+      <span class="na">photos</span> <span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+              <span class="na">html</span><span class="p">:</span> <span class="s1">'&lt;iframe src="//www.youtube.com/embed/lmc21V-zBq0?list=PLpj0FBQgLGEr3mtZ5BTwtmSwF1dkPrPRM" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'</span><span class="p">,</span>
+              <span class="na">caption</span><span class="p">:</span> <span class="s1">'Woodkid - Run Boy Run (Official HD Video)'</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+              <span class="na">url</span><span class="p">:</span> <span class="s1">'http://lorempixel.com/1024/1024/sports/2/'</span><span class="p">,</span>
+              <span class="na">caption</span><span class="p">:</span> <span class="s1">'Second Caption Text'</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+              <span class="na">url</span><span class="p">:</span> <span class="s1">'http://lorempixel.com/1024/1024/sports/3/'</span><span class="p">,</span>
+          <span class="p">},</span>
+      <span class="p">],</span>
+      <span class="na">theme</span><span class="p">:</span> <span class="s1">'dark'</span><span class="p">,</span>
+      <span class="na">type</span><span class="p">:</span> <span class="s1">'standalone'</span>
+  <span class="p">});</span>
+  <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span><span class="s1">'.pb-standalone-video'</span><span class="p">,</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">myPhotoBrowserVideo</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
+  <span class="p">});</span>
 <span class="p">})</span></code></pre></figure>
 </article>
 
       <article class="component" id="city-picker" data-url='city-picker'>
   <h2 class="component-title">City picker</h2>
 
-  <p class="component-description">To use city picker，you should import this js file after <code>light7.js</code> 和 <code>light7.css</code>:</p>
-  <p>There is only chinese cities now, Sorry...</p>
+  <p class="component-description">To use city picker，you should import this js file after <code>pageui.js</code> 和 <code>pageui.css</code>:</p>
+  <p>There is only chinese cities now...</p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"js/light7-city-picker.min.js"</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"js/pageui-city-picker.min.js"</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
 
 
   <p class="component-description">city picker is a customed Picker. So it's API is some to <a href='/components#picker' data-ignore="push">picker</a>.</p>
-  <p>You should not set <code>onChange</code> and <code>cols</code>.</p>
+  <p>同样，在使用省市区组件的时候你不能定制 <code>onChange</code> 和 <code>cols</code> 参数。</p>
 
 
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">'city-picker'</span><span class="nt">/&gt;</span>
@@ -234,11 +254,11 @@
 
   <p>Note! Swipeout is not complete tested in Android, and there is a known bug in some Android: Swipeout element may flicker when page scroll.</p>
 
-  <p class="component-description">You must include these to file after <code>light7.js</code> and <code>light7.css</code> to use Swipeout:</p>
+  <p class="component-description">You must include these to file after <code>pageui.js</code> and <code>pageui.css</code> to use Swipeout:</p>
 
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"css/light7-swipeout.min.css"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">'text/javascript'</span> <span class="na">src=</span><span class="s">'0.4.3/js/light7-swipeout.min.js'</span> <span class="na">charset=</span><span class="s">'utf-8'</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"css/pageui-swipeout.min.css"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">'text/javascript'</span> <span class="na">src=</span><span class="s">'0.4.3/js/pageui-swipeout.min.js'</span> <span class="na">charset=</span><span class="s">'utf-8'</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
 
 
 
@@ -406,23 +426,29 @@
       <article class="component active" id="i18n" data-url='i18n'>
   <h2 class="component-title">i18n</h2>
 
-  <p>English is the default language of Light7. You can include <code>i18n/cn.js</code> after <code>light7.js</code> to change the language to Chinese:</p>
+  <p>English is the default language of pageui. You can include <code>i18n/cn.js</code> after <code>pageui.js</code> to change the language to Chinese:</p>
 
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">'js/i18n/cn.js'</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
 
   <p>Right click the demo on right side to see how it's writen;</p>
-  <p>Note! The i18n only change the language of Light7's components. It can't change the language of your entire site.</p>
+  <p>Note! The i18n only change the language of pageui's components. It can't change the language of your entire site.</p>
 </article>
 
       <!-- Footer -->
       <div class="docs-footer">
   <!-- Social links -->
 
-  <p class="docs-footer-text">@author <a href="mailto:lihongxun945@gmail.com">lihongxun945</a>, Twitter: <a href="https://twitter.com/lihongxun945" target="_blank">lihongxun945</a></p>
+  <p class="docs-footer-text">@author <a href="mailto:18570148691@gmail.com">dsx</a></p>
 
   <ul class="docs-footer-links">
-    <li>links</li>
-    <li><a href="http://www.idangero.us/framework7/" data-ignore="push">Framework7</a></li>
+    <li>友情链接</li>
+    <li><a href="http://f7cn.com/" data-ignore="push">Framework7</a></li>
+    <li>
+      <a href='http://www.miitbeian.gov.cn/'>浙ICP备16003227号</a>
+      <div style="width:300px;margin:0 auto; padding:20px 0;">
+        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011202001503" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="/img/beian.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">沪公网安备 31011202001503号</p></a>
+      </div>
+    </li>
   </ul>
 </div>
 
