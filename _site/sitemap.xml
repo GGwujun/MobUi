@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://0.0.0.0:4000/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   
   
   <url>
-    <loc>http://0.0.0.0:4000/about/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/about/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -18,8 +18,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/actions/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/actions/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -27,8 +27,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/baichuan-portal/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/baichuan-portal/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -36,8 +36,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/bar/bar-multi/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/bar/bar-multi/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -45,8 +45,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/btns/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/btns/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -54,8 +54,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/docs-demos/calendar-inline/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/docs-demos/calendar-inline/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -63,8 +63,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/calendar/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/calendar/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -72,8 +72,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/docs-demos/calendar/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/docs-demos/calendar/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -81,8 +81,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/changelog/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/changelog/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -90,8 +90,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/list/check-list/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/list/check-list/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -99,8 +99,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/docs-demos/check-list/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/docs-demos/check-list/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -108,8 +108,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/docs-demos/city-picker/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/docs-demos/city-picker/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -117,8 +117,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/city-picker/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/city-picker/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -126,8 +126,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/colors/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/colors/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -135,8 +135,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/docs-demos/colors/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/docs-demos/colors/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -144,8 +144,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/components/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/components/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -153,8 +153,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/list/contacts-list/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/list/contacts-list/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -162,8 +162,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/docs-demos/contacts-list/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/docs-demos/contacts-list/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -171,8 +171,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/docs-demos/datetime-picker/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/docs-demos/datetime-picker/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -180,8 +180,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/datetime-picker/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/datetime-picker/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -189,8 +189,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -198,8 +198,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/examples/light7-mall/detail/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/examples/light7-mall/detail/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -207,8 +207,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/examples/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/examples/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -216,8 +216,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/extends/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/extends/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -225,8 +225,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/card/facebook-card/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/card/facebook-card/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -234,8 +234,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/grid/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/grid/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -243,8 +243,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/examples/light7-mall/home/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/examples/light7-mall/home/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -252,8 +252,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/docs-demos/i18n/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/docs-demos/i18n/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -261,8 +261,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/form/icon-input/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/form/icon-input/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -270,8 +270,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/icons/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/icons/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -279,8 +279,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/bar/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/bar/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -288,8 +288,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/form/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/form/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -299,8 +299,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/examples/light7-mall/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/examples/light7-mall/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -308,8 +308,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/card/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/card/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -317,8 +317,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/list/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/list/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -326,8 +326,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/infinite-scroll/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/infinite-scroll/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -335,8 +335,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/docs-demos/infinite-scroll/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/docs-demos/infinite-scroll/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -344,8 +344,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/list/inset-list/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/list/inset-list/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -353,8 +353,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/form/label-input/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/form/label-input/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -362,8 +362,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/form/layout/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/form/layout/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -371,8 +371,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/card/list-card/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/card/list-card/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -380,8 +380,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/docs-demos/list/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/docs-demos/list/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -389,8 +389,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/list/mail-list/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/list/mail-list/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -398,8 +398,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/modal/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/modal/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -407,8 +407,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/bar/nav-bar-labels/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/bar/nav-bar-labels/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -416,8 +416,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/bar/nav-bar/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/bar/nav-bar/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -425,8 +425,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/docs-demos/notification/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/docs-demos/notification/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -434,8 +434,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/notification/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/notification/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -443,8 +443,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/docs-demos/one/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/docs-demos/one/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -452,8 +452,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/docs-demos/panels/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/docs-demos/panels/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -461,8 +461,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/photo-browser/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/photo-browser/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -470,8 +470,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/docs-demos/photo-browser/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/docs-demos/photo-browser/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -479,8 +479,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/picker/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/picker/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -488,8 +488,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/docs-demos/picker/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/docs-demos/picker/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -497,8 +497,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/docs-demos/popover/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/docs-demos/popover/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -506,8 +506,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/docs-demos/popup/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/docs-demos/popup/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -515,8 +515,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/preloader/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/preloader/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -524,8 +524,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/ptr-infinite-tabs/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/ptr-infinite-tabs/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -533,8 +533,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/pull-to-refresh/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/pull-to-refresh/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -542,8 +542,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/router/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/router/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -551,8 +551,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/docs-demos/router/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/docs-demos/router/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -560,8 +560,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/router2/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/router2/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -569,8 +569,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/docs-demos/router2/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/docs-demos/router2/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -578,8 +578,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/searchbar/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/searchbar/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -587,8 +587,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/card/simple-card/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/card/simple-card/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -596,8 +596,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/list/simple-list/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/list/simple-list/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -605,8 +605,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/list/songs-list/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/list/songs-list/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -614,8 +614,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/docs-demos/structure/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/docs-demos/structure/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -623,8 +623,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/card/styled-card/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/card/styled-card/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -632,8 +632,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/list/swipeout/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/list/swipeout/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -641,8 +641,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/docs-demos/swipeout/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/docs-demos/swipeout/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -650,8 +650,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/swiper/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/swiper/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -659,8 +659,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/docs-demos/swiper/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/docs-demos/swiper/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -668,8 +668,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/tab/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/tab/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -677,8 +677,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/docs-demos/theme-dark/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/docs-demos/theme-dark/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -686,8 +686,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/bar/title-bar-btns/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/bar/title-bar-btns/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -695,8 +695,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/bar/title-bar-links/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/bar/title-bar-links/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -704,8 +704,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/bar/title-bar/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/bar/title-bar/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -713,8 +713,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/docs-demos/toast/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/docs-demos/toast/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -722,8 +722,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/docs-demos/toolbar/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/docs-demos/toolbar/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -731,8 +731,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/docs-demos/two/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/docs-demos/two/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -740,8 +740,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/docs-demos/type/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/docs-demos/type/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -749,8 +749,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/card/view-card/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/card/view-card/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -758,8 +758,8 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000/demos/list/view-list/</loc>
-    <lastmod>2017-08-29T17:28:00+08:00</lastmod>
+    <loc>/demos/list/view-list/</loc>
+    <lastmod>2017-08-31T14:58:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
