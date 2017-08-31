@@ -1,8 +1,6 @@
 # pageui - a light H5 UI lib for webapp
 
-简单易用的h5 UI库，是从 [SUI Mobile](https://github.com/sdc-alibaba/SUI-Mobile) Fork 出来的一个版本。 官网地址： [http://www.pageui.org/](http://www.pageui.org/)
-
-**官网因为没有备案，服务器还在国外，国内可以暂时用 [http://123.56.245.102/](http://123.56.245.102/)**
+简单易用的h5 UI库，是从 [SUI Mobile](https://github.com/sdc-alibaba/SUI-Mobile) Fork 出来的一个版本。
 
 # 下载
 
@@ -30,19 +28,5 @@
 
 # 联系方式
 
-- 请加QQ群 255389987
+- 请加QQ群 225192209
 - 有比较丰富的手机H5开发经验且对这个项目感兴趣的同学可以加群，然后加群主联系。
-
-# 关于作者
-
-前阿里巴巴国际UED前端, 在阿里主要负责 [SUI Mobile](https://github.com/sdc-alibaba/SUI-Mobile) 和 [Framework7-Plus](https://github.com/sdc-fe/Framework7-Plus) 以及 [Framework7](http://framework7.taobao.org/) 。博客地址：http://blog.csdn.net/lihongxun945?viewmode=contents。
-
-# 关于 f7, sui 和 pageui
-
-很多人没搞清楚这三者的关系。
-
-F7 是国外大神写的一个UI库。SUI 是我在阿里的时候基于F7改造的，主要是提升兼容性以及更轻量化。
-
-现在因为离职了，不方便继续改阿里的东西。 所以从SUI fork出了一个新的 light7。以后我个人只会维护 pageui, SUI 属于阿里巴巴国际UED团队。
-
-*就事论事，尊重版权，上述提到的 SUI Mobile & Framework7-cn 均是阿里巴巴国际UED团队的成果*。
