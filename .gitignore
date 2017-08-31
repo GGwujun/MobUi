@@ -5,6 +5,6 @@ dist/
 .package/
 .sass-cache/
 .DS_Store
-
+_site/*
 *.orig
 *.log
