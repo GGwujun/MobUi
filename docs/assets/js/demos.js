@@ -179,7 +179,40 @@ $(function () {
       ];
       var groups = [buttons1, buttons2];
       $.actions(groups);
-    }); 
+    });
+	
+	//action Gird
+	$(page).on('click','.create-actionsGird', function () {
+      var buttons1 = [
+        {
+          text: 'Please Choose',
+          label: true
+        },
+        {
+          text: 'Potato',
+          bold: true,
+          color: 'danger',
+          onClick: function() {
+            $.alert("You choosed Potato");
+          }
+        },
+        {
+          text: 'Tomato',
+          color: "success",
+          onClick: function() {
+            $.alert("You choosed Tomato");
+          }
+        }
+      ];
+      var buttons2 = [
+        {
+          text: 'Cancel',
+          bg: 'danger'
+        }
+      ];
+      var groups = [buttons1, buttons2];
+      $.actionGird(groups);
+    });
   });
 
   $(document).on("pageInit", "#page-preloader", function(e, id, page) {
@@ -189,11 +222,24 @@ $(function () {
         $.hidePreloader();
       }, 2000);
     });
+	
     $(page).on('click','.open-indicator', function () {
       $.showIndicator();
       setTimeout(function () {
         $.hideIndicator();
       }, 2000);
+    });
+	
+	$(page).on('click','.open-loading', function () {
+      $.showloading();
+    });
+	
+	$(page).on('click','.open-loading-b', function () {
+      $.showloading('loading-b');
+    });
+	
+	$(page).on('click','.hide-loading', function () {
+      $.hideloading();
     });
   });
 
