@@ -66,9 +66,7 @@
 
   //load new page, and push to history
   Router.prototype.loadPage = function (url, noAnimation, replace, reload) {
-
     var param = url;
-
     if (noAnimation === undefined) {
       noAnimation = !this.defaults.transition;
     }
@@ -392,33 +390,6 @@
   };
 
 
-  // $(function () {
-  //   if (!$.smConfig.router) return;
-
-  //   var router = $.router = new Router();
-  //   router.defaults = Router.prototype.defaults;
-
-  //   $(document).on("click", "a", function (e) {
-  //     var $target = $(e.currentTarget);
-  //     if ($target.hasClass("external") ||
-  //       $target[0].hasAttribute("external") ||
-  //       $target.hasClass("tab-link") ||
-  //       $target.hasClass("open-popup") ||
-  //       $target.hasClass("open-panel")
-  //     ) return;
-  //     e.preventDefault();
-  //     var url = $target.attr("href");
-  //     if ($target.hasClass("back")) {
-  //       router.back(url);
-  //       return;
-  //     }
-
-  //     if (!url || url === "#" || /javascript:.*;/.test(url)) return;
-  //     router.loadPage(url, $target.hasClass("no-transition") ? true : undefined, $target.hasClass("replace") ? true : undefined);  //undefined is different to false
-  //   })
-  // });
-
-
   $.routerInit = function () {
     if (!$.smConfig.router) return;
     var router = $.router = new Router();
@@ -444,4 +415,3 @@
     })
   }
 }($);
-// jshint ignore: end
