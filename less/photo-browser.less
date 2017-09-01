@@ -10,6 +10,20 @@
     // opacity: 0;
     // display: none;
     // transform: translate3d(0, 0, 0);
+    //左右点击切图
+    .tab-item{
+            position: absolute;
+            top: 50%;
+            z-index: 1000;
+            margin-top: -32px;
+            padding:20px;
+        .photo-browser-prev{
+            left: 0;    
+        }
+        .photo-browser-next{
+            right:0;
+        }
+    }
     .bar-tab .tab-item .icon {
         width: 14px;
         height: 14px;
@@ -41,6 +55,7 @@
     }
     .page[data-page="photo-browser-slides"] {
         background: none;
+        
     }
     //add
     .page {
@@ -256,6 +271,35 @@
     .photo-browser-swiper-container {
         background: #000;
     }
+    
+     //控制点导航   
+    .photo-pagination-box {
+        position: absolute;
+        width: 100%;
+        bottom: 10%;
+        left: 0;
+        text-align: center;
+        -webkit-transition: .3s;
+        -o-transition: .3s;
+        transition: .3s;
+        -webkit-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        z-index: 10;
+        .photo-browser-pagination{
+            width: 8px;
+            height: 8px;
+            display: inline-block;
+            border-radius: 100%;
+            background: #454545;
+            opacity: 1;
+            margin: 0 5px;
+        }
+        .photo-browser-pagination-active{
+            background:#fff;
+        }
+    }    
 }
 
 @keyframes photoBrowserIn {
