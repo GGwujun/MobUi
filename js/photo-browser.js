@@ -2,14 +2,14 @@
 ************   Photo Browser   ************
 ======================================================*/
 /* global $:true */
-+function($){
++function ($) {
     'use strict';
     var PhotoBrowser = function (params) {
 
         var pb = this, i;
 
         var defaults = this.defaults;
-        
+
         params = params || {};
         for (var def in defaults) {
             if (typeof params[def] === 'undefined') {
@@ -20,37 +20,43 @@
         pb.params = params;
 
         var navbarTemplate = pb.params.navbarTemplate ||
-                            '<header class="bar bar-nav">' + 
-                              '<a class="icon icon-left pull-left photo-browser-close-link' + (pb.params.type === 'popup' ?  " close-popup" : "") + '"></a>' + 
-                              '<h1 class="title"><div class="center sliding"><span class="photo-browser-current"></span> <span class="photo-browser-of">' + pb.params.ofText + '</span> <span class="photo-browser-total"></span></div></h1>' +
-                            '</header>';
+            '<header class="bar bar-nav">' +
+            '<a class="icon icon-left pull-left photo-browser-close-link' + (pb.params.type === 'popup' ? " close-popup" : "") + '"></a>' +
+            '<h1 class="title"><div class="center sliding"><span class="photo-browser-current"></span> <span class="photo-browser-of">' + pb.params.ofText + '</span> <span class="photo-browser-total"></span></div></h1>' +
+            '</header>';
 
         var toolbarTemplate = pb.params.toolbarTemplate ||
-                            '<nav class="bar bar-tab">' +
-                              '<a class="tab-item photo-browser-prev" href="#">' +
-                                '<i class="icon icon-prev"></i>' +
-                              '</a>' +
-                              '<a class="tab-item photo-browser-next" href="#">' +
-                                '<i class="icon icon-next"></i>' +
-                              '</a>' +
-                            '</nav>';
+            // '<nav class="bar bar-tab">' +
+            '<a class="tab-item photo-browser-prev" href="#">' +
+            '<i class="icon icon-prev"></i>' +
+            '</a>' +
+            '<a class="tab-item photo-browser-next" href="#">' +
+            '<i class="icon icon-next"></i>' +
+            '</a>' ;
+            // '</nav>';
+
+        var paginationTemplate = pb.params.paginationTemplate ||
+            '<span class="photo-browser-pagination {{Pactive}}"></span>';
 
         var template = pb.params.template ||
-                        '<div class="photo-browser photo-browser-' + pb.params.theme + '">' +
-                            '{{navbar}}' +
-                            '{{toolbar}}' +
-                            '<div data-page="photo-browser-slides" class="content">' +
-                                '{{captions}}' +
-                                '<div class="photo-browser-swiper-container swiper-container">' +
-                                    '<div class="photo-browser-swiper-wrapper swiper-wrapper">' +
-                                        '{{photos}}' +
-                                    '</div>' +
-                                '</div>' +
-                            '</div>' +
-                        '</div>';
+            '<div class="photo-browser photo-browser-' + pb.params.theme + '">' +
+            '{{navbar}}' +
+            '{{toolbar}}' +
+            '<div data-page="photo-browser-slides" class="content">' +
+            '{{captions}}' +
+            '<div class="photo-browser-swiper-container swiper-container">' +
+            '<div class="photo-browser-swiper-wrapper swiper-wrapper">' +
+            '{{photos}}' +
+            '</div>' +
+            '</div>' +
+            '<div class="photo-pagination-box">' +
+            '{{pagination}}' +
+            '</div>' +
+            '</div>' +
+            '</div>';
 
-        var photoTemplate = !pb.params.lazyLoading ? 
-            (pb.params.photoTemplate || '<div class="photo-browser-slide swiper-slide"><span class="photo-browser-zoom-container"><img src="{{url}}"></span></div>') : 
+        var photoTemplate = !pb.params.lazyLoading ?
+            (pb.params.photoTemplate || '<div class="photo-browser-slide swiper-slide"><span class="photo-browser-zoom-container"><img src="{{url}}"></span></div>') :
             (pb.params.photoLazyTemplate || '<div class="photo-browser-slide photo-browser-slide-lazy swiper-slide"><div class="preloader' + (pb.params.theme === 'dark' ? ' preloader-white' : '') + '"></div><span class="photo-browser-zoom-container"><img data-src="{{url}}" class="swiper-lazy"></span></div>');
 
         var captionsTheme = pb.params.captionsTheme || pb.params.theme;
@@ -60,12 +66,12 @@
         var objectTemplate = pb.params.objectTemplate || '<div class="photo-browser-slide photo-browser-object-slide swiper-slide">{{html}}</div>';
         var photosHtml = '';
         var captionsHtml = '';
-        for (i = 0; i < pb.params.photos.length; i ++) {
+        var pagTemplate = '';
+        for (i = 0; i < pb.params.photos.length; i++) {
             var photo = pb.params.photos[i];
             var thisTemplate = '';
-
             //check if photo is a string or string-like object, for backwards compatibility 
-            if (typeof(photo) === 'string' || photo instanceof String) {
+            if (typeof (photo) === 'string' || photo instanceof String) {
 
                 //check if "photo" is html object
                 if (photo.indexOf('<') >= 0 || photo.indexOf('>') >= 0) {
@@ -76,7 +82,7 @@
 
                 //photo is a string, thus has no caption, so remove the caption template placeholder
                 //otherwise check if photo is an object with a url property
-            } else if (typeof(photo) === 'object') {
+            } else if (typeof (photo) === 'object') {
 
                 //check if "photo" is html object
                 if (photo.hasOwnProperty('html') && photo.html.length > 0) {
@@ -92,17 +98,21 @@
                     thisTemplate = thisTemplate.replace(/{{caption}}/g, '');
                 }
             }
-
+            if (i === 0)
+                pagTemplate += paginationTemplate.replace(/{{Pactive}}/g, pb.params.pagiActive ? pb.params.pagiActive : '');
+            else
+                pagTemplate += paginationTemplate.replace(/{{Pactive}}/g, '');
             photosHtml += thisTemplate;
 
         }
 
         var htmlTemplate = template
-                            .replace('{{navbar}}', (pb.params.navbar ? navbarTemplate : ''))
-                            .replace('{{noNavbar}}', (pb.params.navbar ? '' : 'no-navbar'))
-                            .replace('{{photos}}', photosHtml)
-                            .replace('{{captions}}', captionsTemplate.replace(/{{captions}}/g, captionsHtml))
-                            .replace('{{toolbar}}', (pb.params.toolbar ? toolbarTemplate : ''));
+            .replace('{{navbar}}', (pb.params.navbar ? navbarTemplate : ''))
+            .replace('{{noNavbar}}', (pb.params.navbar ? '' : 'no-navbar'))
+            .replace('{{photos}}', photosHtml)
+            .replace('{{captions}}', captionsTemplate.replace(/{{captions}}/g, captionsHtml))
+            .replace('{{toolbar}}', (pb.params.toolbar ? toolbarTemplate : ''))
+            .replace('{{pagination}}', (pb.params.pagination ? pagTemplate : ''));
 
         pb.activeIndex = pb.params.initialSlide;
         pb.openIndex = pb.activeIndex;
@@ -179,7 +189,6 @@
 
         pb.onSliderTransitionStart = function (swiper) {
             pb.activeIndex = swiper.activeIndex;
-
             var current = swiper.activeIndex + 1;
             var total = swiper.slides.length;
             if (pb.params.loop) {
@@ -188,11 +197,17 @@
                 if (current < 1) current = total + current;
                 if (current > total) current = current - total;
             }
+
+
+            if (pb.params.pagination) {
+                pb.container.find('.photo-browser-pagination').eq(current-1).addClass(pb.params.pagiActive).siblings('.photo-browser-pagination').removeClass(pb.params.pagiActive);
+            }
+
             pb.container.find('.photo-browser-current').text(current);
             pb.container.find('.photo-browser-total').text(total);
 
             $('.photo-browser-prev, .photo-browser-next').removeClass('photo-browser-link-inactive');
-            
+
             if (swiper.isBeginning && !pb.params.loop) {
                 $('.photo-browser-prev').addClass('photo-browser-link-inactive');
             }
@@ -226,7 +241,7 @@
             }
             if (pb.params.onSlideChangeEnd) pb.params.onSlideChangeEnd(swiper);
         };
-        
+
         pb.layout = function (index) {
             if (pb.params.type === 'page') {
                 pb.container = $('.photo-browser-swiper-container').parents('.view');
@@ -243,7 +258,7 @@
             pb.slides = pb.container.find('.photo-browser-slide');
             pb.captionsContainer = pb.container.find('.photo-browser-captions');
             pb.captions = pb.container.find('.photo-browser-caption');
-            
+
             var sliderSettings = {
                 nextButton: pb.params.nextButton || '.photo-browser-next',
                 prevButton: pb.params.prevButton || '.photo-browser-prev',
@@ -271,7 +286,7 @@
                     pb.onSliderTransitionStart(swiper);
                 },
                 onTransitionEnd: function (swiper) {
-                    pb.onSliderTransitionEnd(swiper);  
+                    pb.onSliderTransitionEnd(swiper);
                 },
                 onLazyImageLoad: function (swiper, slide, img) {
                     if (pb.params.onLazyImageLoad) pb.params.onLazyImageLoad(pb, slide, img);
@@ -329,7 +344,7 @@
             if (pb.params.expositionHideCaptions) pb.captionsContainer.removeClass('photo-browser-captions-exposed');
             pb.exposed = false;
         };
-        
+
         // Gestures
         var gestureSlide, gestureImg, gestureImgWrap, scale = 1, currentScale = 1, isScaling = false;
         pb.onSlideGestureStart = function () {
@@ -352,7 +367,7 @@
                 scale = pb.params.maxZoom - 1 + Math.pow((scale - pb.params.maxZoom + 1), 0.5);
             }
             if (scale < pb.params.minZoom) {
-                scale =  pb.params.minZoom + 1 - Math.pow((pb.params.minZoom - scale + 1), 0.5);
+                scale = pb.params.minZoom + 1 - Math.pow((pb.params.minZoom - scale + 1), 0.5);
             }
             gestureImg.transform('translate3d(0,0,0) scale(' + scale + ')');
         };
@@ -414,14 +429,14 @@
             imageMaxX = -imageMinX;
             imageMinY = Math.min((pb.swiper.height / 2 - scaledHeight / 2), 0);
             imageMaxY = -imageMinY;
-            
+
             imageTouchesCurrent = $.getTouchPosition(e);
 
             if (!imageIsMoved && !isScaling) {
                 if (
                     (Math.floor(imageMinX) === Math.floor(imageStartX) && imageTouchesCurrent.x < imageTouchesStart.x) ||
                     (Math.floor(imageMaxX) === Math.floor(imageStartX) && imageTouchesCurrent.x > imageTouchesStart.x)
-                    ) {
+                ) {
                     imageIsTouched = false;
                     return;
                 }
@@ -431,16 +446,16 @@
             imageIsMoved = true;
             imageCurrentX = imageTouchesCurrent.x - imageTouchesStart.x + imageStartX;
             imageCurrentY = imageTouchesCurrent.y - imageTouchesStart.y + imageStartY;
-            
+
             if (imageCurrentX < imageMinX) {
-                imageCurrentX =  imageMinX + 1 - Math.pow((imageMinX - imageCurrentX + 1), 0.8);
+                imageCurrentX = imageMinX + 1 - Math.pow((imageMinX - imageCurrentX + 1), 0.8);
             }
             if (imageCurrentX > imageMaxX) {
                 imageCurrentX = imageMaxX - 1 + Math.pow((imageCurrentX - imageMaxX + 1), 0.8);
             }
-            
+
             if (imageCurrentY < imageMinY) {
-                imageCurrentY =  imageMinY + 1 - Math.pow((imageMinY - imageCurrentY + 1), 0.8);
+                imageCurrentY = imageMinY + 1 - Math.pow((imageMinY - imageCurrentY + 1), 0.8);
             }
             if (imageCurrentY > imageMaxY) {
                 imageCurrentY = imageMaxY - 1 + Math.pow((imageCurrentY - imageMaxY + 1), 0.8);
@@ -563,7 +578,7 @@
 
     PhotoBrowser.prototype = {
         defaults: {
-            photos : [],
+            photos: [],
             container: 'body',
             initialSlide: 0,
             spaceBetween: 20,
@@ -574,29 +589,18 @@
             exposition: true,
             expositionHideCaptions: false,
             type: 'standalone',
-            navbar: true,
+            navbar: false,
             toolbar: true,
-            theme: 'light',
+            pagination: true,
+            pagiActive: 'active',
+            theme: 'dark', //light
             swipeToClose: true,
             backLinkText: 'Close',
             ofText: 'of',
             loop: false,
             lazyLoading: false,
             lazyLoadingInPrevNext: false,
-            lazyLoadingOnTransitionStart: false,
-            /*
-            Callbacks:
-            onLazyImageLoad(pb, slide, img)
-            onLazyImageReady(pb, slide, img)
-            onOpen(pb)
-            onClose(pb)
-            onSlideChangeStart(swiper)
-            onSlideChangeEnd(swiper)
-            onTap(swiper, e)
-            onClick(swiper, e)
-            onDoubleTap(swiper, e)
-            onSwipeToClose(pb)
-            */
+            lazyLoadingOnTransitionStart: false
         }
     };
 
