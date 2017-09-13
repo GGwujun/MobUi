@@ -1,7 +1,28 @@
 $(function () {
   'use strict';
 
-  $(document).on("pageInit", "#page-ptr", function(e, id, page) {
+  $(document).on("pageInit", "#page-ptrA", function(e, id, page) {
+    $.initPullToRefresh($(page).find(".pull-to-refresh-content"));
+    var $content = $(page).find(".pull-to-refresh-content").on('refresh', function(e) {
+      // 2s timeout
+      setTimeout(function() {
+        var cardHTML = '<div class="card">' +
+          '<div class="card-header">Title</div>' +
+          '<div class="card-content">' +
+          '<div class="card-content-inner">Contents Contents Contents Contents Contents Contents Contents Contents Contents ' +
+          '</div>' +
+          '</div>' +
+          '</div>';
+
+        $content.siblings('.card-container').prepend(cardHTML);
+        // Done
+        $.pullToRefreshDone($content);
+      }, 2000);
+    });
+  });
+  
+  
+    $(document).on("pageInit", "#page-ptrB", function(e, id, page) {
     $.initPullToRefresh($(page).find(".pull-to-refresh-content"));
     var $content = $(page).find(".pull-to-refresh-content").on('refresh', function(e) {
       // 2s timeout

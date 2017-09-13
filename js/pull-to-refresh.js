@@ -1,19 +1,20 @@
-+ function($) {
++ function ($) {
     'use strict';
 
-    $.initPullToRefresh = function(pageContainer) {
+    $.initPullToRefresh = function (pageContainer, Class) {
         var eventsTarget = $(pageContainer);
         if (!eventsTarget.hasClass('pull-to-refresh-content')) {
             eventsTarget = eventsTarget.find('.pull-to-refresh-content');
         }
         if (!eventsTarget || eventsTarget.length === 0) return;
+        if (Class) eventsTarget.addClass(Class);
 
         var isTouched, isMoved, touchesStart = {},
             isScrolling, touchesDiff, touchStartTime, container, refresh = false,
             useTranslate = false,
             startTranslate = 0,
             translate, scrollTop, wasScrolled, triggerDistance, dynamicTriggerDistance;
-        
+
         container = eventsTarget;
 
         // Define trigger distance
@@ -87,7 +88,7 @@
                     e.preventDefault();
                     translate = (Math.pow(touchesDiff, 0.85) + startTranslate);
                     container.transform('translate3d(0,' + translate + 'px,0)');
-                } else {}
+                } else { }
                 if ((useTranslate && Math.pow(touchesDiff, 0.85) > triggerDistance) || (!useTranslate && touchesDiff >= triggerDistance * 2)) {
                     refresh = true;
                     container.addClass('pull-up').removeClass('pull-down');
@@ -117,7 +118,7 @@
             if (refresh) {
                 container.addClass('refreshing');
                 container.trigger('refresh', {
-                    done: function() {
+                    done: function () {
                         $.pullToRefreshDone(container);
                     }
                 });
@@ -142,27 +143,27 @@
         eventsTarget[0].destroyPullToRefresh = destroyPullToRefresh;
 
     };
-    $.pullToRefreshDone = function(container) {
+    $.pullToRefreshDone = function (container) {
         container = $(container);
         if (container.length === 0) container = $('.pull-to-refresh-content.refreshing');
         container.removeClass('refreshing').addClass('transitioning');
-        container.transitionEnd(function() {
+        container.transitionEnd(function () {
             container.removeClass('transitioning pull-up pull-down');
         });
     };
-    $.pullToRefreshTrigger = function(container) {
+    $.pullToRefreshTrigger = function (container) {
         container = $(container);
         if (container.length === 0) container = $('.pull-to-refresh-content');
         if (container.hasClass('refreshing')) return;
         container.addClass('transitioning refreshing');
         container.trigger('refresh', {
-            done: function() {
+            done: function () {
                 $.pullToRefreshDone(container);
             }
         });
     };
 
-    $.destroyPullToRefresh = function(pageContainer) {
+    $.destroyPullToRefresh = function (pageContainer) {
         pageContainer = $(pageContainer);
         var pullToRefreshContent = pageContainer.hasClass('pull-to-refresh-content') ? pageContainer : pageContainer.find('.pull-to-refresh-content');
         if (pullToRefreshContent.length === 0) return;
