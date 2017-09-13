@@ -410,8 +410,12 @@
         return;
       }
 
-      if (!url || url === "#" || /javascript:.*;/.test(url)) return;
-      router.loadPage(url, $target.hasClass("no-transition") ? true : undefined, $target.hasClass("replace") ? true : undefined);  //undefined is different to false
-    })
+	if (!url || url === "#" || /javascript:.*;/.test(url)) return;
+	var stste = $target.attr('cm-state');
+	if (stste) {
+		makeState($target);
+	} else
+		router.loadPage(url, $target.hasClass("no-transition") ? true : undefined, $target.hasClass("replace") ? true : undefined);  //undefined is different to false
+	})
   }
 }($);

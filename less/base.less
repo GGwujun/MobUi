@@ -1,14 +1,16 @@
 //
 // Base styles
 // --------------------------------------------------
-
 // Use box sizing on all the things!
 * {
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-  -webkit-touch-callout:none;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
 }
-/* rem单位*/ 
+
+
+/* rem单位*/
+
 html {
     font-size: 16px;
 }
@@ -20,6 +22,7 @@ html {
         font-size: calc(16px + 2 * (100vw - 375px) / 39);
     }
 }
+
 @media screen and (min-width: 414px) {
     html {
         /* 414px-1000px每100像素宽字体增加1px(18px-22px) */
@@ -27,6 +30,7 @@ html {
         font-size: calc(18px + 4 * (100vw - 414px) / 586);
     }
 }
+
 @media screen and (min-width: 600px) {
     html {
         /* 600px-1000px每100像素宽字体增加1px(20px-24px) */
@@ -34,6 +38,7 @@ html {
         font-size: calc(20px + 4 * (100vw - 600px) / 400);
     }
 }
+
 @media screen and (min-width: 1000px) {
     html {
         /* 1000px往后是每100像素0.5px增加 */
@@ -42,24 +47,135 @@ html {
     }
 }
 
+.imgLoading {
+    background: url(https://cdn.csdu.net/images/img_loading.gif) no-repeat center center;
+}
 
-// We fix position the body and scroll `.content`.
-body {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  font-family: @font-family-default;
-  font-size: @font-size-default;
-  line-height: 1.5;
-  color: @color-text;
-  background: @color-bg;
-  overflow: hidden;
+[cm-list] {
+    visibility: hidden;
 }
 
 
-a, input, textarea, select, button {
+/*页面加载动画--开始*/
+
+#loading {
+    background-color: #333;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    margin-top: 0px;
+    top: 0px;
+}
+
+#loading-center {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#loading-center-absolute {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 150px;
+    width: 150px;
+    margin-top: -75px;
+    margin-left: -50px;
+}
+
+.object {
+    width: 20px;
+    height: 20px;
+    background-color: #FFF;
+    float: left;
+    margin-right: 20px;
+    margin-top: 65px;
+    -moz-border-radius: 50% 50% 50% 50%;
+    -webkit-border-radius: 50% 50% 50% 50%;
+    border-radius: 50% 50% 50% 50%;
+}
+
+#object_one {
+    -webkit-animation: object_one 1.5s infinite;
+    animation: object_one 1.5s infinite;
+}
+
+#object_two {
+    -webkit-animation: object_two 1.5s infinite;
+    animation: object_two 1.5s infinite;
+    -webkit-animation-delay: 0.25s;
+    animation-delay: 0.25s;
+}
+
+#object_three {
+    -webkit-animation: object_three 1.5s infinite;
+    animation: object_three 1.5s infinite;
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+
+@-webkit-keyframes object_one {
+    75% {
+        -webkit-transform: scale(0);
+    }
+}
+
+@keyframes object_one {
+    75% {
+        transform: scale(0);
+        -webkit-transform: scale(0);
+    }
+}
+
+@-webkit-keyframes object_two {
+    75% {
+        -webkit-transform: scale(0);
+    }
+}
+
+@keyframes object_two {
+    75% {
+        transform: scale(0);
+        -webkit-transform: scale(0);
+    }
+}
+
+@-webkit-keyframes object_three {
+    75% {
+        -webkit-transform: scale(0);
+    }
+}
+
+@keyframes object_three {
+    75% {
+        transform: scale(0);
+        -webkit-transform: scale(0);
+    }
+}
+
+
+/*页面加载动画--结束*/
+
+// We fix position the body and scroll `.content`.
+body {
+    position: static; // top: 0;
+    // right: 0;
+    // bottom: 0;
+    // left: 0;
+    font-family: @font-family-default;
+    font-size: @font-size-default;
+    line-height: 1.5;
+    color: @color-text;
+    background: @color-bg;
+    overflow: hidden;
+}
+
+a,
+input,
+textarea,
+select,
+button {
     outline: 0;
 }
 
@@ -69,119 +185,123 @@ p {
 
 // Universal link styling
 a {
-  color: @color-link;
-  text-decoration: none;
-  -webkit-tap-highlight-color: rgba(0,0,0,0); // Removes the dark touch outlines on links in webkit browsers.
-
-  &:active {
-    color: @color-link-active;
-  }
+    color: @color-link;
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // Removes the dark touch outlines on links in webkit browsers.
+    &:active {
+        color: @color-link-active;
+    }
 }
 
 .page {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: @color-bg;
-  z-index: 2000;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: @color-bg;
+    z-index: 2000;
 }
 
 // Wrapper to be used around all content not in .bar-title and .bar-tab
 .content {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
 }
+
 // 隐藏滚动条的样式
 .content::-webkit-scrollbar {
     display: none;
 }
+
 .content::-moz-scrollbar {
     display: none;
 }
+
 .content::-ms-scrollbar {
     display: none;
 }
+
 .content::-o-scrollbar {
     display: none;
 }
 
 // Hack to force all relatively and absolutely positioned elements still render while scrolling
 // Note: This is a bug for "-webkit-overflow-scrolling: touch"
-.content > * {
-  //transform: translateZ(0); //这一行会导致三星 S4 android 4.2 无法滚动
+.content>* {
+    //transform: translateZ(0); //这一行会导致三星 S4 android 4.2 无法滚动
 }
 
 // Pad top/bottom of content so it doesn't hide behind bars.
 // Note: For these to work, content must come after both bars in the markup
-.bar-nav ~ .content {
-  top: @bar-base-height;
+.bar-nav~.content {
+    top: @bar-base-height;
 }
-.bar-header-secondary ~ .content {
-  top: (@bar-base-height*2);
+
+.bar-header-secondary~.content {
+    top: (@bar-base-height*2);
 }
 
 // Footer bar margin
-.bar-footer ~ .content {
-  bottom: @bar-base-height;
+.bar-footer~.content {
+    bottom: @bar-base-height;
 }
-.bar-footer-secondary ~ .content {
-  bottom: (@bar-base-height*2);
+
+.bar-footer-secondary~.content {
+    bottom: (@bar-base-height*2);
 }
 
 // Tab bar margin
-.bar-tab ~ .content,
-.bar-tab ~ .page .content {
-  bottom: @bar-tab-height;
-
-  .tabbar-hidden & {
-    bottom: 0;
-  }
+.bar-tab~.content,
+.bar-tab~.page .content {
+    bottom: @bar-tab-height;
+    .tabbar-hidden & {
+        bottom: 0;
+    }
 }
 
-.bar-footer-secondary-tab ~ .content {
-  bottom: (@bar-tab-height+@bar-base-height);
+.bar-footer-secondary-tab~.content {
+    bottom: (@bar-tab-height+@bar-base-height);
 }
 
 // Utility classes
 .content-padded {
-  margin: @bar-side-spacing;
-}
-.text-center {
-  text-align: center;
-}
-.pull-left {
-  float: left;
-}
-.pull-right {
-  float: right;
-}
-.clearfix {
-  .clearfix();
+    margin: @bar-side-spacing;
 }
 
+.text-center {
+    text-align: center;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+.clearfix {
+    .clearfix();
+}
 
 //上传图片的样式
-
-.fileUpre{
-      height:100%;
-      float:left;
-	  width:50px;	 
-      display:flex;
-      flex-direction:row;	
-	  margin-left:10px;
-	  
-	img{
-		max-width:100%;
-		max-height:100%;
-	
-    }  
+.fileUpre {
+    height: 100%;
+    float: left;
+    width: 50px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    img {
+        max-width: 100%;
+        max-height: 100%;
+    }
 }
 
 //禁用input 填充黄色背景
@@ -189,7 +309,3 @@ input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
     border: 0 none;
 }
-  
-
-
-

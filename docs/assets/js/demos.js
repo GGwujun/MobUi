@@ -2,7 +2,8 @@ $(function () {
   'use strict';
 
   $(document).on("pageInit", "#page-ptr", function(e, id, page) {
-    var $content = $(page).find(".content").on('refresh', function(e) {
+    $.initPullToRefresh($(page).find(".pull-to-refresh-content"));
+    var $content = $(page).find(".pull-to-refresh-content").on('refresh', function(e) {
       // 2s timeout
       setTimeout(function() {
         var cardHTML = '<div class="card">' +
@@ -13,7 +14,7 @@ $(function () {
           '</div>' +
           '</div>';
 
-        $content.find('.card-container').prepend(cardHTML);
+        $content.siblings('.card-container').prepend(cardHTML);
         // Done
         $.pullToRefreshDone($content);
       }, 2000);
