@@ -3,9 +3,9 @@
 
     $.initPullToRefresh = function (pageContainer, Class) {
         var eventsTarget = $(pageContainer);
-        if (!eventsTarget.hasClass('pull-to-refresh-content')) {
-            eventsTarget = eventsTarget.find('.pull-to-refresh-content');
-        }
+        // if (!eventsTarget.hasClass('pull-to-refresh-content')) {
+        //     eventsTarget = eventsTarget.find('.pull-to-refresh-content');
+        // }
         if (!eventsTarget || eventsTarget.length === 0) return;
         if (Class) eventsTarget.addClass(Class);
 
@@ -43,6 +43,9 @@
         }
 
         function handleTouchMove(e) {
+            if (!container.hasClass('pull-to-refresh-content')) {
+                  container = container.find('.pull-to-refresh-content');
+            }
             if (!isTouched) return;
             var position = $.getTouchPosition(e);
             var pageX = position.x;
@@ -105,6 +108,9 @@
         }
 
         function handleTouchEnd() {
+            if (!container.hasClass('pull-to-refresh-content')) {
+                  container = container.find('.pull-to-refresh-content');
+            }
             if (!isTouched || !isMoved) {
                 isTouched = false;
                 isMoved = false;
@@ -145,6 +151,9 @@
     };
     $.pullToRefreshDone = function (container) {
         container = $(container);
+        if (!container.hasClass('pull-to-refresh-content')) {
+            container = container.find('.pull-to-refresh-content.refreshing');
+        }
         if (container.length === 0) container = $('.pull-to-refresh-content.refreshing');
         container.removeClass('refreshing').addClass('transitioning');
         container.transitionEnd(function () {
@@ -153,6 +162,9 @@
     };
     $.pullToRefreshTrigger = function (container) {
         container = $(container);
+        if (!container.hasClass('pull-to-refresh-content')) {
+            container = container.find('.pull-to-refresh-content');
+        }
         if (container.length === 0) container = $('.pull-to-refresh-content');
         if (container.hasClass('refreshing')) return;
         container.addClass('transitioning refreshing');
@@ -165,6 +177,9 @@
 
     $.destroyPullToRefresh = function (pageContainer) {
         pageContainer = $(pageContainer);
+        // if (!pageContainer.hasClass('pull-to-refresh-content')) {
+        //     pageContainer = pageContainer.find('.pull-to-refresh-content');
+        // }
         var pullToRefreshContent = pageContainer.hasClass('pull-to-refresh-content') ? pageContainer : pageContainer.find('.pull-to-refresh-content');
         if (pullToRefreshContent.length === 0) return;
         if (pullToRefreshContent[0].destroyPullToRefresh) pullToRefreshContent[0].destroyPullToRefresh();

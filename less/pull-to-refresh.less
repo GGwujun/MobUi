@@ -1,8 +1,8 @@
 /* === Pull To Refresh === */
 
 @layerHeight: 2.2rem;
-@bgsvgA:"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 40'><polygon points='9,22 9,0 17,0 17,22 26,22 13.5,40 0,22' fill='#8c8c8c'/></svg>"
-;@bgsvgB:'<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1505298114275" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="31735" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><defs><style type="text/css"></style></defs><path d="M 512 0 C 229.215 0 0 229.232 0 512 c 0 282.785 229.215 512 512 512 s 512 -229.215 512 -512 C 1024 229.232 794.785 0 512 0 Z M 512 950.857 C 270 950.857 73.1429 754 73.1429 512 C 73.1429 270.018 270 73.1429 512 73.1429 s 438.857 196.875 438.857 438.857 C 950.857 754 754 950.857 512 950.857 Z M 740.107 427.429 c -56.5358 -189.107 -237.572 -179.429 -237.572 -179.429 c 253.857 124.535 139.856 300.999 139.856 300.999 l -147.249 -150.501 l 56.2505 -61.5351 l -38.464 -35.6078 l -30.3927 27.4286 l -56.9637 -0.714971 l -116.178 117.893 l 70.3214 63.7495 l 43.6791 -42.2491 l 150.213 146.035 c -127.322 83.7851 -243.465 -54.1074 -243.465 -54.1074 l -45.8569 40.0366 l 34.7502 40.7863 l -5.9648 8.14263 c -16.2505 -1.49943 -22.8937 5.92823 -22.8937 5.92823 c -39.9634 38.5719 8.10789 60.0722 8.10789 60.0722 c 46.6779 10.357 44.4288 -37.8569 44.4288 -37.8569 l 8.8576 -11.072 c 175.429 94.8571 279 9.64206 279 9.64206 l 50.3223 47.4295 L 749.714 653.535 l -45.1438 -48.9637 C 704.57 604.571 766.036 514.249 740.107 427.429 Z" fill="#d81e06" p-id="31736" class="selected"></path></svg>';
+@bgsvgA: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 40'><polygon points='9,22 9,0 17,0 17,22 26,22 13.5,40 0,22' fill='#8c8c8c'/></svg>";
+@bgsvgB: '<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1505298114275" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="31735" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><defs><style type="text/css"></style></defs><path d="M 512 0 C 229.215 0 0 229.232 0 512 c 0 282.785 229.215 512 512 512 s 512 -229.215 512 -512 C 1024 229.232 794.785 0 512 0 Z M 512 950.857 C 270 950.857 73.1429 754 73.1429 512 C 73.1429 270.018 270 73.1429 512 73.1429 s 438.857 196.875 438.857 438.857 C 950.857 754 754 950.857 512 950.857 Z M 740.107 427.429 c -56.5358 -189.107 -237.572 -179.429 -237.572 -179.429 c 253.857 124.535 139.856 300.999 139.856 300.999 l -147.249 -150.501 l 56.2505 -61.5351 l -38.464 -35.6078 l -30.3927 27.4286 l -56.9637 -0.714971 l -116.178 117.893 l 70.3214 63.7495 l 43.6791 -42.2491 l 150.213 146.035 c -127.322 83.7851 -243.465 -54.1074 -243.465 -54.1074 l -45.8569 40.0366 l 34.7502 40.7863 l -5.9648 8.14263 c -16.2505 -1.49943 -22.8937 5.92823 -22.8937 5.92823 c -39.9634 38.5719 8.10789 60.0722 8.10789 60.0722 c 46.6779 10.357 44.4288 -37.8569 44.4288 -37.8569 l 8.8576 -11.072 c 175.429 94.8571 279 9.64206 279 9.64206 l 50.3223 47.4295 L 749.714 653.535 l -45.1438 -48.9637 C 704.57 604.571 766.036 514.249 740.107 427.429 Z" fill="#d81e06" p-id="31736" class="selected"></path></svg>';
 .pull-to-refresh-layer {
     position: relative; // margin-top: -44px;
     left: 0;
@@ -58,7 +58,6 @@
     &.transitioning,
     &.refreshing {
         transition: transform 400ms;
-        z-index: 99999;
     }
     &:not(.refreshing) {
         .pull-to-refresh-layer .preloader {
@@ -72,7 +71,7 @@
         }
         .preloader {
             visibility: visible;
-            &::after{
+            &::after {
                 display: block;
                 width: 100%;
                 height: 100%;
@@ -85,39 +84,48 @@
         }
     }
     &.pull-up {
-        z-index: 99999;
         .pull-to-refresh-arrow {
             transform: rotate(180deg) translate3d(0, 0, 0);
         }
     }
-    &.pull-down {
-        z-index: 99999;
-    }
-
-    //
-    &.refreshA{
-        .pull-to-refresh-layer{
-            .pull-to-refresh-arrow{
+    &.refreshA {
+        .pull-to-refresh-layer {
+            .pull-to-refresh-arrow {
                 .encoded-svg-background(@bgsvgA);
             }
         }
         &.refreshing {
             .preloader {
-                &::after{
+                &::after {
                     .encoded-svg-background(@bgsvgA);
                 }
             }
         }
     }
-    &.refreshB{
-        .pull-to-refresh-layer{
-            .pull-to-refresh-arrow{
+    &.refreshB {
+        &.pull-up,
+        &.pull-down,
+        &.transitioning,
+        &.refreshing {
+            z-index: 99999;
+        }
+        .pull-to-refresh-layer {
+            .pull-to-refresh-arrow {
+                width: 1.8rem;
+                height: 1.8rem;
+                margin-left: -0.9rem;
+                margin-top: -0.9rem;
                 .encoded-svg-background(@bgsvgB);
+                background-size: 1.8rem 1.8rem;
             }
         }
         &.refreshing {
             .preloader {
-                &::after{
+                width: 1.8rem;
+                height: 1.8rem;
+                margin-left: -0.9rem;
+                margin-top: -0.9rem;
+                &::after {
                     .encoded-svg-background(@bgsvgB);
                 }
             }

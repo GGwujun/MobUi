@@ -1,11 +1,11 @@
 $(function () {
   'use strict';
 
-  $(document).on("pageInit", "#page-ptrA", function(e, id, page) {
-    $.initPullToRefresh($(page).find(".pull-to-refresh-content"));
-    var $content = $(page).find(".pull-to-refresh-content").on('refresh', function(e) {
+  $(document).on("pageInit", "#page-ptrA", function (e, id, page) {
+    $.initPullToRefresh($(page).find(".content"));
+    var $content = $(page).find(".content").on('refresh', function (e) {
       // 2s timeout
-      setTimeout(function() {
+      setTimeout(function () {
         var cardHTML = '<div class="card">' +
           '<div class="card-header">Title</div>' +
           '<div class="card-content">' +
@@ -14,19 +14,19 @@ $(function () {
           '</div>' +
           '</div>';
 
-        $content.siblings('.card-container').prepend(cardHTML);
+        $content.find('.card-container').prepend(cardHTML);
         // Done
         $.pullToRefreshDone($content);
       }, 2000);
     });
   });
-  
-  
-    $(document).on("pageInit", "#page-ptrB", function(e, id, page) {
-    $.initPullToRefresh($(page).find(".pull-to-refresh-content"));
-    var $content = $(page).find(".pull-to-refresh-content").on('refresh', function(e) {
+
+
+  $(document).on("pageInit", "#page-ptrB", function (e, id, page) {
+    $.initPullToRefresh($(page).find(".content"));
+    var $content = $(page).find(".content").on('refresh', function (e) {
       // 2s timeout
-      setTimeout(function() {
+      setTimeout(function () {
         var cardHTML = '<div class="card">' +
           '<div class="card-header">Title</div>' +
           '<div class="card-content">' +
@@ -35,38 +35,42 @@ $(function () {
           '</div>' +
           '</div>';
 
-        $content.siblings('.card-container').prepend(cardHTML);
+        $content.find('.card-container').prepend(cardHTML);
         // Done
         $.pullToRefreshDone($content);
       }, 2000);
     });
+    $(page).find(".card").click(function () {
+      alert(3333)
+    })
+
   });
 
 
-  $(document).on("pageInit", "#page-ptr-tabs", function(e, id, page) {
-    $(page).find(".pull-to-refresh-content").on('refresh', function(e) {
+  $(document).on("pageInit", "#page-ptr-tabs", function (e, id, page) {
+    $(page).find(".pull-to-refresh-content").on('refresh', function (e) {
       // 2s timeout
       var $this = $(this);
-      setTimeout(function() {
+      setTimeout(function () {
 
         $this.find('.content-block').prepend("<p>New Content......</p>");
         // Done
         $.pullToRefreshDone($this);
       }, 2000);
     });
-    $(page).find(".infinite-scroll").on('infinite', function(e) {
+    $(page).find(".infinite-scroll").on('infinite', function (e) {
       // 2s timeout
       var $this = $(this);
-      if($this.data("loading")) return;
+      if ($this.data("loading")) return;
       $this.data("loading", 1);
-      setTimeout(function() {
+      setTimeout(function () {
         $this.find('.content-block').append("<p>New Content......</p><p>New Content......</p><p>New Content......</p>");
         $this.data("loading", 0);
       }, 2000);
     });
   });
 
-  $(document).on("pageInit", "#page-infinite-scroll", function(e, id, page) {
+  $(document).on("pageInit", "#page-infinite-scroll", function (e, id, page) {
     function addItems(number, lastIndex) {
       var html = '';
       for (var i = 0; i < 20; i++) {
@@ -75,13 +79,13 @@ $(function () {
       $('.infinite-scroll .list-container').append(html);
     }
     var loading = false;
-    $(page).on('infinite', function() {
+    $(page).on('infinite', function () {
 
       if (loading) return;
 
       loading = true;
 
-      setTimeout(function() {
+      setTimeout(function () {
         loading = false;
 
         addItems();
@@ -90,32 +94,32 @@ $(function () {
   });
 
 
-  $(document).on("pageInit", "#page-photo-browser", function(e, id, page) {
+  $(document).on("pageInit", "#page-photo-browser", function (e, id, page) {
     var myPhotoBrowserStandalone = $.photoBrowser({
-      photos : [
+      photos: [
         '//img.alicdn.com/tps/i3/TB1kt4wHVXXXXb_XVXX0HY8HXXX-1024-1024.jpeg',
         '//img.alicdn.com/tps/i1/TB1SKhUHVXXXXb7XXXX0HY8HXXX-1024-1024.jpeg',
         '//img.alicdn.com/tps/i4/TB1AdxNHVXXXXasXpXX0HY8HXXX-1024-1024.jpeg',
       ]
     });
-    $(page).on('click','.pb-standalone',function () {
+    $(page).on('click', '.pb-standalone', function () {
       myPhotoBrowserStandalone.open();
     });
     /*=== Popup ===*/
     var myPhotoBrowserPopup = $.photoBrowser({
-      photos : [
+      photos: [
         '//img.alicdn.com/tps/i3/TB1kt4wHVXXXXb_XVXX0HY8HXXX-1024-1024.jpeg',
         '//img.alicdn.com/tps/i1/TB1SKhUHVXXXXb7XXXX0HY8HXXX-1024-1024.jpeg',
         '//img.alicdn.com/tps/i4/TB1AdxNHVXXXXasXpXX0HY8HXXX-1024-1024.jpeg',
       ],
       type: 'popup'
     });
-    $(page).on('click','.pb-popup',function () {
+    $(page).on('click', '.pb-popup', function () {
       myPhotoBrowserPopup.open();
     });
     /*=== 有标题 ===*/
     var myPhotoBrowserCaptions = $.photoBrowser({
-      photos : [
+      photos: [
         {
           url: '//img.alicdn.com/tps/i3/TB1kt4wHVXXXXb_XVXX0HY8HXXX-1024-1024.jpeg',
           caption: 'Caption 1 Text'
@@ -132,46 +136,46 @@ $(function () {
       theme: 'dark',
       type: 'standalone'
     });
-    $(page).on('click','.pb-standalone-captions',function () {
+    $(page).on('click', '.pb-standalone-captions', function () {
       myPhotoBrowserCaptions.open();
     });
   });
-  
+
 
   //对话框
-  $(document).on("pageInit", "#page-modal", function(e, id, page) {
+  $(document).on("pageInit", "#page-modal", function (e, id, page) {
     var $content = $(page).find('.content');
-    $content.on('click','.alert-text',function () {
+    $content.on('click', '.alert-text', function () {
       $.alert('Hello Fool');
     });
 
-    $content.on('click','.alert-text-title', function () {
+    $content.on('click', '.alert-text-title', function () {
       $.alert('Alter message', 'title!');
     });
 
-    $content.on('click', '.alert-text-title-callback',function () {
+    $content.on('click', '.alert-text-title-callback', function () {
       $.alert('Custom Alert message', 'custom alert title!', function () {
         $.alert('Yout clicked OK button!')
       });
     });
-    $content.on('click','.confirm-ok', function () {
+    $content.on('click', '.confirm-ok', function () {
       $.confirm('Are you sure?', function () {
         $.alert('You clicked OK button!');
       });
     });
-    $content.on('click','.prompt-ok', function () {
+    $content.on('click', '.prompt-ok', function () {
       $.prompt("What's your name?", function (value) {
         $.alert('Your name is "' + value + '"');
       });
     });
-    $content.on('click','.show-toast', function () {
+    $content.on('click', '.show-toast', function () {
       $.toast("Toast");
     });
   });
 
   //操作表
-  $(document).on("pageInit", "#page-action", function(e, id, page) {
-    $(page).on('click','.create-actions', function () {
+  $(document).on("pageInit", "#page-action", function (e, id, page) {
+    $(page).on('click', '.create-actions', function () {
       var buttons1 = [
         {
           text: 'Please Choose',
@@ -181,14 +185,14 @@ $(function () {
           text: 'Potato',
           bold: true,
           color: 'danger',
-          onClick: function() {
+          onClick: function () {
             $.alert("You choosed Potato");
           }
         },
         {
           text: 'Tomato',
           color: "success",
-          onClick: function() {
+          onClick: function () {
             $.alert("You choosed Tomato");
           }
         }
@@ -202,9 +206,9 @@ $(function () {
       var groups = [buttons1, buttons2];
       $.actions(groups);
     });
-	
-	//action Gird
-	$(page).on('click','.create-actionsGird', function () {
+
+    //action Gird
+    $(page).on('click', '.create-actionsGird', function () {
       var buttons1 = [
         {
           text: 'Please Choose',
@@ -214,14 +218,14 @@ $(function () {
           text: 'Potato',
           bold: true,
           color: 'danger',
-          onClick: function() {
+          onClick: function () {
             $.alert("You choosed Potato");
           }
         },
         {
           text: 'Tomato',
           color: "success",
-          onClick: function() {
+          onClick: function () {
             $.alert("You choosed Tomato");
           }
         }
@@ -237,36 +241,36 @@ $(function () {
     });
   });
 
-  $(document).on("pageInit", "#page-preloader", function(e, id, page) {
-    $(page).on('click','.open-preloader-title', function () {
+  $(document).on("pageInit", "#page-preloader", function (e, id, page) {
+    $(page).on('click', '.open-preloader-title', function () {
       $.showPreloader('Loading...')
       setTimeout(function () {
         $.hidePreloader();
       }, 2000);
     });
-	
-    $(page).on('click','.open-indicator', function () {
+
+    $(page).on('click', '.open-indicator', function () {
       $.showIndicator();
       setTimeout(function () {
         $.hideIndicator();
       }, 2000);
     });
-	
-	$(page).on('click','.open-loading', function () {
+
+    $(page).on('click', '.open-loading', function () {
       $.showloading();
     });
-	
-	$(page).on('click','.open-loading-b', function () {
+
+    $(page).on('click', '.open-loading-b', function () {
       $.showloading('loading-b');
     });
-	
-	$(page).on('click','.hide-loading', function () {
+
+    $(page).on('click', '.hide-loading', function () {
       $.hideloading();
     });
   });
 
 
-  $(document).on("click", ".select-color", function(e) {
+  $(document).on("click", ".select-color", function (e) {
     var b = $(e.target);
     document.body.className = "theme-" + (b.data("color") || "");
     b.parent().find(".active").removeClass("active");
@@ -274,7 +278,7 @@ $(function () {
   });
 
   //picker
-  $(document).on("pageInit", "#page-picker", function(e, id, page) {
+  $(document).on("pageInit", "#page-picker", function (e, id, page) {
     $("#picker").picker({
       toolbarTemplate: '<header class="bar bar-nav">\
         <button class="button button-link pull-left">\
@@ -309,7 +313,7 @@ $(function () {
       ]
     });
   });
-  $(document).on("pageInit", "#page-datetime-picker", function(e) {
+  $(document).on("pageInit", "#page-datetime-picker", function (e) {
     $("#datetime-picker").datetimePicker({
       toolbarTemplate: '<header class="bar bar-nav">\
       <button class="button button-link pull-right close-picker">OK</button>\
@@ -318,25 +322,25 @@ $(function () {
     });
   });
 
-  $(document).on("pageInit", "#page-city-picker", function(e) {
+  $(document).on("pageInit", "#page-city-picker", function (e) {
     $("#city-picker").cityPicker({});
   });
 
-  $(document).on("click", "#show-noti", function() {
+  $(document).on("click", "#show-noti", function () {
     $.notification({
       title: "Baby",
       text: "I miss you",
       media: "<img src='/assets/img/i-wechat.png'>",
       data: "123",
-      onClick: function(data) {
+      onClick: function (data) {
         $.alert("Click" + data);
       },
-      onClose: function(data) {
-        $.alert("Close "+data);
+      onClose: function (data) {
+        $.alert("Close " + data);
       }
     });
   });
-  $(document).on("click", "#close-noti", function() {
+  $(document).on("click", "#close-noti", function () {
     $.closeNotification();
   });
 
