@@ -46,7 +46,6 @@
 .pull-to-refresh-content {
     transform: translate3d(0, 0, 0);
     position: absolute;
-    z-index:999999;
     top: 0;
     right: 0;
     bottom: 0;
@@ -59,6 +58,7 @@
     &.transitioning,
     &.refreshing {
         transition: transform 400ms;
+        z-index: 99999;
     }
     &:not(.refreshing) {
         .pull-to-refresh-layer .preloader {
@@ -85,9 +85,13 @@
         }
     }
     &.pull-up {
+        z-index: 99999;
         .pull-to-refresh-arrow {
             transform: rotate(180deg) translate3d(0, 0, 0);
         }
+    }
+    &.pull-down {
+        z-index: 99999;
     }
 
     //
