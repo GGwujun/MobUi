@@ -1,5 +1,5 @@
 /*!
- * light7
+ * pageui
  */
 
 /* jshint node: true */
@@ -31,7 +31,7 @@ module.exports = function (grunt) {
 
         banner: '/*!\n' +
         ' * =====================================================\n' +
-        ' * light7 V<%= pkg.version %> - http://light7.org/\n' +
+        ' * pageui V<%= pkg.version %>' +
         ' *\n' +
         ' * =====================================================\n' +
         ' */\n',
@@ -60,47 +60,23 @@ module.exports = function (grunt) {
                     'js/calendar.js',
                     'js/picker.js',
                     'js/datetime-picker.js',
-                    'js/pull-to-refresh-js-scroll.js',
-                    'js/pull-to-refresh.js',
-                    'js/infinite-scroll.js',
                     'js/notification.js',
                     'js/index.js',
                     'js/searchbar.js',
                     'js/panels.js',
                     'js/router.js',
-                    'js/init.js'
-                ],
-                dest: '<%= meta.distPath %>js/<%= pkg.name %>.js'
-            },
-            swiper: {
-                options: {
-                    banner: '<%= banner %>'
-                },
-                src: [
+                    'js/init.js',
+                    //轮播图，照片浏览器
                     'js/swiper.js',
                     'js/swiper-init.js',
-                    'js/photo-browser.js'
-                ],
-                dest: '<%= meta.distPath %>js/<%= pkg.name %>-swiper.js'
-            },
-            cityPicker: {
-                options: {
-                    banner: '<%= banner %>'
-                },
-                src: [
+                    'js/photo-browser.js',
+                    //城市三级联动
                     'js/city-data.js',
-                    'js/city-picker.js'
-                ],
-                dest: '<%= meta.distPath %>js/<%= pkg.name %>-city-picker.js'
-            },
-            swipeout: {
-                options: {
-                    banner: '<%= banner %>'
-                },
-                src: [
+                    'js/city-picker.js',
+                    //swipout  action
                     'js/swipeout.js'
                 ],
-                dest: '<%= meta.distPath %>js/<%= pkg.name %>-swipeout.js'
+                dest: '<%= meta.distPath %>js/<%= pkg.name %>.js'
             },
             i18n: {
                 options: {
@@ -118,14 +94,6 @@ module.exports = function (grunt) {
             core: {
                 src: 'less/light7.less',
                 dest: '<%= meta.distPath %>css/<%= pkg.name %>.css'
-            },
-            swiper: {
-                src: 'less/light7-swiper.less',
-                dest: '<%= meta.distPath %>css/<%= pkg.name %>-swiper.css'
-            },
-            swipeout: {
-                src: 'less/swipeout.less',
-                dest: '<%= meta.distPath %>css/<%= pkg.name %>-swipeout.css'
             },
             docs: {
                 src: 'less/docs.less',
@@ -204,12 +172,6 @@ module.exports = function (grunt) {
             core: {
                 src: '<%= less.core.dest %>'
             },
-            swiper: {
-                src: '<%= less.swiper.dest %>'
-            },
-            swipeout: {
-                src: '<%= less.swipeout.dest %>'
-            },
             docs: {
                 src: '<%= less.docs.dest %>'
             },
@@ -225,16 +187,8 @@ module.exports = function (grunt) {
                 keepBreaks: true
             },
             light7: {
-                src: '<%= meta.distPath %>css/<%= pkg.name %>.css', 
+                src: '<%= meta.distPath %>css/<%= pkg.name %>.css',
                 dest: '<%= meta.distPath %>css/<%= pkg.name %>.min.css'
-            },
-            swipeout: {
-                src: '<%= meta.distPath %>css/<%= pkg.name %>-swipeout.css',
-                dest: '<%= meta.distPath %>css/<%= pkg.name %>-swipeout.min.css'
-            },
-            swiper: {
-                src: '<%= meta.distPath %>css/<%= pkg.name %>-swiper.css',
-                dest: '<%= meta.distPath %>css/<%= pkg.name %>-swiper.min.css'
             },
             docs: {
                 src: [
@@ -257,18 +211,6 @@ module.exports = function (grunt) {
             light7: {
                 src: '<%= concat.light7.dest %>',
                 dest: '<%= meta.distPath %>js/<%= pkg.name %>.min.js'
-            },
-            swipeout: {
-                src: '<%= concat.swipeout.dest %>',
-                dest: '<%= meta.distPath %>js/<%= pkg.name %>-swipeout.min.js'
-            },
-            swiper: {
-                src: '<%= concat.swiper.dest %>',
-                dest: '<%= meta.distPath %>js/<%= pkg.name %>-swiper.min.js'
-            },
-            cityPicker: {
-                src: '<%= concat.cityPicker.dest %>',
-                dest: '<%= meta.distPath %>js/<%= pkg.name %>-city-picker.min.js'
             },
             i18n: {
                 src: '<%= concat.i18n.dest %>',
@@ -354,14 +296,10 @@ module.exports = function (grunt) {
     // Default task(s).
     grunt.registerTask('dist-css', ['less', 'autoprefixer', 'usebanner', 'csscomb', 'cssmin']);
     grunt.registerTask('dist-js', ['concat', 'uglify']);
-    grunt.registerTask('dist', [ 'dist-css', 'dist-js', 'copy']);
+    grunt.registerTask('dist', ['dist-css', 'dist-js', 'copy']);
     grunt.registerTask('validate-html', ['jekyll']);
     grunt.registerTask('build', ['dist']);
     grunt.registerTask('test', ['dist', 'jshint', 'qunit', 'validate-html']);
     grunt.registerTask('server', ['dist', 'jekyll', 'connect', 'watch']);
     grunt.registerTask('default', ['test', 'dist']);
-
-    // Version numbering task.
-    // grunt change-version-number --oldver=A.B.C --newver=X.Y.Z
-    // This can be overzealous, so its changes should always be manually reviewed!
 };

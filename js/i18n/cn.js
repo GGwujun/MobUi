@@ -3,14 +3,14 @@
 /* global $:true */
 +function ($) {
   var modal = $.modal.prototype.defaults;
-  modal.modalButtonOk = "确定";
-  modal.modalButtonCancel = "取消";
-  modal.modalPreloaderTitle = "正在加载...";
+  modal.modalButtonOk = "ok";
+  modal.modalButtonCancel = "cancel";
+  modal.modalPreloaderTitle = "Loading...";
 
   var calendar = $.fn.calendar.prototype.defaults;
-  
-  calendar.monthNames = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月' , '九月' , '十月', '十一月', '十二月'];
-  calendar.monthNamesShort = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月' , '九月' , '十月', '十一月', '十二月'];
-  calendar.dayNames = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
-  calendar.dayNamesShort = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+
+  calendar.monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  calendar.monthNamesShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  calendar.dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  calendar.dayNamesShort = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 }($);

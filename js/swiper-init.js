@@ -2,7 +2,7 @@
 Framework7 Swiper Additions
 ===========================*/
 /* global $:true */
-+function($){
++function ($) {
     'use strict';
     $.Swiper.prototype.defaults.pagination = '.swiper-pagination';
 

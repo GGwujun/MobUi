@@ -1,8 +1,9 @@
 /*加载动画遮罩层变量*/
-@loadingColor:grey;
 
+@loadingColor: grey;
 
 /* === Preloader === */
+
 .preloader {
     display: inline-block;
     width: 1rem;
@@ -12,6 +13,7 @@
     -webkit-animation: preloader-spin 1s steps(12, end) infinite;
     animation: preloader-spin 1s steps(12, end) infinite;
 }
+
 .preloader:after {
     display: block;
     content: "";
@@ -21,16 +23,18 @@
     background-position: 50%;
     background-size: 100%;
     background-repeat: no-repeat;
-    
 }
+
 .preloader-white:after {
     .encoded-svg-background("<svg viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><defs><line id='l' x1='60' x2='60' y1='7' y2='27' stroke='#fff' stroke-width='11' stroke-linecap='round'/></defs><g><use xlink:href='#l' opacity='.27'/><use xlink:href='#l' opacity='.27' transform='rotate(30 60,60)'/><use xlink:href='#l' opacity='.27' transform='rotate(60 60,60)'/><use xlink:href='#l' opacity='.27' transform='rotate(90 60,60)'/><use xlink:href='#l' opacity='.27' transform='rotate(120 60,60)'/><use xlink:href='#l' opacity='.27' transform='rotate(150 60,60)'/><use xlink:href='#l' opacity='.37' transform='rotate(180 60,60)'/><use xlink:href='#l' opacity='.46' transform='rotate(210 60,60)'/><use xlink:href='#l' opacity='.56' transform='rotate(240 60,60)'/><use xlink:href='#l' opacity='.66' transform='rotate(270 60,60)'/><use xlink:href='#l' opacity='.75' transform='rotate(300 60,60)'/><use xlink:href='#l' opacity='.85' transform='rotate(330 60,60)'/></g></svg>");
 }
+
 @-webkit-keyframes preloader-spin {
     100% {
         -webkit-transform: rotate(360deg);
     }
 }
+
 @keyframes preloader-spin {
     100% {
         transform: rotate(360deg);
@@ -38,170 +42,221 @@
 }
 
 // 加载动画遮罩层
-.preloader-loading-overlay{
+.preloader-loading-overlay {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0, 0, 0, 0.4);
     z-index: 10600;
     visibility: hidden;
     opacity: 0;
     transition-duration: @modalDuration;
 }
-/*loadingloader*/
-.preloader-loading-modal{
-    position:absolute;
-    left: 50%;
-    top:50%;  
-    height: 20px;   
-    z-index: 2000;
 
-    
+
+/*loadingloader*/
+
+.preloader-loading-modal {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 20px;
+    z-index: 2000;
     /*加载动画样式一*/
-    &.loading-a{
+    &.loading-a {
         margin-left: -50px;
         width: 200px;
         @-webkit-keyframes preloader_4 {
-        0% {opacity: 0.3; -webkit-transform:translateY(0px);	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);}
-        50% {opacity: 1; -webkit-transform: translateY(-10px); background:@loadingColor;	box-shadow: 0px 20px 3px rgba(0, 0, 0, 0.05);}
-        100%  {opacity: 0.3; -webkit-transform:translateY(0px);	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);}
+            0% {
+                opacity: 0.3;
+                -webkit-transform: translateY(0px);
+                box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+            }
+            50% {
+                opacity: 1;
+                -webkit-transform: translateY(-10px);
+                background: @loadingColor;
+                box-shadow: 0px 20px 3px rgba(0, 0, 0, 0.05);
+            }
+            100% {
+                opacity: 0.3;
+                -webkit-transform: translateY(0px);
+                box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+            }
         }
         @-moz-keyframes preloader_4 {
-            0% {opacity: 0.3; -moz-transform:translateY(0px);	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);}
-            50% {opacity: 1; -moz-transform: translateY(-10px); background:@loadingColor;	box-shadow: 0px 20px 3px rgba(0, 0, 0, 0.05);}
-            100%  {opacity: 0.3; -moz-transform:translateY(0px);	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);}
+            0% {
+                opacity: 0.3;
+                -moz-transform: translateY(0px);
+                box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+            }
+            50% {
+                opacity: 1;
+                -moz-transform: translateY(-10px);
+                background: @loadingColor;
+                box-shadow: 0px 20px 3px rgba(0, 0, 0, 0.05);
+            }
+            100% {
+                opacity: 0.3;
+                -moz-transform: translateY(0px);
+                box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+            }
         }
         @-ms-keyframes preloader_4 {
-            0% {opacity: 0.3; -ms-transform:translateY(0px);	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);}
-            50% {opacity: 1; -ms-transform: translateY(-10px); background:@loadingColor;	box-shadow: 0px 20px 3px rgba(0, 0, 0, 0.05);}
-            100%  {opacity: 0.3; -ms-transform:translateY(0px);	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);}
+            0% {
+                opacity: 0.3;
+                -ms-transform: translateY(0px);
+                box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+            }
+            50% {
+                opacity: 1;
+                -ms-transform: translateY(-10px);
+                background: @loadingColor;
+                box-shadow: 0px 20px 3px rgba(0, 0, 0, 0.05);
+            }
+            100% {
+                opacity: 0.3;
+                -ms-transform: translateY(0px);
+                box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+            }
         }
         @keyframes preloader_4 {
-            0% {opacity: 0.3; transform:translateY(0px);	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);}
-            50% {opacity: 1; transform: translateY(-10px); background:@loadingColor;	box-shadow: 0px 20px 3px rgba(0, 0, 0, 0.05);}
-            100%  {opacity: 0.3; transform:translateY(0px);	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);}
+            0% {
+                opacity: 0.3;
+                transform: translateY(0px);
+                box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(-10px);
+                background: @loadingColor;
+                box-shadow: 0px 20px 3px rgba(0, 0, 0, 0.05);
+            }
+            100% {
+                opacity: 0.3;
+                transform: translateY(0px);
+                box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+            }
         }
-        span{
-            position:absolute;
-            width:20px;
-            height:20px;
-            background:@loadingColor;
-            opacity:0.5;
-            border-radius:20px;
+        span {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: @loadingColor;
+            opacity: 0.5;
+            border-radius: 20px;
             -webkit-animation: preloader_4 1s infinite ease-in-out;
             -moz-animation: preloader_4 1s infinite ease-in-out;
             -ms-animation: preloader_4 1s infinite ease-in-out;
             -animation: preloader_4 1s infinite ease-in-out;
-            &:nth-child(2){
-                left:20px;
+            &:nth-child(2) {
+                left: 20px;
                 -webkit-animation-delay: .2s;
                 -moz-animation-delay: .2s;
                 -ms-animation-delay: .2s;
                 animation-delay: .2s;
             }
-            &:nth-child(3){
-                left:40px;
+            &:nth-child(3) {
+                left: 40px;
                 -webkit-animation-delay: .4s;
                 -moz-animation-delay: .4s;
                 -ms-animation-delay: .4s;
                 animation-delay: .4s;
             }
-            &:nth-child(4){
-                left:60px;
+            &:nth-child(4) {
+                left: 60px;
                 -webkit-animation-delay: .6s;
                 -moz-animation-delay: .6s;
                 -ms-animation-delay: .6s;
-                animation-delay: .6s;        
+                animation-delay: .6s;
             }
-            &:nth-child(5){
-                left:80px;
+            &:nth-child(5) {
+                left: 80px;
                 -webkit-animation-delay: .8s;
                 -moz-animation-delay: .8s;
                 -ms-animation-delay: .8s;
                 animation-delay: .8s;
             }
         }
-	}
-    /*加载动画样式二*/        
-    &.loading-b{
+    }
+    /*加载动画样式二*/
+    &.loading-b {
         margin-left: -60px;
         width: 120px;
-        span{
+        margin-top: -60px;
+        margin-top: -10px;
+        span {
             width: 20px;
-			height: 20px;
-			background-color:@loadingColor;
-			float: left;
-			margin-right: 20px;
-			margin-top: 65px;
-			-moz-border-radius: 50% 50% 50% 50%;
-			-webkit-border-radius: 50% 50% 50% 50%;
-			border-radius: 50% 50% 50% 50%;
-            &:nth-child(1){
+            height: 20px;
+            background-color: @loadingColor;
+            float: left;
+            margin-right: 20px; // margin-top: 65px;
+            -moz-border-radius: 50% 50% 50% 50%;
+            -webkit-border-radius: 50% 50% 50% 50%;
+            border-radius: 50% 50% 50% 50%;
+            &:nth-child(1) {
                 -webkit-animation: object_one 1.5s infinite;
                 animation: object_one 1.5s infinite;
             }
-            &:nth-child(2){
+            &:nth-child(2) {
                 -webkit-animation: object_two 1.5s infinite;
                 animation: object_two 1.5s infinite;
-                -webkit-animation-delay: 0.25s; 
+                -webkit-animation-delay: 0.25s;
                 animation-delay: 0.25s;
             }
-            &:nth-child(3){
+            &:nth-child(3) {
                 -webkit-animation: object_three 1.5s infinite;
                 animation: object_three 1.5s infinite;
                 -webkit-animation-delay: 0.5s;
                 animation-delay: 0.5s;
             }
-            &:nth-child(4){
-                display:none;
+            &:nth-child(4) {
+                display: none;
             }
-            &:nth-child(5){
-                display:none;
+            &:nth-child(5) {
+                display: none;
             }
         }
-
         @-webkit-keyframes object_one {
-          75% {
-               -webkit-transform: scale(0);
-           }
-		}
-		@keyframes object_one {	
-		  75% { 
-		    transform: scale(0);
-		    -webkit-transform: scale(0);
-		  }
-		}
-		@-webkit-keyframes object_two {
-		  75% { -webkit-transform: scale(0); }
-		}
-		@keyframes object_two {
-		  75% { 
-		    transform: scale(0);
-		    -webkit-transform:  scale(0);
-		  }
-		}
-		@-webkit-keyframes object_three {
-		  75% {
-               -webkit-transform: scale(0); 
-          }
-		}
-		@keyframes object_three {	
-		  75% { 
-		    transform: scale(0);
-		    -webkit-transform: scale(0);
-		  } 
-		}
+            75% {
+                -webkit-transform: scale(0);
+            }
+        }
+        @keyframes object_one {
+            75% {
+                transform: scale(0);
+                -webkit-transform: scale(0);
+            }
+        }
+        @-webkit-keyframes object_two {
+            75% {
+                -webkit-transform: scale(0);
+            }
+        }
+        @keyframes object_two {
+            75% {
+                transform: scale(0);
+                -webkit-transform: scale(0);
+            }
+        }
+        @-webkit-keyframes object_three {
+            75% {
+                -webkit-transform: scale(0);
+            }
+        }
+        @keyframes object_three {
+            75% {
+                transform: scale(0);
+                -webkit-transform: scale(0);
+            }
+        }
     }
-
-    &.top{
+    &.top {
         top: 10%;
     }
-    &.bottom{
+    &.bottom {
         bottom: 30%;
     }
 }
-
-
- 

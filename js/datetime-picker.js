@@ -41,7 +41,7 @@
 
       var defaults = {
 
-        rotateEffect: false,  //为了性能
+        rotateEffect: true,  //为了性能
 
         value: [today.getFullYear(), formatNumber(today.getMonth() + 1), today.getDate(), formatNumber(today.getHours()), formatNumber(today.getMinutes())],
 
@@ -101,31 +101,6 @@
 
       params = params || {};
       var inputValue = $(this).val();
-      // var FORMAT_KEYS = [
-      //   { f: 'YY', k: 'year' },
-      //   { f: 'MM', k: 'month' },
-      //   { f: 'DD', k: 'day' },
-      //   { f: 'hh', k: 'hour' },
-      //   { f: 'mm', k: 'minute' }
-      // ];
-      // var template = $(this).attr('pickerFormat');
-
-      // var tokens = [];
-      // var hasText = false;
-      // FORMAT_KEYS.forEach(function (format, index) {
-      //   if (template.indexOf(format.f) > -1) {
-      //     var token = '{' + index + '}';
-      //     if (!hasText && text && isPresent(((value))[format.k])) {
-      //       hasText = true;
-      //     }
-      //     tokens.push(token, text);
-      //     template = template.replace(format.f, token);
-      //   }
-      // });
-      // if (!hasText) {
-      //   return '';
-      // }
-
       if (params.value === undefined && inputValue !== "") {
         params.value = [].concat(inputValue.split(" ")[0].split("-"), inputValue.split(" ")[1].split(":"));
       }

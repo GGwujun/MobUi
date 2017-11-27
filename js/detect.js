@@ -1,8 +1,8 @@
 //     Zepto.js
 //     (c) 2010-2015 Thomas Fuchs
 //     Zepto.js may be freely distributed under the MIT license.
-+ function($) {
-  "use strict";
++ function ($) {
+    "use strict";
     function detect(ua, platform) {
         var os = this.os = {}, // jshint ignore:line
             browser = this.browser = {},// jshint ignore:line
@@ -69,7 +69,7 @@
     }
 
     detect.call($, navigator.userAgent, navigator.platform);
-        // make available to unit tests
+    // make available to unit tests
     $.__detect = detect;
 
 }($); // jshint ignore:line

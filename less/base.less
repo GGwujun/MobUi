@@ -8,47 +8,9 @@
     -webkit-touch-callout: none;
 }
 
-
-/* rem单位*/
-
-html {
-    font-size: 16px;
-}
-
-@media screen and (min-width: 375px) {
-    html {
-        /* iPhone6的375px尺寸作为16px基准，414px正好18px大小, 600 20px */
-        font-size: calc(100% + 2 * (100vw - 375px) / 39);
-        font-size: calc(16px + 2 * (100vw - 375px) / 39);
-    }
-}
-
-@media screen and (min-width: 414px) {
-    html {
-        /* 414px-1000px每100像素宽字体增加1px(18px-22px) */
-        font-size: calc(112.5% + 4 * (100vw - 414px) / 586);
-        font-size: calc(18px + 4 * (100vw - 414px) / 586);
-    }
-}
-
-@media screen and (min-width: 600px) {
-    html {
-        /* 600px-1000px每100像素宽字体增加1px(20px-24px) */
-        font-size: calc(125% + 4 * (100vw - 600px) / 400);
-        font-size: calc(20px + 4 * (100vw - 600px) / 400);
-    }
-}
-
-@media screen and (min-width: 1000px) {
-    html {
-        /* 1000px往后是每100像素0.5px增加 */
-        font-size: calc(137.5% + 6 * (100vw - 1000px) / 1000);
-        font-size: calc(22px + 6 * (100vw - 1000px) / 1000);
-    }
-}
-
 .imgLoading {
-    background: url(https://cdn.csdu.net/images/img_loading.gif) no-repeat center center;
+    background: url(https://cdn.csdu.net/images/img_loading.gif) no-repeat center center !important;
+    display: inline !important;
 }
 
 [cm-list] {
@@ -160,9 +122,6 @@ html {
 // We fix position the body and scroll `.content`.
 body {
     position: static; // top: 0;
-    // right: 0;
-    // bottom: 0;
-    // left: 0;
     font-family: @font-family-default;
     font-size: @font-size-default;
     line-height: 1.5;
@@ -233,9 +192,9 @@ a {
 
 // Hack to force all relatively and absolutely positioned elements still render while scrolling
 // Note: This is a bug for "-webkit-overflow-scrolling: touch"
-.content>* {
-    //transform: translateZ(0); //这一行会导致三星 S4 android 4.2 无法滚动
-}
+// .content>* {
+//     //transform: translateZ(0); //这一行会导致三星 S4 android 4.2 无法滚动
+// }
 
 // Pad top/bottom of content so it doesn't hide behind bars.
 // Note: For these to work, content must come after both bars in the markup
@@ -306,6 +265,6 @@ a {
 
 //禁用input 填充黄色背景
 input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    box-shadow: 0 0 0px 1000px white inset;
     border: 0 none;
 }

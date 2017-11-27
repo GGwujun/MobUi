@@ -1,8 +1,11 @@
+/**
+ * 全局参数配置
+ */
+
 /* global $:true */
 +function ($) {
   "use strict";
 
-  //全局配置
   var defaults = {
     autoInit: false, //自动初始化页面
     showPageLoadingIndicator: true, //push.js加载页面的时候显示一个加载提示

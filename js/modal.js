@@ -709,7 +709,7 @@
     var defaults = $.modal.prototype.defaults = {
         modalButtonOk: '确定',
         modalButtonCancel: '取消',
-        modalPreloaderTitle: 'Loading...',
+        modalPreloaderTitle: '正在加载...',
         modalContainer: document.body,
         modalCloseByOutside: true,
         actionsCloseByOutside: false,

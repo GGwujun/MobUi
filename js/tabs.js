@@ -22,11 +22,7 @@
     var tabs = newTab.parent('.tabs');
     if (tabs.length === 0) return false;
 
-    // Animated tabs
-    /*var isAnimatedTabs = tabs.parent().hasClass('tabs-animated-wrap');
-      if (isAnimatedTabs) {
-      tabs.transform('translate3d(' + -newTab.index() * 100 + '%,0,0)');
-      }*/
+  
 
     // Remove active class from old tabs
     var oldTab = tabs.children('.tab.'+activeClass).removeClass(activeClass);
@@ -35,14 +31,6 @@
     // Trigger 'show' event on new tab
     newTab.trigger('show');
 
-    // Update navbars in new tab
-    /*if (!isAnimatedTabs && newTab.find('.navbar').length > 0) {
-    // Find tab's view
-    var viewContainer;
-    if (newTab.hasClass(app.params.viewClass)) viewContainer = newTab[0];
-    else viewContainer = newTab.parents('.' + app.params.viewClass)[0];
-    app.sizeNavbars(viewContainer);
-    }*/
 
     // Find related link for new tab
     if (tabLink) tabLink = $(tabLink);
