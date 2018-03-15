@@ -45,7 +45,7 @@
       currentPage = newCurrentPage;
     }
 
-    //第一次加载的时候，初识话当前页面的state
+    //获取当前页面的状态属性
     var state = history.state;
     if (!state) {
       var id = this.genStateID();
@@ -59,6 +59,7 @@
       //解决safari的一个bug，safari会在首次加载页面的时候触发 popstate 事件，通过setTimeout 做延迟来忽略这个错误的事件。
       //参考 https://github.com/visionmedia/page.js/pull/239/files
       setTimeout(function () {
+        //修改了历史堆栈的当前指针就会触发回调
         window.addEventListener('popstate', $.proxy(self.onpopstate, self));
       }, 0);
     }, false);
@@ -90,6 +91,7 @@
       var action = "pushBack";
       if (replace) action = "replaceBack";
       if (reload) action = "reloadBack";
+
       this[action]({
         url: location.href,
         pageid: "#" + pageid,
@@ -410,12 +412,14 @@
         return;
       }
 
-	if (!url || url === "#" || /javascript:.*;/.test(url)) return;
-	var stste = $target.attr('cm-state');
-	if (stste) {
-		makeState($target);
-	} else
-		router.loadPage(url, $target.hasClass("no-transition") ? true : undefined, $target.hasClass("replace") ? true : undefined);  //undefined is different to false
-	})
+      if (!url || url === "#" || /javascript:.*;/.test(url)) return;
+      var stste = $target.attr('cm-state');
+      if (stste) {
+        makeState($target, function () {
+          router.loadPage(url, $target.hasClass("no-transition") ? true : undefined, $target.hasClass("replace") ? true : undefined);  //undefined is different to false
+        });
+      } else
+        router.loadPage(url, $target.hasClass("no-transition") ? true : undefined, $target.hasClass("replace") ? true : undefined);  //undefined is different to false
+    })
   }
 }($);

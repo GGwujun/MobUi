@@ -8,9 +8,14 @@
     -webkit-touch-callout: none;
 }
 
+html {
+    font-size: 16px!important; //overwrite rem
+}
+
 .imgLoading {
+    width: auto !important;
+    height: auto !important;
     background: url(https://cdn.csdu.net/images/img_loading.gif) no-repeat center center !important;
-    display: inline !important;
 }
 
 [cm-list] {
@@ -52,7 +57,6 @@
     background-color: #FFF;
     float: left;
     margin-right: 20px;
-    margin-top: 65px;
     -moz-border-radius: 50% 50% 50% 50%;
     -webkit-border-radius: 50% 50% 50% 50%;
     border-radius: 50% 50% 50% 50%;
@@ -195,7 +199,6 @@ a {
 // .content>* {
 //     //transform: translateZ(0); //这一行会导致三星 S4 android 4.2 无法滚动
 // }
-
 // Pad top/bottom of content so it doesn't hide behind bars.
 // Note: For these to work, content must come after both bars in the markup
 .bar-nav~.content {
